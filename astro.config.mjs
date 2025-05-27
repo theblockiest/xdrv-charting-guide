@@ -7,7 +7,9 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: 'XDRV Charting Guide',
-			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/TheBlockiest/xdrv-charting-guide' }],
+			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/TheBlockiest/xdrv-charting-guide' },
+				{ icon: 'blueSky', label: 'Bluesky', href: 'https://bsky.app/profile/theblockiest.bsky.social' },
+				{ icon: 'external', label: 'Resources', href: 'resources' }],
 			sidebar: [
 				{
 					label: 'Getting Started',
