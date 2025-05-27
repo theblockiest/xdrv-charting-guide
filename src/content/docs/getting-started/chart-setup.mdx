@@ -1,11 +1,80 @@
 ---
-title: Example Guide
-description: A guide in my new Starlight docs site.
+title: Setting Up Your Chart
+description: Set up a chart with the correct files, 
 ---
 
-Guides lead a user through a specific task they want to accomplish, often with a sequence of steps.
-Writing a good guide requires thinking about what your users are trying to do.
+### Recommended Precursors
+- Downloaded Audacity, Notepad++, and Trackmaker
+---
 
-## Further reading
+Congratulations on making it to the second article of the XDRV Charting Guide! At this point, you should have an assortment of different tools useful to creating XDRV charts. We will use many of the tools you have obtained so far to set up your custom chart. Before you can place down any patterns or code any mods, you need to create a chart file. You’ll need to ensure that your files are organized correctly, fill out your chart file with the proper metadata, and ensure that the chart is correctly timed to the song.
 
-- Read [about how-to guides](https://diataxis.fr/how-to-guides/) in the Diátaxis framework
+## Organizing Your Files
+
+The first step of setting up your chart file is to create a space where all files related to your chart will be kept. This is because both Trackmaker and EX-XDRiVER require that your music and jacket files be in the same workspace as any chart that uses them. To fulfill this requirement, create a folder somewhere on your computer. You can name it anything, but the typical convention is to make it “[SONG NAME]_[CHARTER NAME].” Example: Keep Going!_TheBlockiest
+
+Within this folder, you must place the music and jacket art file you want to use. Then, you must create a file with the .xdrv extension; this is your chart file. If you are having trouble creating a .xdrv file, you may need to turn on file extension view on your computer. All three of these files can be named whatever you want, though conventions exist for them as well. The music file is typically named “audio,” the jacket art is typically named “jacket,” and the chart file is typically named after the difficulty of the chart within, such as “EXTREME.”
+
+### Obtaining Your Files
+
+If you have yet to obtain music and jacket art for the chart, now is the time to do so. There are a number of appropriate avenues for obtaining these files, including Bandcamp, some Soundcloud pages, and even some websites of artists. If you want to share your finished chart in the XDRV Community Discord server, make sure that you have some form of permission to use the song (see [42] Getting Chart Perms).
+
+You may also have these files, but have them in a file format that is unoptimized or unsupported by XDRV. For audio files, XDRV supports .ogg, .mp3, and .wav, though .ogg is the preferred file format. As for audio quality, 256 kbps is highly recommended. The bare minimum for audio quality should be 128 kbps, though some people will notice audio qualities below 256 kbps.
+
+When converting from one audio file type to another, converting from a lossless format (e.g. .wav, .flac) to a lossy format (preferably .ogg) is ideal. You can get lossless audio files through various means, though Bandcamp is the most reliable source. If you can only get an official lossy file, it is okay to convert it to another file quality, though your file size may bloat. Bear in mind that you cannot increase an audio file’s actual quality by rendering a lossy file of a lower bitrate to a higher one. If you have a song in another format that you want to convert to an .ogg, you can do so through using Audacity through the following:
+
+1. Open Audacity on your computer and drag the audio file into Audacity.
+2. From “File,” select “Export Audio.” If prompted, then select “Export to computer.”
+3. Select the format type of “Ogg Vorbis” (.ogg) and a Quality of 8 (256 kbps).
+	- On older versions of Audacity, you can immediately select the .ogg file type from the “Export Audio” selection.
+4. Once finished, press the “Export” button and choose where on your computer the new file will save.
+
+For jacket art files, XDRV supports .jpg and .png, though .jpg is the most optimized. Since XDRV automatically downsizes all jackets to 512x512 pixels when loaded, you can optimize your file space by resizing the image yourself. You can use any image and photo editing software to resize / re-export your jacket art, including free options like Paint.NET.
+
+## Populating Metadata
+
+Your next step should be to populate your .xdrv file with all relevant metadata. When you open a freshly-made .xdrv file, however, you will notice that the document is entirely blank. You must generate the metadata slots first. Here’s how:
+
+1. Open the .xdrv file in Notepad++,
+2. Under XDRVTools, select the “Generate Metadata” option.
+
+Now, you can fill in much of the metadata related to the chart. If you followed the naming conventions for the music and jacket art, you will not need to rename MUSIC_AUDIO or JACKET_IMAGE. Going in the order that the lines appear, here is each line you need to populate and with what:
+
+- **MUSIC_TITLE:** The title of the song
+- **SUBTITLE:** The subtitle of the song. Typically reserved for acknowledging a cut version of a song OR crediting a different rhythm game of origin.
+- **MUSIC_ARTIST:** The name of the artist/artists that made the song.
+- **MUSIC_AUDIO:** The name of your audio file.
+- **JACKET_IMAGE:** The image used by the jacket.
+- **JACKET_ILLUSTRATOR:** The artist of the jacket. (If you cannot find out who made the jacket, XDRV supports this category being blank.)
+- **CHART_AUTHOR:** Your charting name / alias.
+- **CHART_DIFFICULTY:** The categorical difficulty of your chart (BEGINNER, NORMAL, HYPER, EXTREME, and OVERDRIVE are your options).
+- **CHART_LEVEL:** The numeric difficulty of your chart (in most cases, 1-15).
+- **STAGE_BACKGROUND:** The background you want to use. See the XDRV [Background Documentation](https://github.com/EX-XDRiVER/Chart-Documentation/tree/main/backgrounds) for the names of different backgrounds.
+
+This leaves the timing related metadata to fill in.
+
+## Populating Chart Timing
+
+What do **CHART_BPM** and **MUSIC_OFFSET** have in common? They both determine how well your chart is timed to the music. If either of these values is slightly off, your chart will feel weird to play. Getting these timing values correct is challenging, but imperative to the quality of your chart.
+
+For **CHART_BPM**, your best bet is to either source the BPM from a trustworthy resource or determine the offset yourself. If you need to do the latter, you can easily find an online BPM calculator that lets you tap to the BPM of a song to get the value. Once you set **CHART_BPM**, make sure you set **CHART_DISPLAY_BPM** to the same value as well.
+
+As for **CHART_OFFSET**, since Trackmaker does not support offset editing, your best bet for calibration is to open Audacity and drag the file that your chart is using directly in. Then, find where the first measure of the song starts. In audio files without a buildup, this may be the first visible part of the waveform. For audio files with a buildup, however, finding the first measure might be more difficult. Remember to zoom in to see more detail of the waveform. You can also use the left and right arrow to make small adjustments to the timing. The value you want, the time of the first measure, can be found in the bottom right corner.
+
+From this value, you can get an exact offset for your chart using the following simple calculation:
+
+Offset = -Time at First Measure + (60 / BPM) × Beat Count
+
+The components of this equation are pretty simple. “Time at First Measure” is the time that you found using Audacity. “60 / BPM” gets you the seconds per beat. The value that you decide for “Beat Count” offsets the chart forward by some number of beats. If you want the first beat of the chart to be the time of your first measure, set “Beat Count” equal to 0. Though XDRV automatically adds empty time prior to the first beat of all charts, if you want the chart to start before the first measure to give the chart more dead air, set “Beat Count” equal to the number of beats per measure as indicated by your time signature. For example, if your time signature is 4/4, you can set the value of “Beat Count” to 4. The choice of adding empty beats or not is entirely individual–not only to each charter, but to each chart made. This is common practice for many rhythm game charts, including many of the charts in base-game XDRV.
+
+Example Offset = -0.350 + (60 / 180) × 4 = 0.983
+
+### Time Signature and Timing Markers
+
+Time signature is an important factor to consider when making your XDRV chart. If your song does not start with a time signature of 4/4, then you need to put a **#TIME_SIGNATURE** marker at the first beat of the chart to change it.
+
+If your song has BPM or time signature changes at any points, you will need to add **#BPM** and **#TIME_SIGNATURE** markers at those points to accommodate. If you are using a song that progressively changes the BPM rather than snapping to a BPM change, you will have to interpolate much of the BPM changes yourself, so it is recommended that you either determine those values externally or avoid charts with non-snap BPM changes. As you add each marker, you may want to cross reference with Trackmaker to ensure that your placements are correct.
+
+---
+
+At this point, you should now have an XDRV with completed metadata. At this point, it is a good idea to check the chart in Trackmaker to make sure that everything (mainly your timing) is correct. To open a .xdrv file in Trackmaker, simply open Trackmaker, find “Open” under “File” and find where your .xdrv file is stored on your computer. If the BPM and offset appear and sound correct, you are ready to start using Trackmaker to add in patterns!

@@ -3,9 +3,40 @@ title: Example Guide
 description: A guide in my new Starlight docs site.
 ---
 
-Guides lead a user through a specific task they want to accomplish, often with a sequence of steps.
-Writing a good guide requires thinking about what your users are trying to do.
+### Recommended Precursors
+- Finished set up for a .xdrv chart (file organization, metadata, and timing)
+- Started patterning for a .xdrv chart
+---
 
-## Further reading
+As stated, XDRV fully supports custom charts in-game. Players can select a custom folder for the game to reference from such that any chart files in the subfolders of that root folder will be loaded and playable in-game. If you have yet to link your custom folder to the game, you can do so by opening the in-game settings, scrolling one left to get to the “Custom” category, and then selecting “Add Songs Folder.” You will then be prompted to select your custom chart folder in your file explorer.
 
-- Read [about how-to guides](https://diataxis.fr/how-to-guides/) in the Diátaxis framework
+While this functionality is wholly sufficient for players who want to try out other people’s customs, charters who want their own customs need to use the game for additional features. While charters can manage with what is available in base-game, a charter can also enable “Chartdev Mode” externally, providing some additional functionality that streamlines playtesting at the expense of features of play. Since it is not always practical to enable this mode, it is good to know how to use XDRV to make customs in both modes.
+
+## Without Chartdev Mode
+
+When Chartdev mode is disabled, the main challenge that charters will face is that charts are not automatically updated in-game. If you update a chart’s .xdrv file or modfiles, the chart will error when you attempt to open it. If you want a chart to be playable in-game after you alter one of its files, you must reload it and all other charts using the “Reload Songs” option in the “Custom” category of settings, which can take some time. You also need to reload all charts if you added a new chart directly to your customs folder or if you want radar values recalculated.
+
+There is also no way to jump around in the chart while it is playing. The only way to get to a later section is to play the chart normally and allow all prior sections to play through. With these limitations acknowledged, the main benefit of having chartdev mode disabled is that your game retains all of the features of play.
+
+## With Chartdev Mode
+
+Chartdev mode provides some additional options and bypasses some checks, allowing charters to be more efficient in their use of XDRV. You can enable Chartdev mode by doing the following: 
+
+1. Go to the listing for EX-XDRiVER in your library on Steam.
+2. Click the gear icon (below the game’s banner) and select “Properties…”
+3. On the “General” page of properties, find where the textbox exists for “Launch Options,” and type “-chartdev” into it.
+4. Launch XDRV. If you did the steps correctly, there should be some transparent splash text in the top right corner saying “Chart Developer Mode Enabled”.
+
+You can disable Chartdev mode later by removing “-chartdev” from the properties tag. This change only goes to effect on fresh launches of the game, meaning that you will need to relaunch the game whenever you want to switch modes.
+
+One of the main benefits of Chartdev mode is that the files of charts are automatically reloaded upon playing. This means that if you make a change to the .xdrv or modfile of a chart, you do not need to manually reload all charts in order to test it. This can save a lot of time if you are making small tweaks to the mods or patterns of a chart and want to check these changes in XDRV frequently. Note that you still need to reload all charts to make a newly added chart visible or recalculate radar values.
+
+Another benefit of Chartdev mode is that you can jump to the next or previous checkpoint of a chart by pressing the left and right arrows respectively. This functionality preserves most events and mods without issue, although some mods and events will not work on occasion. Still, this feature is great for allowing charters to quickly jump to and see how a specific section looks, which can allow you to make small changes to later sections much more quickly.
+
+The main downside of Chartdev mode is that it removes some play features from the base-game. For starters, no scores can be set while the game is in Chartdev mode. Upon reaching the end of a chart, the player will be promptly kicked back into song select without seeing a results screen. Another factor is that the player cannot join multiplayer lobbies while Chartdev mode is on. The functionality of restarting a chart is also slightly affected; the player may be booted to song select when they attempt to replay a chart while in Chartdev mode. While these downsides can be annoying, they are reasonable and necessary for the functionality that Chartdev mode does provide.
+
+---
+
+Regardless of the limitations of having Chartdev mode on or off, XDRV is a very useful tool in the chart development process. It is good to see and experience your chart exactly as your audience of players will experience it. Realistically, you should never distribute a chart without seeing how its patterns feel and mods look in XDRV first. While Chartdev makes the process of playtesting and refining charts easier, especially if you have a lot of content to playtest and revise, you can determine whether enabling Chartdev mode is necessary on a case-by-case basis.
+
+With this, you should now have a grasp on all different tools and processes at your disposal for creating an XDRV chart. The information henceforth will focus on the two different creative processes of making XDRV charts: patterning and modding. There are many rules and principles to take into account when engaging in either creative process. Incorporating these principles into your charts can improve their quality considerably.
