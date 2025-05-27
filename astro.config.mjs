@@ -6,19 +6,43 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
 	integrations: [
 		starlight({
-			title: 'My Docs',
-			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
+			title: 'XDRV Charting Guide',
+			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/TheBlockiest/xdrv-charting-guide' }],
 			sidebar: [
 				{
-					label: 'Guides',
+					label: 'Getting Started',
 					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', slug: 'guides/example' },
+						{ label: 'Charting Tools', slug: 'getting-started/tools' },
+						{ label: 'Setting Up Your Chart', slug: 'getting-started/chart-setup' },
+						{ label: 'Using Trackmaker', slug: 'getting-started/trackmaker' },
+						{ label: 'XDRV Custom Support', slug: 'getting-started/custom-support' },
 					],
 				},
 				{
-					label: 'Reference',
-					autogenerate: { directory: 'reference' },
+					label: 'Patterns',
+					items: [
+						{ label: 'General Charting Practices', slug: 'patterns/general-practices' },
+						{ label: 'Tap & Hold Note Patterns', slug: 'patterns/tap-and-hold-notes' },
+						{ label: 'Gear Patterns', slug: 'patterns/gears' },
+						{ label: 'Charting Crossgears', slug: 'patterns/crossgears' },
+						{ label: 'Using Drifts', slug: 'patterns/drifts' },
+						{ label: 'Lowdiff Charting', slug: 'patterns/lowdiff-charting' },
+					],
+				},
+				{
+					label: 'Modding',
+					items: [
+						{ label: 'Modding Tools?', slug: 'modding/tools' },
+					],
+				},
+				{
+					label: 'Miscellaneous',
+					items: [
+						{ label: '"ETIQUETTE" of Charting', slug: 'misc/etiquette' },
+						{ label: 'Getting Song Perms', slug: 'misc/song-perms' },
+						{ label: 'Decoding Radar Values', slug: 'misc/radar-values' },
+						{ label: 'Making a Chart Pack', slug: 'misc/chart-pack' },
+					],
 				},
 			],
 		}),
