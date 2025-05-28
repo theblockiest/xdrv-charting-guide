@@ -1,0 +1,58 @@
+---
+title: QUICKSTART: Getting Started
+description: Start quick!
+---
+
+### Recommended Precursors:
+
+- Experience using Audacity, Notepad++
+- Experience using Github (Downloading releases)
+- Understanding of song metadata
+
+---
+
+Welcome! If you are interested in quickly learning how to set up and start charting for EX-XDRiVER (XDRV), this article should help you out! Due to the contents of the “Getting Started” section being very instructional, this QUICKSTART will be laid out step-by-step. Any important resources will be linked within the step.
+
+## Charting Tools
+
+There are a number of tools that you can use to create XDRV charts, including most any Stepmania chart editor (e.g. ArrowVortex). With that said, for anyone willing to try out a new chart editor, I recommend Trackmaker, as it is tailored to creating XDRV charts. In addition to Trackmaker, a few other softwares and plugins will be useful in charting for XDRV. Here are the steps for installing all of the charting tools that this tutorial requires:
+
+1. If you do not have it yet, download [Audacity](https://www.audacityteam.org/) (I recommend downloading without Muse Hub) and [Notepad++](https://notepad-plus-plus.org/).
+2. Download the latest release of Trackmaker, a chart editor for XDRV. Follow the instructions for running [Trackmaker](https://github.com/oatmealine/trackmaker) on the Github page.
+3. Download and set up the latest release of [XDRVTools](https://github.com/TheBlockiest/XDRVTools), a plugin for editing .xdrv files in Notepad++. Follow the instructions for installation on the Github page.      
+
+## Setting Up Your Chart
+
+Setting up a chart in XDRV isn’t too complicated, but there is a bit to learn for your first time. Valid XDRV chart files have the .xdrv extension. For audio, XDRV accepts OGGs, MP3s, and WAVs, though OGGs are preferred. For jacket art, JPGs and PNGs are accepted. XDRV automatically downsizes all jacket art to 512x512 px, so consider that the minimum / optimized jacket art size. Here’s the steps for setting up a chart:
+
+1. Create a folder that will contain your custom chart’s files (both the .xdrv file, audio, and jacket art).
+2. Place the audio and jacket art that your chart will use into the folder.
+3. Create a .xdrv file within the folder. If you want to follow common practice, name the file its planned difficulty (BEGINNER, NORMAL, HYPER, EXTREME).
+4. Open the .xdrv file in Notepad++.
+5. Find XDRVTools in the plugins menu, and select “Generate Chart Metadata.”
+6. Following the [Chart Format Documentation](https://github.com/EX-XDRiVER/Chart-Documentation/blob/main/xdrv.md), fill out the metadata for your chart.
+7. Once your metadata is all set, open the .xdrv file in Trackmaker.
+
+### Determining Chart Offset
+
+Since Trackmaker does not support editing the offset of a chart, calibrating your chart can be annoying. Therefore, your best bet for chart calibration is to use Audacity to view the audio’s waveform. Using the waveform, find and place your cursor at the first measure of the song. If you want the chart to start at that time, your offset value will be the negative time (in seconds) at the first measure. If you want the chart to start some number of beats before (common practice for many Stepmania and XDRV charts is to have the chart start 1 measure before), giving the player a bit more startup time, use this equation:
+
+Offset = -Time at First Measure + (60 / BPM At Start) × Beat Count
+
+## Using Trackmaker
+
+While the full passage on “Using Trackmaker” goes in-depth into the functionality of the chart editor, if you have experience using a different charter or feel confident in learning the tool yourself, you can easily do so by just messing around with the tool. For more advanced features such as timing segments, you may need to open the chart in Notepad++ and work on it there. Feel free to reference Chart Format Documentation whenever, but especially when editing an .xdrv directly.
+
+## XDRV Custom Support
+
+While XDRV is mostly built for you to play official and custom charts, there is some functionality that exists to make testing and viewing WIP charts easier. This functionality is contained within a mode of the game called “Chart Developer Mode.” To access this mode, click the gear and select “Properties…” from the dropdown. When the properties menu opens, make sure that the “General” tab is selected. Navigate to “Launch Options,” and in the text box for that section, enter the code:
+
+-chartdev
+
+While in “Chart Developer Mode,” charts automatically reload upon being selected for play. This means that charts do not need to be manually reloaded in settings (which reloads ALL charts) whenever one chart is altered. Additionally, while playing a chart, the player can use the left and right arrows to jump between checkpoints, allowing them to quickly get to a section.
+
+Though “Chart Developer Mode” is very useful for charting, it does limit many of the game features of XDRV. While in this mode, you cannot submit scores for any charts or play in multiplayer.
+
+---
+
+That’s all of the basics for EX-XDRiVER custom charting setup! If you’re ready to jump into the tools listed above and start messing around with patterning, I highly implore you to! The best way to learn the charting process herein is to experience it. Otherwise, feel free to jump to the next QUICKSTART or another article.

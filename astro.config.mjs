@@ -46,6 +46,14 @@ export default defineConfig({
 						{ label: 'Making a Chart Pack', slug: 'misc/chart-pack' },
 					],
 				},
+				{
+					label: 'QUICKSTART',
+					items: [
+						{ label: 'QUICKSTART: Getting Started', slug: 'getting-started/quickstart' },
+						{ label: 'QUICKSTART: Patterns', slug: 'patterns/quickstart' },
+						{ label: 'QUICKSTART: Modding', slug: 'modding/quickstart' },
+					],
+				},
 			],
 		}),
 	],
