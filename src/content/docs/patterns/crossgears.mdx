@@ -1,11 +1,85 @@
 ---
-title: Example Guide
-description: A guide in my new Starlight docs site.
+title: Charting Crossgears
+description: Familiarize yourself with the technical details of crosshands.
 ---
 
-Guides lead a user through a specific task they want to accomplish, often with a sequence of steps.
-Writing a good guide requires thinking about what your users are trying to do.
+### Recommended Precursors:
 
-## Further reading
+- Finished set up for a .xdrv chart (file organization, metadata, and timing)
+- Started patterning for a .xdrv chart
+- Informed of general charting principles, including essential charting
+- Informed of common gear patterns
 
-- Read [about how-to guides](https://diataxis.fr/how-to-guides/) in the Diátaxis framework
+*This article talks about many base game charts in XDRV, including some that need to be unlocked or are hidden. Spoilers ahead!
+This article is only relevant to charts designed with controller compatibility in mind. If you are making a chart for keyboard players only, feel free to skip this article (though I do hope you come back one day.)*
+
+---
+ 
+Rhythm games of all different types contain patterns that require players to cross one part of their body over another to reach and hit a note. In many games, organizations of notes that force this sort of movement are called crossovers. Crossovers are inherently more technical than other patterns in the rhythm games they appear in, as they often require the player to move a part of their body from its default position in play.
+
+For controller players, XDRV has a crossover mechanic requiring the player to reach their thumb across the controller to hit the further joystick, resulting in an input on the opposite gear. This paradigm is known as a crossgear. The existence of crossgears has implications on other gameplay that charters need to consider when making controller-friendly charts.
+
+## Basics of Crossgears
+
+To explain the basics of crossgears, it's good to start with the fundamentals of how inputs are arranged. In XDRV, players have six different tap notes and two gears that they need to hit in time with the music. For controller players, these inputs are arranged symmetrically across the middle of the controller and can be divided into outer lane notes, middle lane notes, inner lane notes, and gears. Outer lane notes are hit by a middle finger pressing a trigger, while inner lane notes are hit by an index finger pressing a bumper. Significantly, inner lane notes and gears, input through a button or joystick flick respectively, are both hit with the player’s thumb. Therefore, each of the player’s thumbs are responsible for two different inputs–one inner lane and one gear. This results in the first key principle for crossgears: a thumb can only hit one of the two inputs on its side, either an inner lane note or a gear.
+
+This statement leads nicely into the next factor that makes crossgears possible: of the two inner lane notes and two gears, making for 4 different inputs, up to 2 of these inputs can be hit simultaneously. This factor may initially seem given based on the previous one. Of course, the player can hit inner lane notes on opposite sides (3-4), gears on opposite sides (LeftGear-RightGear), and inner lane and gear chords on opposite sides (3-RightGear or LeftGear-4). However, there is one combination of notes that this statement supports that might surprise you: an inner note and inner gear on the same side. (3-LeftGear and RightGear-4). You might wonder how this is possible?
+
+*By reaching across!* If the player is holding down the left inner lane with their left thumb, the player can reach their right thumb across the controller to hit a left gear. Conversely, if the player is holding down the right inner lane with their right thumb, the player can reach their left thumb across the controller to hit a right gear. **By definition, a crossgear is a combination of notes where either thumb is unable to hit a gear due to being occupied with an inner lane tap or hold on the same side, requiring the thumb from the opposite hand to reach across and hit it.**
+
+### Controller-Incompatible Patterns
+
+You may notice that one of the statements above suggests that certain patterns cannot be hit by controller players; this is indeed the case. Specifically, **of the two inner lane notes and two gears, making for 4 different inputs, combinations of 3 or 4 of these inputs cannot be realistically hit by controller players.** If patterns like this are included in a chart, then the only way that controller players can hit them is by cheesing them. Additionally, although crossgears can technically always be hit, that doesn’t mean all crossgears are fair game. Controller players need time or positioning queues in order to react to crossgears ahead.
+
+## Patterning Around Crossgears
+
+While the most basic crossgears are defined by the combination of two notes, there are actually many ways that crossgears can be built upon, made more unique, or made easier to hit for controller players, especially on sightread. This includes deciding between tap and hold inputs, combining crossgears with middle / outer lane notes, and alternating between crossgears and non-crossgear notes.
+
+### Tap vs Hold Crossgears
+
+Tap and hold crossgears, despite requiring the player’s thumbs to be in the same places, have very different feels and use cases. Tap crossgears are crossgears where the tap note or hold note head must be hit simultaneously as the gear. These crossgears, when implemented correctly, are technically hittable. However, they require a much more sudden input to hit. If the charter adds a tap crossgear without giving the player enough time to react, this pattern may be too sudden and demanding for controller players to reasonably hit. Additionally, some charts will also use previous note placement to prepare the player to hit tap gears, making their usage more readable and controller-friendly.
+
+On the other hand, hold note crossgears are crossgears where a hold whose head was hit on a previous beat overlaps a gear, requiring the player to maintain the hold note while reaching a thumb over to hit the gear. Hold crossgears provide their own indication through the hold note input, making them easier for controller players to read and hit. They also have one finger stay in place, further decreasing the chart’s difficulty.
+
+### Crossgears with Additional Notes
+
+While additional inner lane taps and gears cannot be added to a crossgear without making a controller-unfriendly pattern, outer lane and middle lane taps (1, 2, 5, and 6) can be added without creating impossible patterns. Adding additional notes for the player to hit simultaneously with a crossgear can make for more interesting and unique patterns, working around some of the constraints of the note combination.
+
+Which side the additional notes are placed in relation to the crossgear can change how the input feels considerably. Additional notes placed on the opposite side of a crossgear make the pattern feel wider. These combos are harder to hit on a controller, as they require the player to stretch their thumb over without misaligning their middle and index finger from the bumper and trigger. On the other hand, additional notes placed on the same side of a crossgear make the pattern feel more condensed. These combos are harder to hit on a keyboard, as it often requires good finger independence to hit correctly.
+
+### Crossgear and Non-Crossgear Alternating
+
+A very dynamic form of movement that you can do with crosshands is that you can alternate between gears that create a crossgear and gears that do not (i.e. the gears alternate what side they are on). This creates a back-and-forth motion of the thumb that is very satisfying to pull off. With that said, consecutive crossgears on the same side can feel equally as fun to hit. It is mostly a matter of implementation.
+
+## Playstyle and Crossgears
+
+A common idea that newer charters will state when encountering crossgears is that crossgears only affect the experience of controller players. This is based on the fact that lackluster consideration of crossgears can make a chart unruly or even impossible for the controller. This is a reasonable idea, but it is not the whole reality. Usage of crossgears is not just a matter of compatibility; it is also a matter of expressiveness. In that sense, crossgears can feel very different for controller and keyboard players.
+
+On a controller, crossgears are very dynamic and carry a lot of emphasis. This emphasis and dynamic is supplied by the motion of the thumb across the controller. At faster speeds, crossgears in isolation can make for a very fun and mechanically interesting section for controller players. This emphasis can be lesser if the section’s patterning is slower, as it allows the player to prime their thumbs in position before hitting the gear.
+
+On the contrary, crossgears typically feel nuanced and slightly cramped on a keyboard. For keyboard players, as the player does not need to move their hand, crossgears often feel the same as chords or single-handed LN patterns. The emphasis that controller players experience when hitting crosshands at fast speeds is often lost on keyboard players. As with all gears, the difference in visual presentation provides some emphasis, but not nearly as much as controller players feel.
+
+With these factors in mind, there are four approaches you can take to work around this issue, many of which are employed by base game charts:
+
+1. Reserve crossgears for slower or less dense sections, which evens out the intensity and emphasis experienced by controller and keyboard players.
+2. Add additional notes to crossgears in the middle and outer lanes, increasing the emphasis and slightly raising the difficulty for both playstyles.
+3. Do a little bit of both (best for sections that are intense, but much less dense).
+4. Do nothing! It’s okay for charts to have a difficulty gap between the controller and keyboard playstyle.
+
+## Base-Game Crossgear Usage
+
+This is a non-comprehensive list of base-game charts that use crossgears. These charts’ incorporations of crossgears exemplify many of the above concepts, so it may be helpful to use their implementations of charting as reference:
+
+- valor/starcross: NM (the easiest occurrence of crossgears!), HY, and EX
+- Cosmogyral: HY
+- Mahika: HY
+- FREAK*TEK: HY and EX
+- And So You Felt: EX
+- City in the Clouds: EX
+- Dreams from Another World: EX
+- Knights of Khronelia: EX
+- Fly Wit Me: EX
+
+---
+
+Crossgears have equal opportunity to be used well and poorly by charters. Thinking about the above concepts when charting can ensure that your usages of crossgears are fun and fair across multiple playstyles.
