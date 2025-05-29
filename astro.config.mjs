@@ -4,11 +4,12 @@ import starlight from '@astrojs/starlight';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://theblockiest.github.io/xdrv-charting-guide',
+	site: 'https://theblockiest.github.io/xdrv-charting-guide', 
+	base: '/docs,
 	integrations: [
 		starlight({
 			title: 'XDRV Charting Guide',
-			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/TheBlockiest/xdrv-charting-guide' },
+			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/theblockiest/xdrv-charting-guide' },
 				{ icon: 'blueSky', label: 'Bluesky', href: 'https://bsky.app/profile/theblockiest.bsky.social' },
 				{ icon: 'external', label: 'Resources', href: 'resources' }],
 			sidebar: [
