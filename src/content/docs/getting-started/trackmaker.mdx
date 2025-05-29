@@ -2,119 +2,161 @@
 title: Using Trackmaker
 description: Learn to use Trackmaker to create XDRV charts.
 ---
+import { Aside } from '@astrojs/starlight/components';
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { Card } from '@astrojs/starlight/components';
 
-### Recommended Precursors:
+<Aside type="note" title="Recommended Precursors">
 
 - Finished set up for a .xdrv chart (file organization, metadata, and timing)
 - Downloaded Trackmaker
 
-*This article exclusively discusses using Trackmaker to create a .xdrv chart. If you are planning on using ArrowVortex or a different chart editor, you may want to skip this.*
+*This article exclusively discusses using Trackmaker to create a .xdrv chart. If you intend to use a different chart editor, this article does not apply.*
+
+</Aside>
 
 ---
 
-At this point, you should have a .xdrv file set up with the correct file organization, metadata, and timing. You should now be ready to start placing down notes, gears, and drifts in your chart. This part of the process will be referred to as “charting.”  Trackmaker is a great tool for XDRV charting, as it is easy to pick up, has various quality-of-life features, and is singularly tailored to XDRV. Charters who take advantage of all of the functionality of XDRV and similar chart editors are able to produce charts both better and faster.
+At this point, you should have a .xdrv file set up with the correct file organization and metadata. You should now be ready to start placing down notes, gears, and drifts in your chart. Trackmaker is a great tool for this process, as it is easy to pick up, has various QoL features, and is singularly tailored to XDRV. Taking advantage of Trackmaker's functionality can make charting both easier and faster.
 
-Before you can edit any chart in Trackmaker, you need to specifically open it. Trackmaker does not currently support drag-and-drop, so you need to access the file via the application’s explorer. To open a .xdrv file in Trackmaker, simply open Trackmaker, find “Open” under “File” and find where your .xdrv file is stored on your computer. If you have any errors with file names or the like, they will be indicated with errors in the top right. If everything looks right, you can begin to pattern.
+Before you can edit any chart in Trackmaker, you need to specifically open it. To open the .xdrv file in Trackmaker, simply open Trackmaker, select “Open” under “File,” and select the .xdrv file you want to edit. If no errors appear in the top right corner and the chart's sync appears correct, you are ready to add patterns.
 
-Trackmaker can be best split into two modes of editing: “Write” and “Select” mode. Write mode then has 3 additional sub-modes: “Insert,” “Append,” and “Rewrite.” Each of these modes, alongside various shortcuts and functionalities, will be covered in this guide.
+Trackmaker is best split into two modes of editing: “Write” and “Select” mode. Write mode has 3 additional sub-modes: “Insert,” “Append,” and “Rewrite.”
 
 ## Navigating Through The Chart
 
-In both “Write” and “Select” mode, there are multiple ways to navigate the rows of a chart in Trackmaker. Scrolling up or pressing the up arrow will progress you forward in the chart, while scrolling down or pressing the down arrow will progress you backward.
+In both “Write” and “Select” mode, there are multiple ways to navigate through the chart's rows. Scrolling up or pressing the up arrow moves the chart forwards, while scrolling down or pressing the down arrow moves the chart backwards.
 
-The “Snap” value determines what subdivisions your navigation snaps to and the size of each step when moving. This value will start at a minimum value of 4ths and can go as high as 192nds. To increase the subdivision of “Snap,” press the right arrow key. To decrease it, press the left arrow key. When placing notes, thinking about the subdivisions between notes is important, especially if you are aiming for a certain pattern or difficulty.
+The “Snap” value determines the size of each step when moving. It also determines what subdivisions notes can be placed at. This value has a minimum of 4ths and a maximum of 192nds. To increase the subdivision of “Snap,” press the right arrow key. To decrease it, press the left arrow key.
 
 If you want to quickly jump to a distant section of the chart, you can use the preview bar on the right side of the chart. Simply press what section of the chart you want to jump to, and the navigator will instantly go there.
 
-If you want to see more or less of the duration of your chart, you can do so by zooming in or out by holding ctrl and scrolling.
+If you want to see more or less of the duration of your chart, you can do so by zooming in or out by holding `Ctrl` and scrolling.
 
 ### Adding Checkpoints
 
 To add a checkpoint to a section, hover your mouse over the space to the left of your navigator or another subdivision. A small arrow icon will appear. Upon clicking, you will be prompted to place a checkpoint at a given beat and with a given name. The name of the checkpoint is not too important.
 
-Checkpoints are typically only a visual indicator for players, giving interesting names to sections with unique sounds. While the names of these checkpoints are a good opportunity for narrative progression of clever wordplay, they have an additional use in Trackmaker. As checkpoints show on the preview scroll bar, you can use them to mark down important sections, making jumping around using the preview bar easier.
+<Aside type="tip" title="Checkpoints">
+
+Checkpoints are typically only a visual indicator for players, giving interesting names to sections with unique sounds. The names of these checkpoints are a good opportunity for narrative progression of clever wordplay.
+Checkpoints have an additional use in Trackmaker. As checkpoints show on the preview scroll bar, you can use them to mark down important sections, making jumping around using the preview bar easier.
+
+</Aside>
 
 ## Chart Playback
 
-You can play back a section of the chart that the navigator is currently at by pressing the spacebar. This will also play the music of the section, allowing you to see your chart as players will have to. You can scroll while playback is occurring without playback stopping. To stop playback, you can press the space button again. While the navigator will not be visually snapped with the track when playback is stopped, all chart editor behavior will treat the navigator as if it is.
+You can play a section of the chart that the navigator is currently at by pressing the spacebar. This alsos plays the music at that section, allowing you to see the chart as players will. You can scroll while playback is happening without playback stopping. To stop playback, press the space button again.
 
 ### Music Playback Speed and Volume
 
-You are able to change the speed and volume of music playback in the editor. Playback volume can be increased by pressing Shift+Up and decreased by pressing Shift+Down. Meanwhile, playback speed can be increased by pressing Shift+Right and decreased by pressing Shift+Left. These changes are indicated in the top right corner. Decreasing the playback speed can be useful if you are attempting to chart a complicated rhythm carefully. It is important to be careful, however, as some sounds that are barely present at normal speed may become more present at a lower speed, resulting in notes that feel out of place.
+In Trackmaker, playback volume can be increased by pressing `Shift+Up` and decreased by pressing `Shift+Down`. Meanwhile, playback speed can be increased by pressing `Shift+Right` and decreased by pressing `Shift+Left`. These changes are indicated in the top right corner.
+
+<Aside type="caution" title="Decreasing Playback">
+
+Decreasing the playback speed can be useful when charting dense or complicated rhythms. It is important to be careful, however, as some sounds that are barely present at normal speed can become more present at a lower speed, resulting in notes that feel out of place.
+
+</Aside>
 
 ### Beat Tick and Note Tick
 
-Beat tick, which plays a beat sound at every beat of playback, can be toggled by pressing F3. Note tick, which plays a beat sound at every note in the chart, can be toggled by pressing F4. These tools can help you check your chart’s sync.
+Beat tick, which plays a sound at the start of each beat during playback, can be toggled by pressing `F3`. Note tick, which plays a sound for every note during playback, can be toggled by pressing `F4`. These tools can help you check your chart’s sync.
 
 ### Preview Mode
 
-If you want to look at your chart through a game-accurate, 3D lens, you can enable “Preview Mode” under “View.” Preview Mode also supports most mod playback, though some mods are unsupported.
+If you want to look at your chart through a game-accurate, 3D lens, you can enable “Preview Mode” under “View.” Preview Mode also supports some mod playback.
 
 ## Undo/Redo, Save, and Reload
 
-Trackmaker supports the basic, but integral behaviors of undoing/redoing, saving, and reloading your chart. The keybind for Undo and Redo are Ctrl+Z and Ctrl+Y respectively. You can save your chart with Ctrl+S or reload your chart with Ctrl+R. Although Trackmaker does keep autosave and prior version saves, you should save your charts regularly. As for reloading, you only need to if you make changes outside of Trackmaker.
+Trackmaker supports the behaviors of undoing/redoing, saving, and reloading your chart. The keybinds for Undo and Redo are `Ctrl+Z` and `Ctrl+Y` respectively. You can save your chart with `Ctrl+S` or reload your chart with `Ctrl+R`. These commands can also be accessed via dropdown.
+
+<Aside type="caution" title="Saving and Reloading">
+
+Although Trackmaker automatically creates one autosave and one previous version save, you must manually save the chart before closing it. Reloading is only necessary if you make changes outside of Trackmaker to a chart file.
+
+</Aside>
 
 ## Write Mode
 
-| Lane Notes | Main Key | Second Key |
-| :---: | :---: | :---: |
-| 1   | A | 1 |
-| 2   | S | 2 |
-| 3   | D | 3 |
-| 4   | L | 4 |
-| 5   | ; | 5 |
-| 6   | ' | 6 |
+In Write mode, notes, gears, and drifts can be added to the chart. Throughout all 3 sub-modes, the keybinds for the note types stay the same. Write mode is indicated by the bottom right icon. If the bottom right icon says “None,” you are in Select mode. To enter Write mode from Select mode, press `Tab`. While in Write mode, press `Tab` to cycle through the sub-modes.
 
-| Gears | Keys |
+<Tabs>
+  <TabItem label="Lane Notes">
+| Note Type | Keys |
 | :---: | :---: |
-| Left | Left Shift |
-| Right | Right Shift |
-
-| Drifts | Keys |
+| 1   | `A`, `1` |
+| 2   | `S`, `2` |
+| 3   | `D`, `3` |
+| 4   | `L`, `4` |
+| 5   | `;`, `5` |
+| 6   | `'`, `6` |
+  </TabItem>
+  <TabItem label="Gears">
+| Gear Type | Key |
 | :---: | :---: |
-| Left | \< |
-| Right | \> |
-| Tail/None | / |
+| Left | `Left Shift` |
+| Right | `Right Shift` |
+  </TabItem>
+  <TabItem label="Drifts">
+| Drift Type | Key |
+| :---: | :---: |
+| Left | `<` |
+| Right | `>` |
+| Tail/None | `/` |
+  </TabItem>
+</Tabs>
 
-In Write mode, notes, gears, and drifts can be added to the chart. While there are 3 sub-modes for how these notes are placed, the keybinds and available notes stay consistent for each. Whether you are in Write mode is indicated by the bottom right icon. If the bottom right icon says “None,” you are in Select mode. To enter Write mode from Select mode, press Tab. While in Write mode, you can press Tab to cycle through the sub-modes (which will be discussed next).
+To place a tap note, press and release one of the lane keys on the same row. To place a hold note, press one of the lane keys, step the navigator forward until you reach the row you want the hold note to end, and then release. To place the head and tail of a gear, press one of the gear keys, step the navigator forward until you reach where you want the gear to end, and then release. For both hold notes and gears, you can also step backwards; in this case, the tail will be where you start and the head will be where you release. Lastly, to place a drift, simply press one of the drift keys.
 
-To place a tap note, press and release one of the lane keys (1-6) on the same beat. To place a hold note, press one of the lane keys (1-6), step the navigator forward until you reach the row you want the hold note to end, and then release. To place the head and tail of a gear, press one of the gear keys (left / right), step the navigator forward until you reach where you want the gear to end, and then release. For both hold notes and gears, you can also step backwards; in this case, the tail will be where you start and the head will be where you release. Lastly, to place a drift, simply press one of the drift keys (left / right / tail).
+To delete a specific note on the navigator's current row, simply press the key cooresponding to that note.
 
-### Insert Mode
+### Write Sub-Modes
 
-When you place a note in Insert mode, the navigator does not automatically move forward, so you are free to place as many notes as you want in a now. When you are done, you can then use the up or down arrows to progress to the next row where you want notes to be. Insert Mode is optimal when placing patterns that are chord-heavy, have hold notes, or are complicated to pattern. Insert Mode is also all-around great for charting, and you will likely spend the majority of your time in this mode.
+<Card title="Insert Mode" icon="pencil">
 
-### Append Mode
+In Insert mode, the navigator does not automatically move forward when a note is placed. Insert Mode is optimal when placing patterns that are chord-heavy, have hold notes, or are complicated to pattern. Insert Mode is also all-around great for charting, and you will likely spend the majority of your time in this mode.
 
-When you place a lane note in Append mode, the navigator immediately moves forward one step. You can still readjust the navigator with the left and right arrows and increase and decrease your “Snap” subdivisions, but the navigator will always step forward when a lane note is placed. Append Mode is optimal for quickly creating long streams of notes. You can place hold notes while in Append mode, but you need to manually step the track forward / backward for the tail to appear. Gears and drifts to not cause the navigator to step forward while in Append Mode.
+</Card>
 
-### Rewrite Mode
+<Card title="Append Mode" icon="pencil">
 
-When you place a lane note in Rewrite mode, all previous lane notes (taps and holds) in the row are removed, and the navigator immediately moves forward to the next lane containing a note. This mode automatically changes the “Snap” value to the lowest subdivision that the note can be selected on. Rewrite Mode is limited in utility, with it only being useful for recharting stream or single-note patterns. Again, hold notes can only be placed if the navigator is manually stepped forward / backward, and gears and drifts do not remove notes or move the navigator forward. Furthermore, gears and drifts are not removed when a lane note is placed.
+In Append mode, the navigator immediately moves forward one step when a note is placed. Append Mode is optimal for quickly creating long streams of notes. Append Mode is optimal for quickly creating long streams of notes. You can place hold notes while in Append mode, but you need to manually step the track forward / backward for the tail to appear. Gears and drifts to not cause the navigator to step forward while in Append Mode.
+
+</Card>
+
+<Card title="Rewrite Mode" icon="pencil">
+
+When you place a lane note in Rewrite mode, the pre-existing notes in the row are removed, and the navigator immediately moves forward to the next row containing notes. The “Snap” value also changes to the lowest subdivision possible. Rewrite Mode is limited in utility, with it only being useful for recharting stream or single-note patterns. Hold notes can only be placed if the navigator is manually stepped forward / backward. Gears and drifts do not remove notes or move the navigator **and** are not removed when a lane note is placed.
+
+</Card>
 
 ## Select Mode
 
-In Select mode, the charter can select notes that have already been placed and perform a number of handy shortcuts on them. If you are in Write mode, you can get to Select mode by pressing the “Escape” key. You will know that you are in Select mode if the mode indicator in the bottom right says “None.”
+In Select mode, the charter can select notes that have already been placed and perform a number of commands on them. If you are in Write mode, you can get back to Select mode by pressing the `Esc` key.
 
-To select a group of notes, press and drag across the chart to create a selection area. Upon making a new selection your previous selection will disappear unless you hold the shift key down, which combines your previous selection and your new selection into one. Pressing Ctrl+A selects all notes, while pressing escape with an active selection deselects it. You can also delete the notes you have selected by pressing the Delete key.
+To select a group of notes, click and drag across the chart to create a selection area. Upon making a new selection, your previous selection will be deselected unless you hold `Shift`. Pressing `Ctrl+A` selects all notes, while pressing `Esc` with an active selection deselects it. You can also delete the notes you have selected by pressing `Delete`.
 
-To select gears and hold notes, the selection region must contain both the head and the tail. Drifts cannot be selected by a selection region; they can only be selected by selecting all notes.
+To select gears and hold notes, the selection region must contain both the head and the tail. Drifts can only be selected through selecting all notes with `Ctrl+A.`
 
 ### Mirror
 
-You can mirror a selection of notes by selecting one of the “Mirror” options under “Edit.” The “Horizontally” option reflects all notes across the center of the track. The “Vertically” option swaps the middle and outer lanes of both tracks so that lanes 1 and 2 are swapped, and lanes 5 and 6 are swapped. “Both” performs both of those operations.
-
-Mirroring notes does not remove non-mirrored notes in that lane, even if the non-mirrored notes conflict with the mirrored ones. This can create patterns that cannot be properly saved, so caution when using Mirror is important.
+You can mirror a selection of notes by selecting one of the “Mirror” options under “Edit.” The “Horizontally” option reflects all notes across the center of the track. The “Vertically” option swaps the middle and outer lanes of btoh tracks, swapping lane 1 and 2 **and** 4 and 5. “Both” performs both of these operations.
 
 ### Copy, Cut, and Paste
 
-A selection of notes can be copied to the clipboard by pressing Ctrl+C. If you want to copy and delete the selection simultaneously, you can instead press Ctrl+X to cut the pattern. Then, when Ctrl+V is pressed, a copy of the selection is placed in the chart. The first row of notes of the copied selection will be placed on the row of the navigator, and all other copied rows of notes will be placed relative to that row.
+A selection of notes can be copied to the clipboard by pressing `Ctrl+C`. If you want to copy and delete this selection simultaneously, you can instead press `Ctrl+X` to cut the pattern. To paste the pattern at a different row, navigate to that row and press `Ctrl+V`. The first row of copied notes will be placed at the current row of the navigator, and all other copied rows will be placed relative to the first row.
 
-If you paste into lines where notes already exist, the game will not remove any notes, even if they conflict with the pasted pattern. This can create patterns that cannot be properly saved. Copy and paste can be used in combination with mirror to speed up the charting process without boring players.
+<Aside type="caution" title="Note Conflicts">
+
+Note conflicts occur when a pattern saved by Trackmaker cannot be hit. A common note conflict is a tap note in the middle of a hold note in one lane.
+
+Mirroring and pasting can create note conflicts if you are not careful. Exercise caution when pasting or mirroring notes into a section where notes already exist.
+
+</Aside>
 
 ## Visual Settings
 
-There are a number of different visual options that Trackmaker provides, allowing charters to fine-tune their experience. The options are as follows:
+There are a number of different visual options that Trackmaker provides, allowing charters to fine-tune their experience. Some of these options are:
 
 - **View → Controller glyphs:** Allows you to see what lanes correspond to what keys or buttons in-game. This can be especially useful if you are trying to comprehend hand motions for different playstyles.
 - **Options → Theme:** Allows you to change the colors of the UI and track.
@@ -124,10 +166,8 @@ There are a number of different visual options that Trackmaker provides, allowin
 
 ## Unsupported Features
 
-Currently, Trackmaker lacks support for creating timing segments. Although Trackmaker does allow you to edit or delete pre-existing segments by right-clicking on the markers that appear to the right of the track, the only way to create a timing segment from scratch is to open up the .xdrv in a text editor such as Notepad++ and add in the tag yourself. When you do this, make sure to refresh so that Trackmaker is updated with the timing segments you add. You can find a list of all timing segment types on the [XDRV Chart Documentation](https://github.com/EX-XDRiVER/Chart-Documentation/blob/main/xdrv.md#chart-body-timing-segments).
+Currently, Trackmaker lacks support for timing segment creation. Although Trackmaker does allow you to edit or delete pre-existing segments by right-clicking on the markers that appear to the right of the track, the only way to create a timing segment from scratch is to open up the .xdrv file in a text editor and add the tag yourself. When you make a change, make sure to save the chart in the text editor and then reload the chart in Trackmaker. You can find a list of all timing segment types on the [XDRV Chart Documentation](https://github.com/EX-XDRiVER/Chart-Documentation/blob/main/xdrv.md#chart-body-timing-segments).
 
 ---
 
-At this point, this article has covered all of the most important functionality of Trackmaker. As you begin to actually pattern and place notes, you may still struggle with the chart editor in some ways. This is completely normal; while Trackmaker is relatively accessible, it is still a new piece of software with its own learning curve. With all of the prior information at your disposal, the best way for you to become familiar with and get better at using Trackmaker is to simply use it.
-
-You may also feel that your skill with Trackmaker is limited by your ability to pattern, which is understandable. This article exclusively talks about using Trackmaker to make patterns. Knowing how to make solid patterns is a separate challenge with a lot of depth and nuance, hence why an entire section of XDRV Charting Guide is dedicated to the different types of patterns. That section is heavy conceptual, so feel free to approach it whenever you are ready. Before that, however, it is good to know how to use XDRV in the chart-making process.
+At this point, all of the most important functionality of Trackmaker has been covered. With all of this information at your disposal, the best way to get used to Trackmaker is to use it plenty.
