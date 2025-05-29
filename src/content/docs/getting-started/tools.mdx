@@ -3,72 +3,133 @@ title: Charting Tools
 description: Acquire the right tools for XDRV charting.
 ---
 
-### Recommended Precursors:
+import { Steps } from '@astrojs/starlight/components';
+import { Aside } from '@astrojs/starlight/components';
+import { FileTree } from '@astrojs/starlight/components';
+import { LinkCard } from '@astrojs/starlight/components';
+
+<Aside type="note" title="Recommended Precursors">
 
 - None!
 
+</Aside>
+
 ---
 
-Welcome! As you might know, the non-commercial rhythm game EX-XDRiVER (XDRV) fully supports custom charts. Anyone can create a custom chart, the process of which is known as “charting.” Through charting, charters are able to show appreciation for their favorite songs, create memorable experiences for players, and contribute to the overall legacy of their favorite rhythm games. However, the process of charting is technical and daunting, especially for XDRV. The EX-XDRiVER Charting Guide aims to help those who want to create XDRV charts by providing instructions and explaining tricky concepts.
+Welcome! As you might know, the non-commercial rhythm game EX-XDRiVER (XDRV) supports custom chart. The process of creating a chart is called “charting.” Through charting, charters are able to show appreciation for their favorite songs, create memorable experiences for players, and contribute to the legacy of their favorite rhythm games. However, the process of charting for XDRV can be technical and daunting. Therefore, the EX-XDRiVER Charting Guide aims to help those who want to create XDRV charts by providing step-by-step instructions and explaining tricky concepts.
 
-This article will go over how to obtain all of the charting tools that you will need for EX-XDRiVER creation. A number of different tools can be used interchangeably to make charts for XDRV, but this tutorial will have you download the following:
+This article will explain how to obtain all of the charting tools useful in custom chart creation. Though various tools can be used interchangeably to make charts for XDRV, this tutorial will have you download the following:
 
-- [Audacity](https://www.audacityteam.org/)
-- [Notepad++](https://notepad-plus-plus.org/)
-- [Trackmaker](https://github.com/oatmealine/trackmaker), made by Oatmealine
-- [XDRVTools](https://github.com/TheBlockiest/XDRVTools), made by TheBlockiest (aka me!)
-
-If you already have any of the above tools installed, you can freely skip that section’s content, as there is no specific set-up required. You may also want to skip a section if there is an alternative tool listed that you would prefer to use.
+<LinkCard
+  title="Audacity"
+  href="https://www.audacityteam.org/"
+/>
+<LinkCard
+  title="Notepad++"
+  href="https://notepad-plus-plus.org/"
+/>
+<LinkCard
+  title="Trackmaker"
+  href="https://www.audacityteam.org/"
+  description="Made by Oatmealine."
+/>
+<LinkCard
+  title="XDRVTools"
+  href="https://www.audacityteam.org/"
+  description="Made by TheBlockiest. (aka me!)"
+/>
 
 ## Installing Audacity
 
-Audacity is a free audio recording software. Audacity will be used to time charts to the waveform as closely as possible, so if you have an alternative software that provides a reliable waveform for referencing, feel free to use that instead. Here are the steps for installing Audacity:
+Audacity is a free audio editing software. Audacity will be used to export audio to the beest format and time charts to the waveform. If you have an alternative software that contains audio exporting and a referenceable waveform, feel free to use that instead. Here are the steps for installing Audacity:
 
-1. Go to the [Audacity](https://www.audacityteam.org/) website and download its most recent release, preferably without Muse Hub. 
+<Steps>
+
+1. Go to the [Audacity](https://www.audacityteam.org/) website and download its most recent release, preferably without Muse Hub.
+
 2. Run and progress through the Audacity Wizard.
+
+</Steps>
 
 ## Installing Notepad++
 
-Notepad++ is a free text and sort code editor. Notepad++ will be used to edit chart metadata and potentially edit the raw note data of your chart. If you have another generic text editor that you would prefer to use, both tools combined will cover the same functionality. However, you will not be able to use XDRVTools later, as it is a plugin that exclusively works on Notepad++.
+Notepad++ is a free text and source code editor. Notepad++ will be used to edit chart metadata and potentially edit the raw note data of your chart. If you have another generic text editor that you would prefer to use, you can use that instead. However, you will not be able to use XDRVTools later, as it is a plugin that exclusively works on Notepad++.
 
+<Steps>
 1. Go to the [Notepad++](https://notepad-plus-plus.org/) website and navigate to the “Download” tab.
-2. Select the most recent release of Notepad++ and select the big “Download” button. (If you do not have a 64-bit system, you may need to select one of the 32-bit or ARM64 downloads below.)
+
+2. Select the most recent release of Notepad++ and select the big “Download” button.<br/>
+(If you do not have a 64-bit system, you may need to select one of the 32-bit or ARM64 downloads below.)
+
 3. Run and progress through the Notepad++ Setup.
+
+</Steps>
 
 ## Installing Trackmaker
 
-Trackmaker is an XDRV-tailored chart editor developed by Oatmealine. Though Trackmaker is recommended as it is the most streamlined tool for XDRV chart creation, if you have former experience with ArrowVortex, a stepfile editor, there is a way to use it to create XDRV files.<sup>1</sup>
+Trackmaker is an open-source XDRV chart editor developed by Oatmealine. Trackmaker is the most streamlined tool for XDRV chart creation, so it is highly recommended. However, if you have former experience with ArrowVortex, a stepfile editor, it can be used to create XDRV charts instead.<sup>1</sup>
+
+<Steps>
 
 1. Go to the [Trackmaker](https://github.com/oatmealine/trackmaker) Github page and select the text that says “Releases.”
+
 2. Find the most recent release of Trackmaker and open the “Assets” dropdown. You should now see a list of files.
+
 3. Download the listed zip file that corresponds to your operating system by selecting it (not the source code).
-4. Extract the downloaded zip to somewhere you can easily access it (I recommend your Desktop).
-	- On Windows, you can extract a .zip file by right-clicking it and selecting “Extract all…”
+
+4. Extract the downloaded zip to somewhere you can easily access it (I recommend your Desktop).<br/>
+On Windows, you can extract a .zip file by right-clicking it and selecting “Extract all…”
+
 5. Open the unzipped folder and run the trackmaker application (trackmaker.exe).
+
+</Steps>
 
 ## Installing XDRVTools
 
-XDRVTools is an extension for Notepad++ that provides functionality useful for editing .xdrv files, which are the files that XDRV charts are stored as. If you do not have Notepad++ installed or do not plan on using it to create your XDRV chart, then XDRVTools is not necessary.
+XDRVTools is an open-source extension for Notepad++ that provides functionality useful for editing XDRV chart files. If you do not have Notepad++ installed, XDRVTools cannot be used.
+
+<Steps>
 
 1. Go to the [XDRVTools](https://github.com/TheBlockiest/XDRVTools) Github page and select the text that says “Releases.”
-2. Find the most recent release of XDRVTools and open the “Assets” dropdown. You should now see a list of files.
-3. Download the listed zip that corresponds to your OS by selecting it. (bin = 32 bit, bin_64 = 64 bit, and arm64 = arm64)
-4. Extract the downloaded zip to your computer, and open it to the files within.
 
+2. Find the most recent release of XDRVTools and open the “Assets” dropdown. You should now see a list of files.
+
+3. Download the listed zip that corresponds to your OS by selecting it. <br/>
+(bin = 32 bit, bin_64 = 64 bit, and arm64 = arm64)
+
+4. Extract the downloaded zip to your computer, and open the resulting folder.<br/>
 Now that the plugin is on your computer, it needs to be manually brought into Notepad++ in order to work.
 
 5. Open up Notepad++. Under “Plugins,” select “Open Plugins Folder…”
-6. Within the opened plugins folder, create a new folder named “XDRVTools.”
-7. From the contents of the unzipped download, drag XDRVTools.dll into the “XDRVTools” folder you created in the last step.
-- Depending on your computer, steps 6 and 7 may require administrator permissions.
-8. Relaunch XDRVTools, and check under “Plugins.” There should now be a listing for “XDRV Tools” with many different commands.
-- The most useful commands here are “Generate Metadata,” “Beat / Measure Navigator Dock,” and “Create Measure Markers.”
+
+6. Within the opened plugins folder, create a new folder named `XDRVTools`. From the contents of the unzipped download, drag `XDRVTools.dll` into the `XDRVTools` folder.<br/>
+Depending on your computer, this step may require administrator permissions.
+
+</Steps>
+
+<FileTree>
+
+- Notepad++
+    - plugins
+        - XDRVTools
+            - XDRVTools.dll
+
+</FileTree>
+
+<Steps>
+
+7. Relaunch XDRVTools, and check under “Plugins.” There should now be a listing for “XDRV Tools” with many different commands.<br/>
+
+</Steps>
 
 ---
 
-If you have installed all of the previous tools correctly, you now have all of the tools necessary to start creating XDRV charts! Of course, knowing how to use those tools to create XDRV charts may require additional information. The next article will discuss how to set up a .xdrv file for usage in Trackmaker. The article after will go over how to use Trackmaker to add patterns to your chart.
+If you have installed all of the previous applications correctly, you now have the tools necessary to start charting! Of course, knowing how to use those tools to create XDRV charts requires more information.
 
-Regardless, congrats on completing this first article! Collecting your toolkit is an important step in making your first XDRV chart.
+Nonetheless, congrats on completing this first article! Organizing your toolkit is an important step in making your first XDRV chart.
 
-<sup>1</sup>Using ArrowVortex for XDRV Charting
-If you have experience with [ArrowVortex](https://arrowvortex.ddrnl.com/), a chart editor, you can actually use it to create XDRV charts. This is because .sm files can be converted to .xdrv files within Trackmaker. Additionally, there is an [ArrowVortex skin](https://discord.com/channels/1063248453737648199/1260646793247719477) that makes the note types more clear. Additionally, many chart events can be added directly in ArrowVortex, which Trackmaker is yet to fully support. With that said, I still recommend Trackmaker over ArrowVortex because Trackmaker is a dedicated software for .xdrv files; changes that happen to the base game can be more readily replicated by Trackmaker.
+---
+
+## <sup>1</sup>Using ArrowVortex for XDRV Charting
+
+If you have experience with [ArrowVortex](https://arrowvortex.ddrnl.com/), a stepfile editor, you can actually use it to create XDRV charts. This is because .sm files can be converted to XDRV charts within Trackmaker. Additionally, there is an [ArrowVortex skin](https://discord.com/channels/1063248453737648199/1260646793247719477) that shows how notes in the .sm file coorespond to notes in the XDRV chart. Many chart events can be added directly in ArrowVortex, which Trackmaker is yet to fully support. Still, Trackmaker is recommended over ArrowVortex, even for charters experienced with ArrowVortex.

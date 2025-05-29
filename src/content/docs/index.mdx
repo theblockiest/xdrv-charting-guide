@@ -15,22 +15,32 @@ hero:
       icon: right-arrow
       variant: secondary
 ---
-
 import { Card, CardGrid } from '@astrojs/starlight/components';
+import { Aside } from '@astrojs/starlight/components';
 
-## Next steps
+## Sections to Read
 
-<CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
+<CardGrid>
+	<Card title="Getting Started" icon="rocket">
+		Get started with useful tools and a proper chart file!
 	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
+	<Card title="Patterns" icon="laptop">
+		Learn the patterns and playstyles that make up XDRV charts!
 	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
+	<Card title="Modding" icon="document">
+		Add some expressiveness to your charts with modding!
+		Heavily WIP.
 	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
+	<Card title="Miscellaneous" icon="list-format">
+		Tackle the miscellaneous challenges of XDRV charts!
 	</Card>
 </CardGrid>
+
+<br/>
+
+<Aside type="tip" title="XDRV Team-Approved!">
+	This charting guide is created by an official charter for XDRV and approved by various members of the team, including lead developers Riley and Tari. <br/>
+	*At the end of the day, though, this is still an unofficial guide.*
+</Aside>
+
+<br/>

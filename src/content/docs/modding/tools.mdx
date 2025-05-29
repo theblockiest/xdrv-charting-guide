@@ -1,11 +1,47 @@
 ---
-title: Example Guide
-description: A guide in my new Starlight docs site.
+title: Modding Tools?
+description: Decide what tool you want to use to create mods for your XDRV chart.
 ---
 
-Guides lead a user through a specific task they want to accomplish, often with a sequence of steps.
-Writing a good guide requires thinking about what your users are trying to do.
+### Recommended Precursors:
 
-## Further reading
+- Finished set up for a .xdrv chart (file organization, metadata, and timing)
+- Started/finished patterning for a .xdrv chart
 
-- Read [about how-to guides](https://diataxis.fr/how-to-guides/) in the Diátaxis framework
+---
+ 
+Modding, the process by which a custom chart creator makes mods for the chart, is a key part of the process of XDRV chart creation. In XDRV, mods are tweens and sets applied to the physical properties of game elements, including the camera, tracks, notes, and scroll speed. Mods can be found in almost every highdiff and many lowdiffs in base-game XDRV, as they can add a lot of character and expressiveness to a chart without drastically increasing difficulty. Adjacent to, but separate from the process of modding is the making of visual events. These events are what make the lighting change in all charts, as well as enabling some auxiliary effects.
+
+With that said, you may wonder what tools work the best for making mods for your charts? The honest answer to this question is that there is no “best tool.” Depending on your experience, any interactive development environment (IDE) or text editor can be hypothetically used to create modfiles.
+
+## Setting Up Your Mods
+
+The first step of creating mods for a chart is setting up your chart and file organization so that a modfile can be read by the chart. This can be done through the following steps:
+
+1. In the file space where your .xdrv file, image file, and audio file are stored, create a new file with a .lua extension. This file will be your modfile. Typically, the naming convention for these files is “[CHART DIFFICULTY]_mods.lua” Example: HYPER_mods.lua
+
+2. Open the .xdrv that you want to add the modfile to in Notepad++.
+
+3. In the field that says MODFILE_PATH, fill in the name of the .lua file.
+	
+Now, when the chart is loaded (either on startup or upon playing the chart), the game will load any mods that are written in the .lua file, provided that they compile without error.
+
+## Modding Tool Options
+
+As stated previously, there are a number of tools you can use to code your .lua modfiles. If you have a lot of experience using one IDE or code editor, especially with the Lua language, it may be optimal that you use that software. If you have no experience coding using one of these tools, however, some tools will be easier than others to pick up and create content in.
+
+### Notepad++
+
+If you are not interested in downloading any additional software to create IDEs, Notepad++ can be used without issue to code mods. Notepad++ automatically ships with special coloring for keywords, variables, and values, which can be convenient for easy legibility. With that said, Notepad++ does not come with any debugging or automatic formatting functionality. Therefore, Notepad++ is a great tool for charters with prior experience with the Lua programming language, though people who lack experience with Lua may want to consider a different tool.
+
+### Visual Studio / Visual Studio Code
+
+Visual Studio (VS) and Visual Studio Code (VSC) are two interactive development environments that include, among many other features, a code editor. Though VSC is more lightweight, both can be used in very similar ways. While both VS and VSC come with keyword coloring, VSC also has a useful extension that provides many quality-of-life features, including a debugger, for Lua. If you are new to programming in Lua and/or creating modfiles, using VSC with the Lua extension may be your best bet. To open a file, you can either open the individual modfile or open the space containing all chart files as a workspace.
+
+One limitation to be aware of: if you use a Lua debugger, any calls using the “.xdrv” API might be flagged as errors. As you are not running this code outside of XDRV or Trackmaker, these errors can be ignored.
+
+---
+
+While the tools above can easily be used to create mods for XDRV charts, they are in no way the only tools you can use. In fact, you can add XDRV mods to a .lua file through any text or code editor. Feel free to use whatever tool feels the most comfortable and efficient to you.
+
+Once you choose your work environment, however, you still have to put in the work of coding. If you’ve never programmed before, this might be a bit worrying for you. With that said, a lot of factors are working in your favor. For starters, Lua is a simpler language to learn, and you only need to learn a portion of the functionality to make great modcharts. Additionally, documentation on XDRV modding is thorough. If you apply yourself, you will have your first modfile done in only a bit of time!
