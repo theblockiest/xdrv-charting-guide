@@ -5,6 +5,16 @@ import starlight from '@astrojs/starlight';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://theblockiest.github.io/xdrv-charting-guide',
+
+	vite: {
+		resolve: {
+			alias: {
+				"@images": '/src/assets/images',
+				"@assets": '/src/assets'
+			}
+		}
+	},
+
 	integrations: [
 		starlight({
 			title: 'XDRV Charting Guide',
