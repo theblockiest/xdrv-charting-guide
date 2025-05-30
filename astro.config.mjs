@@ -4,16 +4,8 @@ import starlight from '@astrojs/starlight';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://theblockiest.github.io/xdrv-charting-guide',
-
-	vite: {
-		resolve: {
-			alias: {
-				"@images": '/src/assets/images',
-				"@assets": '/src/assets'
-			}
-		}
-	},
+	site: 'https://theblockiest.github.io',
+	base: '/xdrv-charting-guide',
 
 	integrations: [
 		starlight({
@@ -60,9 +52,9 @@ export default defineConfig({
 				{
 					label: 'QUICKSTART',
 					items: [
-						{ label: 'QUICKSTART: Getting Started', slug: 'getting-started/quickstart' },
-						{ label: 'QUICKSTART: Patterns', slug: 'patterns/quickstart' },
-						{ label: 'QUICKSTART: Modding', slug: 'modding/quickstart' },
+						{ label: 'QUICKSTART: Getting Started', slug: 'quickstart/getting-started' },
+						{ label: 'QUICKSTART: Patterns', slug: 'quickstart/patterns' },
+						{ label: 'QUICKSTART: Modding', slug: 'quickstart/modding' },
 					],
 				},
 			],
