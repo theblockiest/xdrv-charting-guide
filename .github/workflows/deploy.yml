@@ -1,6 +1,6 @@
 name: Deploy to GitHub Pages
 
-# Attempt 1
+# Attempt 2
 
 on:
   # Trigger the workflow every time you push to the `main` branch.
