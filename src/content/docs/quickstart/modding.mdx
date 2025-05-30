@@ -31,7 +31,7 @@ To set up your chart file to read a mod file, you must add a `.lua` file to your
 
 </FileTree>
 
-To create mod files, you can use any code editor, text editor, or IDE you prefer. Most code editors have keyword coloring for Lua, though some have debuggers (either as a pre-built function or an extension). Consider the following software for making mods:
+To create mod files, you can use any code editor, text editor, or IDE you prefer. Most code editors have keyword coloring for Lua, though some have debuggers (either natively or via an extension). Consider the following software for making mods:
 
 - Notepad++
 - Visual Studio
@@ -41,7 +41,7 @@ To create mod files, you can use any code editor, text editor, or IDE you prefer
 
 While this article assumes that you have knowledge of Lua (or are willing to learn Lua on your own), it should be stated that the most optimal structures for optimizing your mods are loops and helper functions.
 
-If you do not know Lua and want a push in the right direction, consider consulting Lua: Abridged for XDRV (WIP) to learn a bit about the language for XDRV modcharting. If you want to learn the whole language, consider reading from the Lua documentation.
+If you do not know Lua and want a push in the right direction, consider consulting Lua: Abridged for XDRV (WIP) to learn a bit about the language for XDRV modding. If you want to learn the whole language, consider reading from the Lua documentation.
 
 ## Background Events
 
@@ -57,14 +57,14 @@ Mods are the second type of visual effect possible in XDRV charts. Mods control 
 
 To set a physical property to a certain value, call xdrv.Set(...). The first parameter is the name of the mod, the second is the value to set the mod to, the third is whether the timing value is measured by “beat” or “time,” and the fourth is the timing value when the set will occur.
 
-To ease a physical property from one value to another, call xdrv.Ease(...). The first parameter is the name of the mod, the second and third are the starting and ending values to ease the mod between, the fourth is whether timing values are measured by “beat” or “time,” and the fifth is the timing value when the ease will start. The fifth parameter is whether the end of the ease will be determined by an exact “end” or “len,” the sixth is the timing value when the ease will end, and the seventh is what type of easing the mod will have. The easings available in XDRV can also be read from the [XDRV Mod Documentation](https://github.com/EX-XDRiVER/Chart-Documentation/blob/main/mods.md).
+To ease a physical property from one value to another, call xdrv.Ease(...). The first parameter is the name of the mod, the second and third are the starting and ending values to ease the mod between, the fourth is whether timing values are measured by “beat” or “time,” and the fifth is the timing value when the ease will start. The fifth parameter is whether the end of the ease will be determined by an exact “end” or “len,” the sixth is the timing value when the ease will end, and the seventh is what type of easing the mod will have. The easing options available in XDRV can also be read from the [XDRV Mod Documentation](https://github.com/EX-XDRiVER/Chart-Documentation/blob/main/mods.md).
 
 ## Principles of Modding
 
 When it comes to XDRV Modding, the principles of visually appealing mods share a lot with the principles of visually appealing animation. The four most applicable principles of animation to modding in XDRV are:
 
-- **Timing and Momentum:** Easings can be used to make objects feel more dynamic when linear motion would feel robotic.
-- **Anticipation:** Easings families like “Back” and manual corrective movements can make certain movements more appealing.
+- **Timing and Momentum:** Easing can be used to make objects feel more dynamic when linear motion would feel robotic.
+- **Anticipation:** Easing families like “Back” and manual corrective movements can make certain movements more appealing.
 - **Exaggeration:** An effect can often have its appeal heightened by increasing its intensity (without sacrificing readability / playability).
 - **Secondary action:** Having multiple mods occur simultaneously or having one mod respond to the  another mod makes for mods that are more dynamic.
 
