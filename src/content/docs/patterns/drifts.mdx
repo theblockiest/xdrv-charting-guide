@@ -11,49 +11,49 @@ description: Become acquanted with the rules and use cases of drifts.
 
 ---
  
-Drifts are another unique note type at the disposal of charters. Of all mechanics in EX-XDRiVER, drifts are the most unique note type that charters are able to use. Drifts are functionally untimed, as they do not require you to start an input on a certain beat. Rather, they require you to fulfill the drift input (either via gyroscope or manual input) before the technical start of the note. This is because, both via gyroscope and manual input, drift takes some time / motion to reach its full, activated state.
+Drifts are another unique note type that charters can use. Of all note types in EX-XDRiVER, drifts are unquestionably the most unique. Drifts are functionally untimed, as they do not require you to start an input on a certain beat. Rather, they require you to perform the drift, via gyroscope and manual input, for the full duration of the note. This is because the drift input takes some time / motion to reach its full, activated state.
 
-Additionally, drift does not contribute its own combo. Rather, drift increases the amount of score and EX that all notes within the duration of the drift contribute. Notes within the drift also do not decrease the player’s gauges. Notes within the duration in the drift include notes on the same beat as the start of the drift but does not include notes on the same beat as the end of the drift. Technically, players can release a drift early if there are no more notes within the duration of the drift. Players can also momentarily stop drifting in the middle of a drift if there is some gap in notes. Drifts in sections with no notes will contribute zero score or EX.
+Additionally, drifts do not contribute their own combo. Rather, drifts increase the amount of score and EX given by notes within the duration of the drift. Notes on the start beat of the drift are included and give bonus score and EX, while notes on the end beat of the drift are **not** included. Technically, players can release a drift early or start a drift late if there are no notes at the start / end of the drift. Players can also momentarily stop drifting in the middle of a drift if there is some gap in notes. Drifts in sections with no notes will contribute zero score or EX and therefore do not need to be hit by the player.
 
-Many new charters, including those with experience charting for other games, have a hard time incorporating drifts into their first chart, as they aren’t the most intuitive note type. Still, drifts follow several basic use cases and rules. Charters who adhere to these rules can incorporate drifts in a way that is fun, functional, and representative of the music.
+Many new charters, including those with experience charting for other games, have a hard time incorporating drifts into their charts. Still, drifts follow several basic use cases and rules. Charters who adhere to these rules can incorporate drifts in a way that is fun, functional, and representative of the music.
  
 ## When To Use Drifts
 
-Drifts can be used in many ways. One of the best qualities of drifts is that their indication (a series of small diamonds on 4th subdivisions) is equally good at representing long, sustained sounds and repetitive or subdivided sounds. Here are just a few of the most common instances where drifts are used:
+One of the best qualities of drifts is that their indication (a series of small diamonds on 4th subdivisions) is equally good at representing long, sustained sounds and repetitive, sequential sounds. Here are just a few common use cases for drifts:
 
 - There is an effect in the song that is changing over a long period of time (e.g. highpass / lowpass filter, bitcrush, reverb, etc)
 - There is a riser playing for a good amount of beats
-- There is a sustained background instrument that is playing one note or a series of groupable notes
-- There is a background instrument playing a series of short, subdivided notes
-- There is a breakbeat, hat loop, or other percussion leap in the background of the song
+- There is a sustained background instrument that is playing one note or a series of related notes
+- There is a background instrument playing a series of short, sequential notes
+- There is a breakbeat, hat loop, or other percussion loop in the song
 - There is a section of the song with unique / powerful atmosphere
 - There is a sustained synth that is being charted in the main melody that could be emphasized further
 
-This may seem like an overwhelming amount of use cases, but like all other factors of charting, you don’t need to worry about every use case all of the time. Whenever you encounter one of the above elements and you want to represent it with notes in some way, you can choose to add a drift then. Just because you can represent a sound with a drift, however, doesn’t mean you should. There are other factors that you need to consider.
+This may seem like an overwhelming amount of use cases, but like all other factors of charting, you shouldn't worry about every use case all of the time. Just because you can represent a sound with a drift, however, doesn’t mean you should. There are other factors and rules that must be considered for the best implementation.
 
 ## Drift Properties
 
-In addition to there being many instances where drifts are not a proper fit, drifts need to be implemented in certain ways in order for the game to work properly.
+In addition to there being many instances where drifts are less than optimal, drifts must be implemented carefully in order for the chart to work properly in-game.
 
 ### Drifts and Crowdedness
 
-Drifts can add a lot of crowdedness to a section. If you already have a lot of notes in a section, a drift might just be too much for the player to reasonably read, especially at lower difficulties. If you still want to emphasize a part of the song that a drift could represent well, but don’t want to use a drift for this reason, you can always use a simple mod, such as an upwards camera movement, with a long duration instead.
+Drifts can add a lot of crowdedness to a section. If you already have a lot of notes in a section, a drift might be too much for the player to read, especially at lower difficulties. If you want to emphasize a unique-sounding part of a song, but don’t want to use a drift to avoid crowdedness, you can alternatively use a simple mod, such as an upwards camera movement with a long duration.
 
-Additionally, notice what lines the indication for drifts occupy. At the start and end of a left drift, a dotted line covers the width of the left track. The diamonds between the two lines stay in lanes 1 and 4. Conversely, at the start of a right drift, a dotted line covers the width of the right track. Diamonds between the two lines stay in lanes 3 and 6. You might want to avoid obscuring these indicators with gears, hold notes, or chords for the sake of readability. With that said, drifts with these indicators covered will still have some indication (the drift signals and some diamonds).
+Additionally, notice what lines the indication for drifts occupy. At the start and end of a left drift, dotted lines cover the width of the left track. The diamonds between the two lines occupy lanes 1 and 4. Conversely, at the start and end of a right drift, dotted lines cover the width of the right track, while diamonds occupy lanes 3 and 6. You might want to avoid obscuring these indicators with gears, hold notes, or chords for the sake of readability. With that said, drifts with these indicators covered will still have some indication (the drift signals and potentially some diamonds).
 
 ### Drift Tails
 
-In XDRV, all drifts need to have a tail. Not using a drift tail can result in a lot of problems. Drifts with tails have clearer notation for the required inputs, can be hit more consistently by both playstyles, and are less visually stilted when the camera moves or cluttered due to the overlap of symbols.
+In XDRV, all drifts need to have a tail. Not using a drift tail will result in issues when the chart is run in-game. Furthermore, drifts with tails have clearer notation for the required inputs, can be hit more consistently by both playstyles, and are less visually stilted when the camera moves or cluttered due to the overlap of symbols.
 
 ### Positive and Negative Drift Space
 
-Consider the space that drifts occupy as positive drift space and the space that drifts do not occupy as negative drift space. For the majority of charts, the total negative drift space should be greater than the total positive drift space. In other words, the chart should have more beats of non-drifting than less beats of drifting. The only reason that a chart should have more positive drift space than negative drift space is if drifts are a central gimmick of the chart, whether this is because they are used in a consistent way or because they occupy a consistent amount of space. Too much positive drift space in a non-drift-oriented chart may indicate that drifts are used too much–to the extent that they lose their potency.
+Consider the duration that drifts occupy as **positive drift space** and the duration that drifts do not occupy as **negative drift space**. For the majority of charts, the total negative drift space should be greater than the total positive drift space. In other words, the chart should have more beats of non-drifting than beats of drifting. Too much positive drift space in a non-drift-oriented chart may indicate that drifts are used too much (potentially poorly). With that said, a chart can have majority positive drift space if drifts are a central gimmick of the chart.
 
-Additionally, the duration of positive and negative drift space is important. Typically, positive drift space should last 4 beats or longer, as short drifts feel and look strange. Between drifts of alternating directions, you should leave a minimum of 2 beats of space between the drifts, though more is typically better. Between drifts of the same direction, you need much more space (upwards of 8-16 beats) in order to make the drifts feel not awkward. These values are not hard rules; you may need to allot more time if your chart is operating at a higher BPM. With that said, you should consider these values minimums. If you feel like you need to give the player less time than that, you may need to rework how your drifts are implemented.
+Additionally, the duration of positive and negative drift space is important. Typically, positive drift space should last 4 beats or longer, as short drifts feel and look strange. Between drifts of alternating directions, you should leave a minimum of 2 beats of space, though more is typically better. Between drifts of the same direction, much more space should be given (upwards of 8-16 beats) to mitigate awkwardness. These values are minimums, not hard rules; you may need to allot more beats of negative space if your chart is  at a higher BPM. If you find yourself in a situation where you need to give the player less beats of space, you may need to rework how drifts are used in your chart.
 
 ### Drifts in Lower Difficulties
-	In lower difficulties (BG and NM), whenever a drift is used, the density of notes and gears should be decreased considerably. In lower difficulty charts, drifts become the main note of emphasis, rather than a background element. Of course, some amount of notes is still needed in order to make the drift affect the score.
+	In lower difficulties (BG and NM), whenever a drift is used, the density of notes and gears should be decreased considerably. This is because in lower difficulty charts, drifts are emphasized by the chart when they appear. Of course, some notes are still needed in order to make the drift contribute score and EX.
 
 ---
 
-Ultimately, drifts are a very versatile note type, allowing you to represent background sounds that are too subdued–or in some cases, too active–to be represented with notes or gears. Still, charters need to be careful in ensuring that they adhere to rules and regulations necessary in making gears meaningful, enjoyable, and appropriate.
+Ultimately, drifts are a very versatile note type, allowing you to represent background sounds that are more subdued (or in some cases, too fast to be charted accurately). Still, charters should ensure that they adhere to rules that make drifts meaningful, enjoyable, and appropriate.
