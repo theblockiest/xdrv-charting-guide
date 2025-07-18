@@ -13,7 +13,8 @@ export default defineConfig({
 			customCss: ['./src/styles/custom.css',],
 			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/theblockiest/xdrv-charting-guide' },
 				{ icon: 'blueSky', label: 'Bluesky', href: 'https://bsky.app/profile/theblockiest.bsky.social' },
-				{ icon: 'external', label: 'Resources', href: 'resources' }],
+				{ icon: 'external', label: 'Resources', href: '/xdrv-charting-guide/resources' },
+				{ icon: 'youtube', label: 'Video Resources', href: '/xdrv-charting-guide/video-resources' }],
 			sidebar: [
 				{
 					label: 'Getting Started',
