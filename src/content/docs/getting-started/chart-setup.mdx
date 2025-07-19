@@ -41,8 +41,8 @@ Within this folder, place the music and jacket art file you want to use. Then, c
 
 If you have yet to obtain music and jacket art for the chart, now is the time to do so. There are a number of appropriate avenues for obtaining these files, including Bandcamp, some Soundcloud pages, and even some websites of artists. If you want to share your finished chart in the XDRV Community Discord server, make sure that you have some form of permission to use the song (see [Getting Song Perms](/xdrv-charting-guide/misc/song-perms)).
 
-<div style="width:50%">
-![Playback tool on the Bandcamp page of Nota's "Nota Box" album, displaying track "Keep Going!"](../../../assets/screenshots/nota_box.png)
+<div style="width:55%">
+![Playback tool on the Bandcamp page of Nota's "Nota Box" album, displaying track "Keep Going!"](/src/assets/screenshots/nota_box.png)
 </div>
 
 You may also have these file in an unoptimized or unsupported format for XDRV. For audio files, XDRV supports .ogg, .mp3, and .wav, though .ogg is the preferred file format. As for audio quality, 256 kbps is ideal.
@@ -62,7 +62,7 @@ When converting from one audio file type to another, converting from a lossless 
 On older versions of Audacity, you can immediately select the .ogg file type from the “Export Audio” selection.
 
 	<div style="width:65%">
-	![Audacity Audio Export window](../../../assets/screenshots/audacity_audio_export.png)
+	![Audacity Audio Export window](/src/assets/screenshots/audacity_audio_export.png)
 	</div>
 
 4. Once finished, press the “Export” button and choose where on your computer the new file will save.
@@ -82,7 +82,7 @@ Your next step should be to populate your .xdrv file with all relevant metadata.
 2. Under XDRVTools, select the “Generate Metadata” option.
 
 	<div style="width:50%">
-	![Fresh metadata generated using XDRVTools' "Generate Metadata"](../../../assets/screenshots/metadata_generation.png)
+	![Fresh metadata generated using XDRVTools' "Generate Metadata"](/src/assets/screenshots/metadata_generation.png)
 	</div>
 
 </Steps>
@@ -109,13 +109,13 @@ What do **CHART_BPM** and **MUSIC_OFFSET** have in common? They both determine h
 For **CHART_BPM**, your best bet is to either get the BPM from a trustworthy source or determine the offset yourself. If you need to do the latter, you can easily find an online BPM calculator that lets you tap to find the BPM of a song. Once you set **CHART_BPM**, make sure you set **CHART_DISPLAY_BPM** to the same value as well.
 
 <div style="width:65%">
-![Bpm tapper website displaying a calculated BPM of 180](../../../assets/screenshots/bpm_tapper.png)
+![Bpm tapper website displaying a calculated BPM of 180](/src/assets/screenshots/bpm_tapper.png)
 </div>
 
 As for **CHART_OFFSET**, since Trackmaker does not support offset editing, your best is to open Audacity and drag the audio file that your chart is using in. Then, find where the first measure of the song starts. In audio files without a buildup, this may be the first visible part of the waveform. For audio files with a buildup, however, finding the first measure may take some effort. You may want to zoom in to see more detail of the waveform. You can also use the left and right arrow to make small adjustments to the timing. The value you want, the time of the first measure, can be found in the bottom right corner.
 
 <div style="width:80%">
-![Audacity open to "audio.ogg" with music selector at the start of the waveform](../../../assets/screenshots/audacity_timing.png)
+![Audacity open to "audio.ogg" with music selector at the start of the waveform](/src/assets/screenshots/audacity_timing.png)
 </div>
 
 From this value, you can get an exact offset for your chart using the following equation:
