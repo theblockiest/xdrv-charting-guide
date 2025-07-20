@@ -16,6 +16,10 @@ import { Card } from '@astrojs/starlight/components';
 
 Radar values are an important part of the presentation of XDRV charts. With a quick glance, a player can look at the radar value of a chart and immediately discern a few things about it: what the most prominent type of pattern is, whether or not a chart is mod-heavy, even roughly how difficult a chart will be. Because radar values are a useful tool for players, it is often valuable for charters to think about them and how players will perceive them.
 
+<div style="width:50%">
+!["A chart radar of a custom chart within EX-XDRiVER"](/src/assets/screenshots/chart_radar.png)
+</div>
+
 Charters can use radars to determine if their chart is approximately accurate to the numeric difficulty they assigned. This can be done by comparing the radar values of official charts with your custom. For instance, if you assign a chart a difficulty of 12, but the chart’s radar looks more like a 14, you chart is probably misrated. 
 
 <Aside type="caution" title="Chart Radars and Difficulty">
@@ -30,7 +34,7 @@ Radar values, shaped like a pentagon, have 5 different categories: Density, Peak
 
 <Card title="Density" icon="star">
 
-Density increases as the number of notes and gears in a chart increases. Density increases further for note and gear counts that do not consist of chords. One important factor that Density considers is the longest consecutive stream in a chart–the longer the stream, the greater the contribution to density. Density also considers song length.
+Density increases as the number of notes and gears in a chart increases. Density increases further for note and gear counts that do not consist of chords. One important factor that Density considers is the longest consecutive stream in a chart (the longer the stream, the greater the contribution to density). Density also considers song length.
 
 If you want to increase Density, your best bet is to add more singular notes, potentially by making streams in your chart longer. If you want to decrease Density, you can typically accomplish this by breaking up continuous note streams at points of lessened emphasis.
 
@@ -71,3 +75,11 @@ To increase Gimmick, your best bet is to either add more mods or increase the in
 ---
 
 Understanding how chart radars are calculated can be useful in many ways. Looking at the chart radar can help you gauge your chart’s own difficulty. It can also encourage you to focus on one category when designing a chart, which many base-game charts do. Above all else, the chart radar is an informational resource for players experiencing your chart for the first time.
+
+| Radar&nbsp;Value | Contributing Factors |
+| --- | --- |
+| Density | Note count, single note count, longest consecutive stream, song length |
+| Peak | Maximum notes per second (w & w/o chords), song BPM |
+| Chord | Amount of chords in chart |
+| Tech | Total drift time, gear count, crossgear count, one-handedness, note-gear chords, mines |
+| Gimmick | Mines, mods |
