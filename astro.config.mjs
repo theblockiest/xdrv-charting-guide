@@ -10,22 +10,11 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: 'XDRV Charting Guide',
-			customCss: ['./src/styles/custom.css',],
+			customCss: ['/src/styles/custom.css',],
 			logo: {
-				src: './src/assets/logo_simple.webp',
+				src: '/src/assets/logo_simple.webp',
 			},
-			favicon: './src/assets/favicon.png',
-			head: [
-				// Add ICO favicon fallback for Safari.
-				{
-					tag: 'link',
-					attrs: {
-						rel: 'icon',
-						href: './src/assets/favicon.ico',
-						sizes: '32x32',
-					},
-				},
-			],
+			favicon: '/src/assets/favicon.ico',
 			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/theblockiest/xdrv-charting-guide' },
 				{ icon: 'blueSky', label: 'Bluesky', href: 'https://bsky.app/profile/theblockiest.bsky.social' },
 				{ icon: 'external', label: 'Resources', href: '/xdrv-charting-guide/resources' },
