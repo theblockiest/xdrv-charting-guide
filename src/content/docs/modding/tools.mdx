@@ -28,20 +28,16 @@ The first step of creating mods for a chart is setting up your file organization
 
 1. In the file space where your `.xdrv` file, image file, and audio file are stored, create a new file with a `.lua` extension. This file will be your modfile. Typically, the naming convention for these files is “[CHART DIFFICULTY]_mods.lua.
 
-</Steps>
+	<FileTree>
 
-<FileTree>
+	- My_Custom_Charts
+		- Keep_Going!_TheBlockiest 
+			- audio.ogg
+			- HYPER.xdrv
+			- jacket.jpg
+			- **HYPER_mods.lua**
 
-- My_Custom_Charts
-	- Keep_Going!_TheBlockiest 
-		- audio.ogg
-		- HYPER.xdrv
-		- jacket.jpg
-		- **HYPER_mods.lua**
-
-</FileTree>
-
-<Steps>
+	</FileTree>
 
 2. Open the `.xdrv` that you want to add the modfile to in Notepad++.
 
@@ -59,14 +55,22 @@ As stated previously, there are a number of tools you can use to code `.lua` mod
 
 If you are not interested in downloading any additional software to create IDEs, Notepad++ can be used without issue. Notepad++ automatically ships with special coloring for keywords, variables, and values, making your mods more legible. With that said, Notepad++ does not come with any debugging or automatic formatting functionality. Notepad++ is a great tool for charters with prior experience in the Lua programming language. People who lack such experience may want to consider a different tool.
 
+<div style="width:75%">
+![Notepad++ window with modfile of "Keep Going!" HYPER open](../../../assets/screenshots/notepad_plusplus.png)
+</div>
+
 </Card>
 <Card title = "Visual Studio / Visual Studio Code" icon="laptop">
 
 Visual Studio (VS) and Visual Studio Code (VSC) are two interactive development environments that include, among many other features, a code editor. Though VSC is more lightweight, both can be used for XDRV mods. While both VS and VSC come with keyword coloring, VSC has a useful extension that provides many QoL features, including a debugger, for Lua. If you are new to programming in Lua and/or creating modfiles, using VSC with the Lua extension may be your best bet.
 
+<div style="width:75%">
+![Visual Studio Code window with modfile of "Keep Going!" HYPER open](../../../assets/screenshots/visual_studio_code.png)
+</div>
+
 </Card>
 
-<Aside type="caution" name="Debugger Warnings">
+<Aside type="caution" title="Debugger Warnings">
 
 One issue you might encounter while using a Lua debugger is that any calls using the “.xdrv” API may be flagged as warnings, as the engine won't have a reference to the library. As this code is not run outside of XDRV or Trackmaker, these warning can be ignored.
 
