@@ -34,7 +34,7 @@ export default defineConfig({
 					items: [
 						{ label: 'General Charting Practices', slug: 'patterns/general-practices' },
 						{ label: 'Tap & Hold Note Patterns', slug: 'patterns/tap-and-hold-notes' },
-						//{ label: 'Using Hold Notes', slug: 'patterns/hold-notes' },
+						{ label: 'Using Hold Notes', slug: 'patterns/hold-notes' },
 						{ label: 'Gear Patterns', slug: 'patterns/gears' },
 						{ label: 'Charting Crossgears', slug: 'patterns/crossgears' },
 						{ label: 'Using Drifts', slug: 'patterns/drifts' },
