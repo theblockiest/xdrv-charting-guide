@@ -38,7 +38,7 @@ export default defineConfig({
 						{ label: 'Gear Patterns', slug: 'patterns/gears' },
 						{ label: 'Charting Crossgears', slug: 'patterns/crossgears' },
 						{ label: 'Using Drifts', slug: 'patterns/drifts' },
-						//{ label: 'Lowdiff Charting', slug: 'patterns/lowdiff-charting' },
+						{ label: 'Lowdiff Charting', slug: 'patterns/lowdiff-charting' },
 					],
 				},
 				{
