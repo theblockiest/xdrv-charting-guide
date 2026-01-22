@@ -18,35 +18,37 @@ import { Card } from '@astrojs/starlight/components';
 
 ---
  
-Hold notes are a common, yet useful note type that XDRV charters can incorporate into their charts. Hold notes in XDRV, composed of a head and a tail, are stored separately in `.xdrv` files. However, these two parts are treated as one note object in Trackmaker. While hold notes can be used in various different ways, it is important to consider the aesthetic and gameplay properties they simultaneously carry. As in most rhythm games, hold notes can be excellent at indicating that a sound is sustained for some time. In XDRV, hold notes do not have release timing. This means the player can release a little bit before or any time after a hold note ends without being penalized.
+Hold notes are a common, yet useful note type that XDRV charters can incorporate into their charts. Hold notes in XDRV, composed of a head and a tail, are stored separately in `.xdrv` files. However, these two parts are treated as one note object in Trackmaker and ArrowVortex. While hold notes can be used in various ways, it is important to consider the aesthetic and gameplay properties they carry. 
+
+As in most rhythm games, hold notes can be excellent at indicating that a sound is sustained for some time. More unique to XDRV, hold notes do not have release timing. This means the player can release a little bit before or any time after a hold note ends without being penalized.
 
 ## Hold Note Lengths
 
- To help convey how different lengths of hold notes can be used, these notes can be broken down into three different types.
+ Hold notes can be broken down into three different types, which each type having different use cases.
  
  | <div style = "width:150px"> ![](../../../assets/patterns/long_holds.png) </div> | <div style = "width:150px"> ![](../../../assets/patterns/medium_holds.png) </div> | <div style = "width:150px"> ![](../../../assets/patterns/short_holds.png) </div> |
 | :---: | :---: | :---: |
 | Long | Medium | Short / Pseudo |
 
-The hold notes which are the best at representing sustained sounds, known as **long hold notes**, are hold notes that last for 1/4 subdivision or more (1 beat). At typical BPMs, players will purposefully hold for the full duration of long hold notes, making them feel substantial. Common practice for charters is to place notes around long hold notes, effectively representing two different sounds in a song at once. With that said, some combinations of long hold notes and short notes can be excessively difficult to hit, requiring a level of finger independence that players at *all* skill levels may lack.
+The hold notes which are the best at representing sustained sounds, known as **long hold notes**, are hold notes that last for 1/4 subdivision or more (1 beat). At typical BPMs, players will purposefully hold for the full duration of long hold notes, making them feel substantial. Often, charters place notes around long hold notes, effectively representing two different sounds in a song at once. With that said, some combinations of long hold notes and short notes can be excessively difficult to hit, requiring a level of finger independence that players at *all* skill levels can lack.
 
-Shorter than long hold notes, **medium hold notes** are hold notes that last for approximately 1/8th subdivision (1/2 beat). When encountering medium hold notes, players are more likely to hold for the full duration of the note. Depending on the BPM, however, more experienced players may release earlier, treating the holds more like taps. Medium hold notes have two very common use cases. When paired with other medium hold notes, the resulting chordholds can fit the sound of synth impacts perfectly. Alternatively, many charters pair taps with medium hold notes to represent a bass-kick pattern, which can be heard in many songs.
+Shorter than long hold notes, **medium hold notes** are hold notes that last for about 1/8th subdivision (1/2 beat). When encountering medium hold notes, players are still likely to hold for the full duration of the note. Depending on the BPM, however, more experienced players may release earlier, treating the holds more like taps. Medium hold notes have two very common use cases. When paired with other medium hold notes, the resulting chordholds can fit the sound of synth impacts perfectly. Alternatively, many charters pair taps with medium hold notes to represent a bass-kick pattern, prevalent in many songs.
 
 The shortest of the three categories, **short hold notes** are hold notes that last for 1/16th subdivision (1/4 beat) or less. This hold note variety can also be described as "pseudo" because, at typical BPMs, the player does not need to mindfully hold a key down to hit the whole note. While players on sightread may hold down briefly to hit short hold notes, they may take advantage of XDRV's leniency in later runs by treating the notes as regular taps. Short hold notes are best used to distinguish a note from other notes without adding difficulty in the way that a chord or gear would. These notes do still add visual clutter, however, which may be too much depending on the section you are charting.
 
 <Aside type="caution" title="Short Hold Note Overuse">
 
-A common pitfall for newer charters experience is that they use short hold notes that feel empty or out of place when played. While a short hold notes might be the most representative note type for a certain sound, it often does not look or play the best. If a short hold note feels unsatisfying, it can usually be made better by replacing it with a medium hold note or regular tap notes.
+A common pitfall for newer charters is that they use short hold notes that end up feeling empty or out of place. While a short hold notes might be the most representative note type for a certain sound, it may not look or play the best. If a short hold note feels unsatisfying, it can usually be made better by replacing it with a medium hold note or regular tap notes.
 
 </Aside>
 
 ### Combining Hold Note Lengths
 
- Distinguishing hold notes based on length is important  because hold notes of different lengths can look odd or unbalanced when placed in close proximity. While not hard rules, a few combinations of hold notes generally look best. In most cases, long hold notes can be combined with medium hold notes without issue, while short hold notes are best used amongst other short notes. Consider that all hold notes look good when paired with taps or in isolation.
+ Distinguishing hold notes based on length is important because hold notes of different lengths can look odd or unbalanced when placed in close proximity. Hold note tails are often perceived by players as having timing, giving them the potential to make patterns easier or harder to read.
 
 ### Offsetting Tails
 
-In some charts, the tails of hold notes are offset backwards by 1/16th subdivision. This is commonly done in hold-heavy sections to make reading easier, decreasing simultaneous note elements on one lane. In other charts, the tails of hold notes are offset forwards by 1/16th subdivision or more. This is used to exaggerate the overlap, low attack, or pitch bending of synths. Depending how you do it, offsetting hold notes' tails can make for more visual clarity *or* visual intrigue.
+In some charts, the tails of hold notes are offset backwards by 1/16th subdivision. This is commonly done in hold-heavy sections to make reading easier, decreasing simultaneous note elements on one lane. In other charts, the tails of hold notes are offset forwards by 1/16th subdivision or more. This is used to exaggerate overlap, low release, or pitch bending of sounds. Depending how you do it, offsetting hold notes' tails can make for more visual clarity *or* visual intrigue.
 
 <div style = "width:30%"> ![An XDRV pattern composed of hold notes with offset tails.](../../../assets/patterns/offset_tails.png) </div> 
 
@@ -70,4 +72,4 @@ This is a non-comprehensive list of base-game charts that effectively use hold n
 
 ---
 
-Hold notes are a very useful element that charters can add to their charts, but their usage can be somewhat finicky. Hold notes are capable of being fun or annoying, visually appealing or abrasive. Charters can strive for hold note usage that is both fun to play or nice to look at.
+Hold notes are a very useful element that charters can add to their charts, but their usage can be somewhat finicky. When done mindfully, charters can achieve hold note usage that is both fun to play and nice to read.
