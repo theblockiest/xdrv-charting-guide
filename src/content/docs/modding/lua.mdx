@@ -1,0 +1,437 @@
+---
+title: "Lua: Abridged for XDRV"
+description: Learn the basics of Lua as needed to make mods for XDRV charts.
+---
+
+import { Aside } from '@astrojs/starlight/components';
+import { Card } from '@astrojs/starlight/components';
+
+<Aside type="note" title="Recommended Precursors">
+
+- Finished set up for a .xdrv chart (file organization, metadata, and timing)
+- Finished set up for .xdrv modding (.lua file created and linked)
+- Started/finished patterning for a .xdrv chart
+
+*This passage assumes no prior knowledge. If you have any amount of familiarity with the Lua programming language, this section is worth skipping.<br/>
+Otherwise, you're in the right place!*
+
+</Aside>
+
+---
+
+Lua is a lightweight, high-level programming that is used to create XDRV modfiles. As a language, Lua is a great pick for XDRV modding for several reasons: it is easy to learn, requires minimal structuring, and is also familiar to many charters in the scene. Many other rhythm games, such as NotITG, use Lua to support modding functionality. Additionally, Trackmaker is built with Lua (specifically, it uses the LÖVE game engine).
+
+In XDRV, modfiles work by invoking the XDRV API's functions, sending instructions to the game to execute mods or background events. XDRV modfiles can use the full suite of Lua functionality, but only a small subset of Lua knowledge is necessary to make modfiles that are optimized, clean, and expressive. This passage will go over those basic functionalities sequentially.
+
+## Creating Mods and Events
+
+In EX-XDRiVER, Lua modfiles are able to reference `xdrv`, a data structure containing instructions that allow your mod file to hook into XDRV and create mods and background events. These instructions are `xdrv.Set()`, `xdrv.Ease()`, and `xdrv.RunEvent()`, and they can written in your modfile as such to call the instructions. For each of these instructions, different parameters must be passed between the parenthesis, telling EX-XDRiVER exactly how to execute the mod you want. Below is a description of each instruction and the parameters that need to be passed with it.
+
+<Aside type="caution" title="Parameter Types">
+
+If a parameter is a string, it must be written with single quotes (`''`) or double quotes (`""`) around it.
+
+If a parameter is a number, it must be some numerical representation.
+
+</Aside>
+
+
+<Card title="xdrv.Set" icon="pencil">
+
+```lua
+xdrv.Set(modName, value, beatOrTime, time)
+```
+
+Sets the value of a moddable field at a given time.
+
+***Parameters:***
+- modName: string
+	- The name of the mod.
+- value: number
+	- The value to set that mod to
+- beatOrTime: string
+	- Whether to measure timeValue as "beat"s or "time" in seconds.
+- timeValue: number
+	- The beat or time in seconds to apply the mod at, depending on what beatOrTime is.
+
+</Card>
+
+<Card title="xdrv.Ease" icon="pencil">
+
+```lua
+xdrv.Ease(modName, startValue, endValue, beatOrTime, startTime, lenOrEnd, endTime, easeType)
+```
+
+Eases the value of a moddable field over a certain duration of time
+
+***Parameters:***
+
+- modName: string
+	- The name of the mod to ease, must be written with quotations around it.
+- startValue: number
+	- The value to start that ease at.
+- endValue: number
+	- The value to end that ease at.
+- beatOrTime: string
+	- Whether to measure timeValue as "beat"s or "time" in seconds.
+- startTime: number
+	- The beat or time in seconds to start the ease at, depending on what beatOrTime is.
+- lenOrEnd: string
+	- Whether to measure start as "beat"s or "time" in seconds
+- endTime: number
+	- The length or end of the ease in beats or seconds, depending on beatOrTime AND lenOrEnd.
+- easeType: string
+	- The type of ease to use.
+
+</Card>
+
+<Card title="xdrv.RunEvent" icon="pencil">
+
+```lua
+xdrv.RunEvent(eventName, beatOrTime, timeValue, data...)
+```
+
+Runs a background event. Note that background events have different parameter counts, so you'll need to check the [XDRV Chart Documentation](https://github.com/EX-XDRiVER/Chart-Documentation/tree/main/backgrounds) for information on background events.
+
+***Parameters:***
+
+- eventName: string
+	- The name of event to run. Available events depend on which background your chart is using!
+- beatOrTime: string
+	- Whether to measure timeValue as "beat"s or "time" in seconds.
+- timeValue: number
+	- The beat or time in seconds to start the background event at, depending on what beatOrTime is.
+- data...
+	- Additional parameters, based on the background event you are invoking
+
+</Card>
+
+The ability to write and reference instructions is not exclusive to the XDRV data structure. In Lua, the actual name for these instructions is **functions**. Invoking these instructions in your modfile is actually referred to as a **function call**. You can create your own functions within your modfile, but doing so requires a better understanding of the Lua language.
+
+While technically, you could make wholly functional mods with just this information alone, your modfile would not be very optimized. Understanding a bit more Lua functionality can making writing modfiles faster, editing modfiles easier, and creating complicated mods far simpler.
+
+## Variable Declaration
+
+```lua
+-- Lets define some values!
+local beat = 1
+local value = 0.25
+local mod = "camera_move_y"
+xdrv.Set(mod, value, "beat", beat)
+```
+
+In Lua, variables are declared and assigned a value using the `local` keyword, a variable name, the assignment operator `=`, and a value. There are a lot of parts to a variable declaration, although most parts besides the local keyword name are relatively straightforward.
+
+<Aside type="caution" title="Local Optional">
+
+Technically, the `local` keyword isn't needed to declare a variable! In fact, not using the `local` keyword results in a global variable. Global variables will be discussed later, but the main takeaway is that using `local` for all variables is good practice.
+
+</Aside>
+
+In Lua, variable names can be composed of lowercase letters, uppercase letters, digits, and underscore, although the first character of a variable name cannot be a digit. Variable names are case-sensitive, meaning that `foo`, `Foo`, and `FOO` are all different variables. Good convention is to make your variable names descriptive of the value they store, using camelCase or underscores to separate words.
+
+The assignment operator `=` tells the program to assign the value on its right to the variable on its left. Bear in mind that some similar symbols, such as `==`, operate differently and cannot be used interchangeably.
+
+A variable can store different types of values, including numbers, strings, booleans, and more. Variables can also be given a value of nil, which means that no value is assigned to the variable. **If a variable is not assigned a value, it always defaults to a value of nil.** Below is a table with examples of each type of value:
+
+| Value Type | Written Examples |
+| ------------|----------|
+| Number | `1`, `0`, `7.27`, `-7` |
+| String | `"Hello world!"`, `"OutCirc"`, `" "` |
+| Boolean | `true`, `false` |
+| Nil | `nil` |
+
+Once a variable is defined, it's value can be re-assigned later. Just drop the `local` keyword from the front of the variable assignment. Variables are also not type cast in Lua. This means that a variable that previously held a boolean can be changed later to hold a number or string instead.
+
+```lua
+local hasUnlocked = false 
+-- Variable declared and assigned to false.
+hasUnlocked = true
+-- Variable already declared, value re-assigned to true!
+hasUnlocked = "fish"
+-- Variable already declared, value re-assigned to "fish"!
+```
+
+The `local` keyword is more complex than the other parts of a variable declaration and requires some additional information be taught, so we will circle back to it later.
+
+### Tables
+```lua
+-- Let's define a table!
+local snareBeats = {9,11,13,14,15}
+```
+Another useful variable type in Lua is the table. A table is a collection of values that can be referred to with indices. To create a table definition, all parts to the left of `=` stay the same. To the right of the assignment operator, however, your table must be defined with a set of curly brackets (`{}` exclusively). Then, the contents of your table go inside, where each entry is separated by a comma. Tables in Lua do not need to be declared with a size; you can add as many values as you want to a table after declaration.
+
+To reference a specific term in the table, write the name out followed by square brackets (`[]`) and the index you want to reference in the table. You can also refer to an index to add a new value to a list. Note that Lua uses **1-based indexing**, which means that the first element in a numerically-indexed table has an index of 1. Like variables, referencing a non-existent index will result in a value of nil.
+
+```lua
+local firstSnare = snareBeats[1] -- = 9
+local secondSnare = snareBeats[3] -- = 13
+
+local nonExistantSnare = snareBeats[10] -- = nil
+snareBeats[10] = 81 -- snareBeats[10] now exists
+```
+
+Tables are not limited to indexes in numerical order. You can also index elements in a table with random numbers, strings, booleans, and any other valid data types.
+
+```lua
+local easingTable = {}
+easingTable[10] = "InOutQuad"
+easingTable[4.5] = "OutCubic"
+easingTable["z"] = "InSine"
+easingTable[true] = "Pop"
+```
+
+## Operators
+
+Operators take the values on their left and right sides (known as operands) and perform operations on them to get some new value. Lines composed of variable references, values, and operators are called expressions. Expressions are a fundamental part of coding and can support the trickier logic used in programming. However, expressions do nothing on their own and need to be included within some action, such as a variable assignment.
+
+### Arithmetic Operators
+
+```lua
+firstBeat = 1
+secondBeat = 2
+duration = secondBeat - firstBeat
+xdrv.Ease("trackleft_move_x",0,0.5,"beat",secondBeat,"len",duration)
+-- duration = 1
+```
+
+In Lua, arithmetic operators allow you to do calculations within your code. Math operators can operate on predefined variables or new values that you define. Math operators can be used in combination with variable declarations and other fields that require numbers to perform arithmetic compactly. Arithmetic expressions follow PEMDAS order of operations, and then are evaluated from left to right. You can use parenthesis to determine which operations happen first. The following are valid math operators in Lua:
+
+| Symbol | Name | Code Example |
+| --- | --- | --- |
+| `+` | Addition | `sum = 10 + 4`<br/>sum = 14 |
+| `-` | Subtraction | `diff = 10 - 4`<br/>diff = 6 |
+| `-` | Negation (Urnary) | `neg = -(10+4)`<br/>neg = - 14|
+| `*` | Multiplication | `prod = 10 * 4`<br/>prod = 40 |
+| `/` | Division | `quot = 10 / 4`<br/>quot = 2.5 |
+| `%` | Modulus (Remainder) | `mod = 10 % 4`<br/>mod = 2 (since 10/4 = 2**r2**) |
+| `^` | Exponentiation |  `pow = 10^4`<br/>pow = 10000 |
+
+When using any operators, including arithmetic operators, you can use a variable as both an operand in an expression and the reference for the result of the expression to be assigned to.
+```lua
+local scale = 1.1
+xdrv.Set("note_scale_x",scale,"beat",1)
+-- Sets scale to 1.1
+
+scale = scale + 0.1
+xdrv.Set("note_scale_x",scale,"beat",1)
+-- Sets scale to 1.2
+```
+
+### Relational Operators
+
+```lua
+local songsPlayed = 5
+local hasUnlocked = (songsPlayed > 20)
+-- hasUnlocked = false
+```
+
+Relational operators are operators that compare two different number, outputting true or false based on the values being compared. Relational operators are evaluated from left, so again, parenthesis can be used to force certain operations to happen first. With that said, putting parenthesis around relational operators typically makes them much more legible.
+
+| Symbol | Name | Code Example |
+| --- | --- | --- |
+| `<` | Less Than | `ans = (10 < 4)`<br/>ans = false |
+| `>` | Greater Than | `ans = (10 > 4)`<br/>ans = true |
+| `<=` | Less Than or Equal To | `ans = (10 <= 4)`<br/>ans = false |
+| `>=` | Greater Than or Equal To | `ans = (10 >= 4)`<br/>ans = true |
+| `==` | Equal | `ans = 10 == 10`<br/>ans = true |
+| `~=` | Not Equal | `ans = 10 == 10`<br/>ans = false |
+
+Additionally, there are 3 keywords that function as operators on booleans: `and`, `or`, and `not`. The `and` operator evaluates to true only if *both* of its operands are true. The `or` operator evaluates to true if *either* of its operands are true. Lastly, the not operator negates its boolean operand so that true becomes false and false becomes true. Errors can arise when order of operations is not carefully considered.
+
+```lua
+local hasUnlocked = true or false
+-- hasUnlocked = true
+
+local hasUnlocked = true and false
+-- hasUnlocked = false
+
+local hasUnlocked = not false
+-- hasUnlocked = true
+```
+
+### String Concatenation
+```lua
+local unlockCondA = "Play ETIQUETTE"
+local unlockCondB = "NORMAL."
+local fullUnlockCond = unlockCondA .. " " .. unlockCondB
+-- fullUnlockCond = "Play ETIQUETTE NORMAL."
+```
+
+To perform string concatenation, the process of connecting two strings into one string, Lua uses the '..' operator. This operator can also be used to concatenate some non-string types of values, such as numbers, into a string.
+
+## For Loops
+
+In all languages, loops are useful because the allow programmers to apply a line of code multiple times. Rather than copy and pasting the same line over and over, adjusting the values for each iteration, a programmer can use a loop to have values be applied and adjusted automatically. For XDRV mod files, the most useful type of loop to use is a for loop.
+
+```lua
+for i = 2, 10, 2 do
+	xdrv.Ease("track_move_y",-0.1,0,"beat",i,"len",0.5)
+end
+
+--[[ Loop equivalent:
+xdrv.Ease("track_move_y",-0.1,0,"beat",2,"len",0.5)
+xdrv.Ease("track_move_y",-0.1,0,"beat",4,"len",0.5)
+xdrv.Ease("track_move_y",-0.1,0,"beat",6,"len",0.5)
+xdrv.Ease("track_move_y",-0.1,0,"beat",8,"len",0.5)
+xdrv.Ease("track_move_y",-0.1,0,"beat",10,"len",0.5)
+]]
+```
+
+In Lua, for loops start with the keyword `for` and then are followed by 3 parameters: a variable declaration with a start value, an end value, and an increment. The for loop executes the code for each value within the range, stepping by the provided increment. If no increment is provided, then the for loop defaults to incrementing by one.
+
+The contents of your for loop should be intended, and you must mark the end of your for loop's content with the `end` keyword. As you see other control structures like if-else statements and functions, you will see the need to intent and add a `end` keyword repeat.
+
+### Ipairs and Pairs
+
+```lua
+local kickBeats = {4,5.5,7,8}
+for i,v in ipairs(kickBeats) do
+	xdrv.Ease("camera_move_y",-0.1,0,"beat",v,"len",1)
+end
+
+--[[ Loop equivalent:
+xdrv.Ease("camera_move_y",-0.1,0,"beat",4,"len",0.5)
+xdrv.Ease("camera_move_y",-0.1,0,"beat",5.5,"len",0.5)
+xdrv.Ease("camera_move_y",-0.1,0,"beat",7,"len",0.5)
+xdrv.Ease("camera_move_y",-0.1,0,"beat",8,"len",0.5)
+]]
+```
+
+In Lua, you can use for loops to increment through a table! Rather than a numeric for loop structure, iterating through a table requires a `for i, v in` loop. This creates two variables that can be referenced within the loop: the index of the list `i` and the value at that index `v`.
+
+Additionally, looping through a table requires the table be passed through an `ipairs()` or `pairs()` statement. If your table's indexes are sequential numbers, than ipairs() can be used. Otherwise, if your table's indexes are non-numerical or non-sequential, you need to you pairs() to ensure that no indexes are missed.
+
+## If-Else Statements
+
+```lua
+if (difficultyValue == 3) then
+	-- if difficultyValue equals 3, do a speed mod
+	xdrv.Ease("speed",1,0.5,"beat",4,"len",4)
+elseif (difficultyValue == 2)
+	-- if difficultyValue equals 2, do a camera mod
+	xdrv.Ease("camera_move_y",0,1,"beat",4,"len",4)
+else
+	-- else, do a smaller camera mod
+	xdrv.Ease("camera_move_y",0,0.5,"beat",4,"len",4)
+end
+```
+`
+If else statements are a useful tool for handling logic within your chart. Your if statement must be composed of one `if (condition) then` statement at a minimum. When the condition is true, the code contained within the block is executed.
+
+Following your if statement, you can have any number of	`else if` statements, which allow you to evaluate another condition and execute a different block of code. Note that **only one code block on a if-else statement can execute.**
+
+The final statement you can add to a statement is an `else` statement, which functions as a catch-all. If none of the former conditions evaluate as true, your code in your else statement will execute. In practice, if statements can be combined with other control structures to create useful logic structures. Again, all contained blocks of code should be intended, and an `end` statement should mark the end of the if-else. If you have multiple control structures nested within each other, you will need to indent and add an `end` keyword for each layer.
+
+```lua
+for i = 8, 23 do
+	if i % 2 = 0 then
+		-- On-beat, do a camera mod
+		xdrv.Ease("camera_move_y",-0.1,0,"beat",i,"len",0.75)
+	else
+		-- Off-beat, do track mod
+		xdrv.Ease("trackleft_move_x",-0.1,0,"beat",i,"len",0.75)
+		xdrv.Ease("trackright_move_x",0.1,0,"beat",i,"len",0.75)
+	end
+end
+-- Note how this code has two layers of control structures
+-- so it also gets two layers of indents and two end keywords.
+```
+
+## Function Definition
+
+```lua
+-- GamerFlip, from my second chart ever.
+-- timeStart is a number, isLeft is a boolean
+local function GamerFlip(timeStart, isLeft)
+	if isLeft then
+		xdrv.Ease("trackleft_rotate_z", 0, -7.5, "beat", timeStart, "len", 0.5, "OutCubic"}
+		xdrv.Ease("trackleft_rotate_z", -7.5, 0, "beat", timeStart+1, "len", 0.75, "OutCubic")
+	else
+		xdrv.Ease("trackright_rotate_z", 0, 7.5, "beat", timeStart, "len", 0.5, "OutCubic")
+		xdrv.Ease("trackright_rotate_z", 7.5, 0, "beat", timeStart+1, "len", 0.75, "OutCubic")
+	end
+end
+```
+
+Writing functions is a great way to optimize your mod file by allowing code to be reused. The first line of a function definition consists of four parts: the `local` keyword, the `function` keyword, the name of your function, and parenthesis containing your function's **parameters**, which are variables that you want to be able to pass to the function (or just parenthesis if no parameters are needed). This line is known as the **function signature.** Functions follow similar naming conventions to variables and can be composed of the same characters (lowercase letters, uppercase letters, underscores, and digits). The same variables naming conventions also apply to the parameters of the function.
+
+The line following the function signature is the body of the function, which contains a block of code that is executed whenever the function is called. The body of the function can contain any variable declarations, expressions, and control structures that the user needs for the function to serve its intended purpose. The body of the function can also refer to the parameters defined in the header as variables. Once again, the body of the function is intended, and its end is signified with the	`end` keyword.
+
+### Function Call
+
+```lua
+-- Calling GamerFlip with parameters
+GamerFlip(233, true)
+GamerFlip(237, false)
+```
+
+To call a function that you have previously defined, simply write the name of the function with closed parentheses after. If your function requires parameters, the values of these parameters must be written inside of the parentheses. Variables can also be written inside of a function call's parenthesis, in which the value corresponding to the variable will be passed to the function.
+
+### Return Function
+
+```lua
+-- Checks if an element exists in a list (sequential numerical table)
+-- Returns true if the element is, false if the element isn't
+local function CheckList(elt, list)
+    for i, v in ipairs(list) do
+        if v == elt then
+            return true -- Return statement 1
+        end
+    end
+    return false -- Return statement 2, catch-all
+end
+
+local hasValue = CheckList(1,{1,2,3}) -- = true
+```
+
+In Lua, functions can use the keyword `return` to return a value to the position of the function call, ending the execution of the function body's code immediately. It's typically good practice for your function to either *always* return a value or *never* return a value. If you want your function to return a value, make sure that the function returns something for all inputs. 
+
+## Comments
+```lua
+-- Single line comment
+--- Single line comment, reserved for documentation
+--[[
+Block comment!
+]]
+```
+
+Throughout this passage, you probably noticed little messages in the code snippets that were prefaced by either two dashes or contained within two dashes and two square brackets. These elements are called **comments**, and they are very useful for annotating your code. Although EX-XDRiVER will not read your comments when it runs your mod file, comments allow you to annotate your mods with information like functionality, notes, warnings, and even checkpoint headers. Comments not only make your code more readable to yourself, but they also make your code more readable to *other people*, enabling easier collaboration and cross-referencing.
+
+## Local Keyword
+
+Both function definitions and variable assignments use the `local` keyword, but the truth is they don't have to. The `local` keyword means that the scope of the defined variable or function is limited to the block it was defined in. A **block** is a section of code that is contained by some control structure (ex. for loop, if-else statement, and function) and indented out. Blocks layer on top of each other so that code in a deeper block cannot be accessed by code in a more shallow block. Additionally, a local variable cannot be accessed if its declaration appears after its reference.
+
+```lua
+local x = 1
+
+if (true) then
+	local y = 2
+
+	if (true)
+		local z = 3
+		--[[ Accessible values:
+		x = 1
+		y = 2
+		z = 3
+		]]
+	end
+	--[[ Accessible values:
+	x = 1
+	y = 2
+	z = nil
+	]]
+end
+--[[ Accessible values:
+x = 1
+y = nil
+z = nil
+]]
+
+```
+
+In Lua, variables without the `local` keyword are possible, and they are called **global** variables. Variables defined as global can be defined on any block depth and still be accessed within shallower blocks. As an example, if z were to be defined without the `local` keyword, its value of `3` could be accessed by all blocks more shallow than it. In theory, this could allow you to bypass some programming challenges. In practice, using global variables can result in messy, unoptimized code. Typically, you should try to avoid using global variables and instead declare `local` variables in the proper scopes.
+
+---
+
+That might not seem like a lot (or it might, depending on your familiarity with programming), but with that functionality alone, you can right optimized and expressive modfiles for EX-XDRiVER. Lua has a lot more functionality than that described in this, however. If you'd like to learn more about Lua's functionality, it's best that you read through the official [Lua documentation](https://www.lua.org/pil/contents.html). Whether you go on to code your modfile or some helpful Lua-based software, best of luck!
