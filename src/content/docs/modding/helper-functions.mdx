@@ -1,0 +1,94 @@
+---
+title: "Helper Function Heap"
+description: Reference a bunch of awesome helper functions!
+---
+
+import { Aside } from '@astrojs/starlight/components';
+import { Code } from '@astrojs/starlight/components';
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { Badge } from '@astrojs/starlight/components';
+
+<Aside type="note" title="Recommended Precursors">
+
+- Finished set up for a .xdrv chart (file organization, metadata, and timing)
+- Finished set up for .xdrv modding (.lua file created and linked)
+- Started/finished patterning for a .xdrv chart
+
+*This passage has a bunch of miscellaneous helper functions for XDRV modfiles!*
+
+</Aside>
+
+As discussed in Lua: Abridged for XDRV, helper functions can make programming mods in XDRV a lot easier and much more succinct. If you have one or two functions that you find to be generally useful for a lot of modfiles, you may find yourself copying and pasting them from file to file. If you don't have any functions like that yet, maybe you'll be able to find one here!
+
+This page contains several helper functions by various XDRV charters. All helper functions in the repository can be viewed as separate files on this page. If you would prefer to read the helper functions from the GitHub itself, you can do so by going to the [code directory](https://github.com/theblockiest/xdrv-charting-guide/tree/master/src/assets/code) of the GitHub repository. I recommend looking at the `all.lua` file in each subdirectory, which contains all the functions from the other files in the folder.
+
+<Aside type="tip" title="Seeking Contributions">
+
+If you would like to contribute your own helper function to this page, you are more than welcome to! Please refer to the contribution docs for the correct process and metadata details.
+
+</Aside>
+
+### Pulse Functions
+
+***Author:* TheBlockiest**
+<Badge text="Events" variant="note" /><Badge text="Alpha" variant="note" />
+
+These functions create a "pulse" effect in the background, increasing the background's alpha value to one value, holding it for some (or no) time, and then decreasing it to another value. Pulses can be great for representing percussive elements like kicks, snares, and crashes.
+
+import pulse from '../../../assets/code/pulse/pulse.lua?raw'
+import pulseLeft from '../../../assets/code/pulse/pulseLeft.lua?raw'
+import pulseRight from '../../../assets/code/pulse/pulseRight.lua?raw'
+import pulseBoth from '../../../assets/code/pulse/pulseBoth.lua?raw'
+
+<Tabs>
+	<TabItem label="pulse">
+		<Code code={pulse} lang="lua" title = {"pulse.lua"}/>
+	</TabItem>
+	<TabItem label="pulseLeft">
+		<Code code={pulseLeft} lang="lua" title = {"pulseLeft.lua"}/>
+	</TabItem>
+	<TabItem label="pulseRight">
+		<Code code={pulseRight} lang="lua" title = {"pulseRight.lua"}/>
+	</TabItem>
+	<TabItem label="pulseBoth">
+		<Code code={pulseBoth} lang="lua" title = {"pulseBoth.lua"}/>
+	</TabItem>
+</Tabs>
+
+### Split Alpha Functions
+
+***Author:* TheBlockiest**
+<Badge text="Events" variant="note" /><Badge text="Alpha" variant="note" />
+
+import splitAlpha from '../../../assets/code/split_alpha/splitAlpha.lua?raw'
+import mergeAlpha from '../../../assets/code/split_alpha/mergeAlpha.lua?raw'
+
+These functions swap the values of `PathAlpha` with the values of `LeftPathAlpha` and `RightPathAlpha`. This allows you to seamlessly swap whether alpha values are controlled together or individually.
+
+<Tabs>
+	<TabItem label="splitAlpha">
+		<Code code={splitAlpha} lang="lua" title = {"splitAlpha.lua"}/>
+	</TabItem>
+	<TabItem label="mergeAlpha">
+		<Code code={mergeAlpha} lang="lua" title = {"mergeAlpha.lua"}/>
+	</TabItem>
+</Tabs>
+
+### Check Table Functions
+
+***Author:* TheBlockiest**
+<Badge text="Data" variant="note" />
+
+These functions check for a value within a list (a sequentially & numerically-indexed table) or a table (any table). This functions can be useful if you want to exclude specific beats from a repeated mod.
+
+import checkList from '../../../assets/code/check_table/checkList.lua?raw'
+import checkTable from '../../../assets/code/check_table/checkTable.lua?raw'
+
+<Tabs>
+	<TabItem label="checkList">
+		<Code code={checkList} lang="lua" title = {"checkList.lua"}/>
+	</TabItem>
+	<TabItem label="checkTable">
+		<Code code={checkTable} lang="lua" title = {"checkTable.lua"}/>
+	</TabItem>
+</Tabs>

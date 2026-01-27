@@ -19,7 +19,7 @@ Otherwise, you're in the right place!*
 
 ---
 
-Lua is a lightweight, high-level programming that is used to create XDRV modfiles. As a language, Lua is a great pick for XDRV modding for several reasons: it is easy to learn, requires minimal structuring, and is also familiar to many charters in the scene. Many other rhythm games, such as NotITG, use Lua to support modding functionality. Additionally, Trackmaker is built with Lua (specifically, it uses the LÖVE game engine).
+Lua is a lightweight, high-level programming language that is used, among other things, to create XDRV modfiles. As a language, Lua is a great pick for XDRV modding for several reasons: it is easy to learn, requires minimal structuring, and is also familiar to many charters in the scene. Many other rhythm games, such as NotITG, use Lua to support modding functionality. Additionally, Trackmaker is built with Lua (specifically, it uses the LÖVE game engine).
 
 In XDRV, modfiles work by invoking the XDRV API's functions, sending instructions to the game to execute mods or background events. XDRV modfiles can use the full suite of Lua functionality, but only a small subset of Lua knowledge is necessary to make modfiles that are optimized, clean, and expressive. This passage will go over those basic functionalities sequentially.
 
@@ -31,7 +31,7 @@ In EX-XDRiVER, Lua modfiles are able to reference `xdrv`, a data structure conta
 
 If a parameter is a string, it must be written with single quotes (`''`) or double quotes (`""`) around it.
 
-If a parameter is a number, it must be some numerical representation.
+If a parameter is a number, it must be some numerical representation (eg. 1, 1.0, 1e0).
 
 </Aside>
 
@@ -102,7 +102,7 @@ Runs a background event. Note that background events have different parameter co
 - timeValue: number
 	- The beat or time in seconds to start the background event at, depending on what beatOrTime is.
 - data...
-	- Additional parameters, based on the background event you are invoking
+	- Additional parameters, based on the background event you are invoking.
 
 </Card>
 
@@ -128,7 +128,7 @@ Technically, the `local` keyword isn't needed to declare a variable! In fact, no
 
 </Aside>
 
-In Lua, variable names can be composed of lowercase letters, uppercase letters, digits, and underscore, although the first character of a variable name cannot be a digit. Variable names are case-sensitive, meaning that `foo`, `Foo`, and `FOO` are all different variables. Good convention is to make your variable names descriptive of the value they store, using camelCase or underscores to separate words.
+In Lua, variable names can be composed of lowercase letters, uppercase letters, digits, and underscore, although the first character of a variable name cannot be a digit. Variable names are case-sensitive, meaning that `beat`, `Beat`, and `BEAT` are all different variables. Good convention is to make your variable names descriptive of the value they store, using camelCase or underscores to separate words.
 
 The assignment operator `=` tells the program to assign the value on its right to the variable on its left. Bear in mind that some similar symbols, such as `==`, operate differently and cannot be used interchangeably.
 

@@ -46,6 +46,7 @@ export default defineConfig({
 					items: [
 						{ label: 'Modding Tools?', slug: 'modding/tools' },
 						{ label: 'Lua: Abridged for XDRV', slug: 'modding/lua' },
+						{ label: 'Helper Function Heap', slug: 'modding/helper-functions' },
 					],
 				},
 				{
