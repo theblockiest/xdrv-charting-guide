@@ -1,0 +1,36 @@
+---
+title: "Contribution Docs"
+description: Guidelines for those interested in contributing helper functions to Helper Function Heap.
+---
+
+import { Aside } from '@astrojs/starlight/components';
+import { Code } from '@astrojs/starlight/components';
+import { Badge } from '@astrojs/starlight/components';
+
+<Aside type="note" title="Recommended Precursors">
+
+- Created some useful helper function for xdrv modfiles
+- Have read through all helper functions in [Helper Function Heap](/xdrv-charting-guide/modding/helper-functions)
+
+*This passage has a bunch of miscellaneous helper functions for XDRV modfiles!*
+
+</Aside>
+
+## Organization
+
+## Formatting & Documentation
+
+## MDX Content
+
+## Valid Tags
+
+Tags are used to help charters look through the Helper Function Heap page with more ease. The following tags are all valid for your helper function set.
+
+| Tag | Description |
+| --- | --- |
+| <Badge text="Events" variant="note" /> | Any helper functions that use events <br/>(ie. call `xdrv.RunEvent`). |
+| <Badge text="Chart Mods" variant="note" /> | Any helper functions that primarily use chart mods <br/>(ie. call `xdrv.Set` or `xdrv.Ease` w/o an Id param). |
+| <Badge text="Note Mods" variant="note" /> | Any helper functions that primarily use note mods <br/>(ie. call `xdrv.Set` or `xdrv.Ease` w/ a Id param). |
+| <Badge text="Alpha" variant="note" /> | Any helper functions that interact with the alpha values of backgrounds. |
+| <Badge text="Bloom" variant="note" /> | Any helper functions that interact with the bloom of backgrounds. |
+| <Badge text="Data" variant="note" /> | Any helper functions that process Lua data. |
