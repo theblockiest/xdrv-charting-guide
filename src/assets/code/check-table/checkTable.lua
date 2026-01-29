@@ -19,3 +19,9 @@ local function checkTable(elt, t)
     end
     return false
 end
+
+local table = {["X"]=1,["D"]=3,["R"]=4,["V"]=6}
+local hasElt = checkTable(3,table)
+-- hasElt = true
+local hasElt2 = checkTable(5,table)
+-- hasElt2 = false

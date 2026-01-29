@@ -27,3 +27,5 @@ local function pulseLeft(pulseAlpha, endAlpha, startBeat, beatDurations)
 
 	xdrv.RunEvent("EaseLeftPathAlpha","beat",outStartBeat,endAlpha, outDuration)
 end
+
+pulseLeft(0.9,0.3,12,{0.25,0,0.75})

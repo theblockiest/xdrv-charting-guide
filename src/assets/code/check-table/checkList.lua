@@ -20,3 +20,9 @@ local function checkList(elt, list)
     end
     return false
 end
+
+local list = {1,3,4,6}
+local hasElt = checkList(3,list)
+-- hasElt = true
+local hasElt2 = checkList(5,list)
+-- hasElt2 = false

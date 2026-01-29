@@ -14,3 +14,5 @@ local function mergeAlpha(beat, alpha)
 	xdrv.RunEvent("SetLeftPathAlpha","beat",beat,1)
 	xdrv.RunEvent("SetRightPathAlpha","beat",beat,1)
 end
+
+mergeAlpha(16,0.5)

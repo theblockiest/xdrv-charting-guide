@@ -14,3 +14,5 @@ local function splitAlpha(beat, alpha)
 	xdrv.RunEvent("SetLeftPathAlpha","beat",beat,alpha)
 	xdrv.RunEvent("SetRightPathAlpha","beat",beat,alpha)
 end
+
+splitAlpha(8,0.5)

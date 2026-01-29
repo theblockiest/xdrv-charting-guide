@@ -28,7 +28,4 @@ local function pulseRight(pulseAlpha, endAlpha, startBeat, beatDurations)
 	xdrv.RunEvent("EaseRightPathAlpha","beat",outStartBeat,endAlpha, outDuration)
 end
 
-local function PulseBoth(pulseAlpha, endAlpha, startBeat, beatDurations)
-	PulseLeft(pulseAlpha, endAlpha, startBeat, beatDurations)
-	PulseRight(pulseAlpha, endAlpha, startBeat, beatDurations)
-end
+pulseRight(0.9,0.3,12,{0.25,0,0.75})
