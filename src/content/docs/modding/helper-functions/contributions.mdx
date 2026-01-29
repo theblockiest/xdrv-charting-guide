@@ -4,23 +4,174 @@ description: Guidelines for those interested in contributing helper functions to
 ---
 
 import { Aside } from '@astrojs/starlight/components';
-import { Code } from '@astrojs/starlight/components';
 import { Badge } from '@astrojs/starlight/components';
+import { FileTree } from '@astrojs/starlight/components';
+import { Code } from '@astrojs/starlight/components';
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { Steps } from '@astrojs/starlight/components';
 
 <Aside type="note" title="Recommended Precursors">
 
 - Created some useful helper function for xdrv modfiles
-- Have read through all helper functions in [Helper Function Heap](/xdrv-charting-guide/modding/helper-functions)
-
-*This passage has a bunch of miscellaneous helper functions for XDRV modfiles!*
+- Looked through all helper functions in [Helper Function Heap](/xdrv-charting-guide/modding/helper-functions)
 
 </Aside>
 
+This passage describes the expectations for individuals submitting helper functions to this repository.
+
 ## Organization
+
+In this repository, lua files are grouped based on general purpose and author. If a set of lua files fulfill distinct purposes or are written by different charters, they will receive separate folders. With that said, lua files that are functionally similar to preexisting lua files will generally not be accepted to the repository to avoid bloat. As long as your functions serve a distinct purpose from the functions that already exist, they are a welcome addition. *What counts as "functionally similar" is up to the discretion of repository managers.*
+
+Each folder is organized like so: for starters, your folder should have some title that connects and summarizes the behavior of the contained functions. For consistency, the folder's name should be written with `kebab-case`. Within each folder, you should then have each function separated into its own lua file. Each of these files should be named after the contained function. No casing is required for your function names, although making your function and file name match is ideal. Lastly, you should include an `all.lua` file which compiles all of the functions from the individual files inside of them.
+
+<FileTree>
+
+- src/assets/code
+    - check-table/
+    - pulse Your folder name
+        - all.lua Contains all functions below
+        - pulse.lua
+        - pulseBoth.lua
+        - pulseLeft.lua
+        - pulseRight.lua
+    - split-alpha/
+
+</FileTree>
 
 ## Formatting & Documentation
 
+Each of your script files should consist of a function, a comment with function documentation, and at least one example of its use. If your function requires constant variable definitions to work, you should include those in the file too. Since Lua doesn't have a standardized style guide, feel free to format your function as you choose. Conventional casing is preferred, however.
+
+<Aside type="tip" title="Typical Casing">
+
+For Lua, these are some of the most common practices for casing are:
+
+- `camelCase` or `snake_case` for local variables and functions with
+- `CONSTANT_CASE` for constant variables.
+- `PascalCase` for classes and class functions.
+
+</Aside>
+
+As for your documentation, you should use either [Lua Language Server annotations](https://github.com/LuaLS/lua-language-server/wiki/Annotations) or the following custom comment format:
+
+```lua
+-- TEMPLATE DOCUMENTATION FORMAT --
+--[[
+functionName(paramName, paramName, ...)
+Description of what the function does
+
+Implementation:
+Additional functions, variables, or considerations necessary for adding this function to mod files
+
+Parameters:
+- paramName: description / type of the parameter
+    - Additional parameter info
+- ...
+
+Returns:
+- Return value / type and case of the return value (if it exists)
+- ...
+]]
+
+```
+
+Although the custom comment format is more readable in some instances, LLS documentation is popular and is therefore a valid alternative.
+
+As for your use examples, simply call the function with all the necessary parameters. If your function returns a value, you may want to include multiple use instances that all return different things. Adding explanatory variables or comments may also be useful, but try to keep it concise.
+
+### Creating Your `all.lua` File
+
+Once you add your individual function files to the folder, you can now create an `all.lua` containing all content. Here's a quick run-through of what that looks like:
+
+<Steps>
+
+1. Create your `all.lua` file in the folder. 
+
+2. Add your name and function tags to the top of the script. A list of valid tags can be found [here](#valid-tags).
+
+    ```lua
+    --Author: [AUTHOR NAME]
+    --Tags: [TAGS]
+    ```
+
+3. Add a comment with a free-use license such as the MIT License, filling your name into the proper fields.
+
+    ```lua
+    --[[
+    MIT License
+
+    Copyright (c) 2026 [AUTHOR NAME]
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE.
+    ]]
+    ```
+
+4. Add your constants, functions, and function documentation into each file to the `all.lua` file. Be mindful of your `Implementation` limitations as your combine the functions into one script.
+
+    - You do not need to transfer examples.
+
+</Steps>
+
+
 ## MDX Content
+
+Once you've added your format files to the lua tree, you can then update [Helper Function Heap](/xdrv-charting-guide/modding/helper-functions) with your code and some additional information. This information includes a summative title for your helper functions, your author name, formatted tags, and a brief description of your code's functionality and potential use cases.
+
+<Tabs>
+<TabItem label="Template">
+```
+### [TITLE]
+
+***Author:* [AUTHOR NAME]**
+    <Badge text="[BADGE NAME]" variant="note" /><Badge text="[...]" variant="note" />
+
+    [FUNCTION DESCRIPTION]
+
+    import [SCRIPT VAR] from '../../../assets/code/[FOLDER NAME]/[SCRIPT NAME].lua?raw'
+
+    <Tabs>
+	    <TabItem label="[SCRIPT NAME]">
+		    <Code code={[SCRIPT VAR]} lang="lua" title = {"[SCRIPT NAME]"}/>
+	    </TabItem>
+	    *Copy the TabItem and add another import statement to have multiple scripts under the same Tab object.*
+    </Tabs>
+```
+</TabItem>
+    <TabItem label="Preview">
+
+    ### Title
+
+    ***Author:* Author Name**
+    <Badge text="Badge Name" variant="note" /><Badge text="..." variant="note" />
+
+    Function description...
+
+    <Tabs>
+	    <TabItem label="script.lua">
+		    <Code code={`Script content...`} lang="lua" title = {"script.lua"}/>
+	    </TabItem>
+    </Tabs>
+
+    ---
+</TabItem>
+</Tabs>
 
 ## Valid Tags
 
