@@ -17,13 +17,13 @@ import { Steps } from '@astrojs/starlight/components';
 
 </Aside>
 
-This passage describes the expectations for individuals submitting helper functions to this repository.
+This passage describes the expectations for those interested in submitting helper functions to this repository.
 
 ## Organization
 
-In this repository, lua files are grouped based on general purpose and author. If a set of lua files fulfill distinct purposes or are written by different charters, they will receive separate folders. With that said, lua files that are functionally similar to preexisting lua files will generally not be accepted to the repository to avoid bloat. As long as your functions serve a distinct purpose from the functions that already exist, they are a welcome addition. *What counts as "functionally similar" is up to the discretion of repository managers.*
+In this repository, `.lua` files are grouped based on general purpose and author. If a set of `.lua` files fulfill distinct purposes or are written by different authors, they receive separate folders. With that said, additions that are functionally similar to preexisting `.lua` files will typically not be accepted to avoid bloat. As long as your functions serve a distinct purpose from the functions that already exist, they are a welcome addition.<br/>*What counts as "functionally similar" is up to the discretion of repository managers.*
 
-Each folder is organized like so: for starters, your folder should have some title that connects and summarizes the behavior of the contained functions. For consistency, the folder's name should be written with `kebab-case`. Within each folder, you should then have each function separated into its own lua file. Each of these files should be named after the contained function. No casing is required for your function names, although making your function and file name match is ideal. Lastly, you should include an `all.lua` file which compiles all of the functions from the individual files inside of them.
+Each folder is organized like so: first, your folder should have some title that connects and summarizes the behavior of the contained functions. For consistency, the folder's name should be written with `kebab-case`. Then, within each folder, each function should be separated into its own lua file. Each file's name should match the name of its function. Lastly, you should include an `all.lua` file which compiles all of the functions from the individual files inside of them.
 
 <FileTree>
 
@@ -41,7 +41,7 @@ Each folder is organized like so: for starters, your folder should have some tit
 
 ## Formatting & Documentation
 
-Each of your script files should consist of a function, a comment with function documentation, and at least one example of its use. If your function requires constant variable definitions to work, you should include those in the file too. Since Lua doesn't have a standardized style guide, feel free to format your function as you choose. Conventional casing is preferred, however.
+Each of your script files should consist of a function, a comment with function documentation, and at least one example of its use. If your function requires constant variable definitions to work, you should include those too. Since Lua doesn't have a standardized style guide, feel free to format your function as you choose. Conventional casing is preferred, however.
 
 <Aside type="tip" title="Typical Casing">
 
@@ -62,7 +62,7 @@ functionName(paramName, paramName, ...)
 Description of what the function does
 
 Implementation:
-Additional functions, variables, or considerations necessary for adding this function to mod files
+Additional functions, variables, or considerations necessary for adding this function to modfiles
 
 Parameters:
 - paramName: description / type of the parameter
@@ -82,13 +82,13 @@ As for your use examples, simply call the function with all the necessary parame
 
 ### Creating Your `all.lua` File
 
-Once you add your individual function files to the folder, you can now create an `all.lua` containing all content. Here's a quick run-through of what that looks like:
+Once you add your individual function files to the folder, you can now create an `all.lua` file containing all functions. Here's a quick run-through of the assembly process:
 
 <Steps>
 
 1. Create your `all.lua` file in the folder. 
 
-2. Add your name and function tags to the top of the script. A list of valid tags can be found [here](#valid-tags).
+2. Add your name and function tags to the top of the file. A list of valid tags can be found [here](#valid-tags).
 
     ```lua
     --Author: [AUTHOR NAME]
@@ -123,16 +123,16 @@ Once you add your individual function files to the folder, you can now create an
     ]]
     ```
 
-4. Add your constants, functions, and function documentation into each file to the `all.lua` file. Be mindful of your `Implementation` limitations as your combine the functions into one script.
+4. Add the constants, functions, and function documentation from each file into the `all.lua` file. Be mindful of your `Implementation` limitations as you combine the functions into one script.
 
-    - You do not need to transfer examples.
+    - Please do not transfer the examples.
 
 </Steps>
 
 
-## MDX Content
+## Website Content
 
-Once you've added your format files to the lua tree, you can then update [Helper Function Heap](/xdrv-charting-guide/modding/helper-functions) with your code and some additional information. This information includes a summative title for your helper functions, your author name, formatted tags, and a brief description of your code's functionality and potential use cases.
+Once you've added your functions to the repository, you can then update `helper-functions.mdx` with your code and some additional information. This information includes a summative title for your helper functions, your author name, formatted tags, and a brief description of your code's functionality and potential use cases.
 
 <Tabs>
 <TabItem label="Template">
@@ -175,7 +175,7 @@ Once you've added your format files to the lua tree, you can then update [Helper
 
 ## Valid Tags
 
-Tags are used to help charters look through the Helper Function Heap page with more ease. The following tags are all valid for your helper function set.
+Tags are used to help charters look through the Helper Function Heap page. The following tags are all valid for your helper function set.
 
 | Tag | Description |
 | --- | --- |
@@ -185,3 +185,7 @@ Tags are used to help charters look through the Helper Function Heap page with m
 | <Badge text="Alpha" variant="note" /> | Any helper functions that interact with the alpha values of backgrounds. |
 | <Badge text="Bloom" variant="note" /> | Any helper functions that interact with the bloom of backgrounds. |
 | <Badge text="Data" variant="note" /> | Any helper functions that process Lua data. |
+
+---
+
+Thank you for expressing interest in adding helper functions to this charting guide! If you need any help, feel free to reach out to me via Discord (theblockiest).
