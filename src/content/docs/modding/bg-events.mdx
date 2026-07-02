@@ -18,17 +18,17 @@ import { Badge } from '@astrojs/starlight/components';
 
 </Aside>
 
-With each EX-XDRiVER chart, the process of "modding" can be broken down into two separate parts: **background events** and **track / note mods**. Background events are often overlooked, as the idea of modding typically associated with the movement of tracks, cameras, and other components in the scene. Background events are very important, however. A chart with mods but no background events may still feel as if it is missing something.
+In EX-XDRiVER, the importance of background events are often overlooked, as the camera and track motions that compose mods typically steal the spotlight. Despite this, background events are very important. A chart with mods but no background events may still feel as if it is missing something.
 
-In XDRV, background events take a variety of forms. One common type of background event is the manipulation of "alphas", or opacities, of visual elements in the background. Similarly, background events can be used to change the alpha values of UI components and the intensity and diffusion of bloom. Many backgrounds have additional, more specialized events. Whether it be visual overlays or moving components, the background you pick for your chart determines what background events you'll have access to.
+In XDRV, background events take a variety of forms. One common type of background event is the manipulation of alpha values (opacities) of visual elements in the background. Similarly, background events can be used to change the alpha values of UI components and the intensity and diffusion of bloom. Many backgrounds have additional, more specialized events. Whether it be visual overlays or moving components, the background you pick for your chart determines what background events you'll have access to.
 
 ## Writing Background Events
 
-That's not the only decision behind background events, however. Before you write any background events, you can decide whether or not to write your background events **directly into the `.xdrv` file** or **into the `.lua` file with function calls**. Each approach has pros and cons.
+Which background you use is not the only decision behind background events, however. Before you write any background events, you can decide whether to write your events **directly into the `.xdrv` file** or **into the `.lua` file with function calls**. Both approaches have pros and cons.
 
 ### Method 1: `.xdrv` Events
 
-To write background events directly into a `.xdrv` file, a charter opens the file and navigates to the beat (the line of notes composing the beat) where they want the event to occur. On the line before this beat, the author should create a `#EVENT` timing segment, populating it with the necessary information for the mod to work. 
+To write background events directly into a `.xdrv` file, you must open the file and navigates to the beat (the line of notes at that beat) that you want the event to occur at. You must then create a `#EVENT` line above the beat, populating it with the necessary information for the mod to work. 
 
 <Card title="#EVENT" icon="pencil">
 
@@ -36,7 +36,7 @@ To write background events directly into a `.xdrv` file, a charter opens the fil
 #EVENT=EventName,AdditionalParameters...
 ```
 
-Sets the value of a moddable field at a given time.
+Performs a background event at the next beat subdivision in the `.xdrv` file.
 
 ***Parameters:***
 - EventName: The name of the event to call.
@@ -52,7 +52,7 @@ All together, an event timing segment within a chart looks like this:
 // B100
 010-010|00|0
 #EVENT=EasePathAlpha,0.5,1,false,InOutQuad
-010-010|00|0
+010-010|00|0 // background event starts here
 --
 ```
 *This event eases the background's path alpha to 0.5 using an InOutQuad ease function. The event starts at beat 100.5 and lasts 1 beat, ending at beat 101.5.*
@@ -60,27 +60,26 @@ All together, an event timing segment within a chart looks like this:
 
 <Aside type="tip" title="Noteless Background Events">
 
-If you want an event to start at a beat value where no notes exist, you can add empty lines break the beat up into larger subdivisions, ensuring that you do not accidentally change the timing of the note, and then add the event in the desired place.
+If you want an event to start at a beat value where no notes exist, you can add empty note lines to break the beat up into smaller subdivisions, ensuring that you do not accidentally change the timing of the notes, and then add the event in the desired place.
 
 ```
 --
+// B100
 010-010|00|0
 000-000|00|0 // empty line
 000-000|00|0 // empty line
 #EVENT=EasePathAlpha,0.5,1,false,InOutQuad
-000-000|00|0 // empty line
+000-000|00|0 // empty line, background event starts here
 --
 ```
 *The event now starts at B101.75, even though no notes exist at that beat.*
 
 </Aside>
 
-*In this example, the previous event is now placed 0.75 beats after the start of the beat.*
-
 ### Method 2: `.lua` Events
 <Badge text="Recommended" variant="success"/>
 
-If a charter would rather add their events to their modfile, as opposed to their `.xdrv` file, they can do so using function calls. In specific, the `xdrv.RunEvent` function allows a charter to execute any supported background event from within their `.lua` modfile.
+If you would rather add their events to your modfile as opposed to your `.xdrv` file, you can do so using function calls. In specific, the `xdrv.RunEvent` function allows you to execute any supported background event from within your `.lua` modfile.
 
 <Card title="xdrv.RunEvent" icon="pencil">
 
@@ -88,7 +87,7 @@ If a charter would rather add their events to their modfile, as opposed to their
 xdrv.RunEvent(eventName, beatOrTime, timeValue additionalParameters...)
 ```
 
-Sets the value of a moddable field at a given time.
+Performs a background event at a particular beat or time.
 
 ***Parameters:***
 - eventName: string
@@ -107,42 +106,46 @@ An event call within a `.lua` modfile looks like this:
 
 ```lua
 xdrv.RunEvent("EasePathAlpha","beat",100.5,0.5,1,false,"InOutQuad")
+-- Eases the background path alpha to 0.5
+-- Starts at beat 100.5 and lasts 1 beat (ends at beat 101.5)
+-- Follows the InOutQuad easing function.
 ```
-*As with the first example, this event eases the background's path alpha to 0.5 using an InOutQuad ease function. The event starts at beat 100.5 and lasts 1 beat, ending at beat 101.5.*
 
-When used in tandem with Lua functionality like for and while loops, helper functions, and even directly reading note data, background events can be automated to do a lot of events with less writing. (If you're not sure what this functionality looks like, you should check [the Lua guide in this charting guide](/xdrv-charting-guide/modding/lua/)).
+When used in tandem with Lua functionality such as loops, helper functions, and reading note data, background events can be automated to initiate several events with only a few lines. (If you're not sure what that functionality looks like, you should check [the Lua guide in this charting guide](/xdrv-charting-guide/modding/lua/)).
 
 ### Evaluating the Event Methods
 
-Depending on your skill level and the software you use to create charts, you may find one method of creating background events more appealing than the other. Generally, if you are decently familiar with the Lua language and can write a few lines, doing background events in the `.lua` file is easier. If coding isn't your forte, however, you may find writing background events into the `.xdrv` file to be more ideal. With that said, pros and cons for each method do exist:
+Depending on your skill level and the software you use to create charts, you may find one method of creating background events more appealing than the other. Generally, if you are decently familiar with the Lua language and can write a few lines, doing background events in the `.lua` file is more efficient. If coding isn't your forte, however, you may find writing background events in the `.xdrv` file to be more ideal. With that said, pros and cons for each method do exist:
 
 <Tabs>
 	<TabItem label="Method One: #EVENT">
 
 	##### Pros
-	- Notes and background events are placed side-by-side
+	- Patterns and background events are placed side-by-side
 	- No programming required
-	- Supports simpler, less complex background events
+	- Promotes simpler, less complex background events
 	##### Cons
 	- Automation is not possible
 	- Copy-pasting is required for repeated events
 	- Can cause background events to be disjointed from mods
-	- Quantizations in the `.xdrv` file may need to be edited
+	- Subdivisions in the `.xdrv` file may need to be edited
+	- Can only place events at beat values
 
 	</TabItem>
 	<TabItem label="Method Two: xdrv.RunEvent">
 
-	This method is **recommended** for those actively learning the XDRV modding process.
+	This method is **recommended** for those actively learning the XDRV chart design process.
 
 	##### Pros
 	- Mods and background events are placed side-by-side
-	- Quantizations in the `.xdrv` file do not need to be edited
+	- Subdivisions in the `.xdrv` file do not need to be edited
 	- Automation is possible via Lua functionality
 	- Copy-pasting background events can be minimized via good coding conventions (i.e. helper functions)
-	- Supports more complex & intricate mods
+	- Promotes more complex & intricate mods
+	- Can place events at beat *or* time values
 	##### Cons
 	- Requires programming
-	- Can cause background events to be disjointed from notes
+	- Can cause background events to be disjointed from patterns
 
 	</TabItem>
 </Tabs>
@@ -151,14 +154,12 @@ Depending on your skill level and the software you use to create charts, you may
 
 <Aside type="caution" title="Technical Limitations">
 
-Before Trackmaker was widely adopted for XDRV charting, ArrowVortex was the main charting tool used. ArrowVortex had rudimentary support for creating, cloning, and editing background events. Trackmaker, in comparison does not fully support background event editing, although some functional components are present.
+Before Trackmaker was widely adopted for XDRV charting, ArrowVortex was the main charting tool used. ArrowVortex had rudimentary support for creating, cloning, and editing background events. Trackmaker, in comparison, does not offer full support for background event editing.
 
-Since Trackmaker edits the `.xdrv` file as opposed to the modfile, it may become more viable to add events directly to a chart file in the future. For now, however, it's best to learn how to do events in Lua, since it's the standard approach and generally supports more automation.
+Since Trackmaker edits the `.xdrv` file as opposed to the modfile, it may become more viable to add events directly to a chart file in the future. For now, however, it's best to learn how to do background events in Lua, since it's the standard approach and supports the most automation.
 
 </Aside>
 
 ---
 
-Knowing how to create background events is a great place to start. Creating interesting background events for a chart can make charts feel more full and fitting to the larger body of XDRV charting. With that in mind, knowing the most optimal way to use different *types* of background events is a challenge in of itself; this challenge will discussed in the next section.
-
--- >> Todo: Move this to a separate file
+Knowing how to create background events is a great place to start. Creating interesting background events for a chart can make the chart feel more full and impactful. With that in mind, knowing the most optimal way to use different *types* of background events is a challenge in of itself; this challenge will discussed in the next section.
