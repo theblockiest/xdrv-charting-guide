@@ -5,6 +5,7 @@ description: Create mods for XDRV charts!
 
 import { Aside } from '@astrojs/starlight/components';
 import { Card } from '@astrojs/starlight/components';
+import { Code } from '@astrojs/starlight/components';
 import { Badge } from '@astrojs/starlight/components';
 import { YouTube } from 'astro-embed';
 
@@ -22,6 +23,8 @@ While background events can improve the emphasis and fullness of a chart, track 
 In XDRV, mods can manipulate a variety of different fields in your chart. The most common values for charts to manipulate are camera motion, track speed, and track motion / scale. Many more unique fields can also be modded, including the scale and position of certain note types, the opacity and color of certain track elements, the field of the view of the camera, and more.
 
 <YouTube id="23gnFKSpSsc"/>
+
+---
 
 ## Writing Mods
 
@@ -135,6 +138,14 @@ xdrv.Set("speed",0.5,1,"beat",0,"end",4,"InSine")
 	In EX-XDRiVER, if the ease field is omitted from an ease or background event function call, the easing function of the mod will default to "InOutSine".
 
 </Aside>
+
+## Example `.lua` File
+
+The video at the top of the page uses the following modfile to achieve its mods:
+
+import exampleLua from '../../../assets/charts/Mods Example/HYPER_mods.lua?raw'
+
+<Code code={exampleLua} lang="lua" title = {"mods.lua"}/>
 
 ---
 

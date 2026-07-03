@@ -6,6 +6,7 @@ description: Create background events for XDRV charts!
 import { Aside } from '@astrojs/starlight/components';
 import { Card } from '@astrojs/starlight/components';
 import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { Code } from '@astrojs/starlight/components';
 import { Badge } from '@astrojs/starlight/components';
 import { YouTube } from 'astro-embed';
 
@@ -23,6 +24,8 @@ In EX-XDRiVER, the importance of background events are often overlooked, as the 
 In XDRV, background events take a variety of forms. One common type of background event is the manipulation of alpha values (opacities) of visual elements in the background. Similarly, background events can be used to change the alpha values of UI components and the intensity and diffusion of bloom. Many backgrounds have additional, more specialized events. Whether it be visual overlays or moving components, the background you pick for your chart determines what background events you'll have access to.
 
 <YouTube id="QVU7JHo7dEA"/>
+
+---
 
 ## Writing Background Events
 
@@ -161,6 +164,14 @@ Before Trackmaker was widely adopted for XDRV charting, ArrowVortex was the main
 Since Trackmaker edits the `.xdrv` file as opposed to the modfile, it may become more viable to add events directly to a chart file in the future. For now, however, it's best to learn how to do background events in Lua, since it's the standard approach and supports the most automation.
 
 </Aside>
+
+## Example File
+
+The video at the top of the page uses the following modfile to achieve its background events:
+
+import exampleLua from '../../../assets/charts/Events Example/HYPER_mods.lua?raw'
+
+<Code code={exampleLua} lang="lua" title = {"mods.lua"}/>
 
 ---
 
