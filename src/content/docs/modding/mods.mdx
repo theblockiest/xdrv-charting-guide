@@ -5,9 +5,8 @@ description: Create mods for XDRV charts!
 
 import { Aside } from '@astrojs/starlight/components';
 import { Card } from '@astrojs/starlight/components';
-import { LinkCard } from '@astrojs/starlight/components';
-import { Tabs, TabItem } from '@astrojs/starlight/components';
 import { Badge } from '@astrojs/starlight/components';
+import { YouTube } from 'astro-embed';
 
 <Aside type="note" title="Recommended Precursors">
 
@@ -21,6 +20,8 @@ import { Badge } from '@astrojs/starlight/components';
 While background events can improve the emphasis and fullness of a chart, track and note mods are how XDRV charts truly get their visual identity. Unlike background events, which can be added to either the `.xdrv` file or the `.lua` modfile, mods can only be done in the modfile via Lua programming.
 
 In XDRV, mods can manipulate a variety of different fields in your chart. The most common values for charts to manipulate are camera motion, track speed, and track motion / scale. Many more unique fields can also be modded, including the scale and position of certain note types, the opacity and color of certain track elements, the field of the view of the camera, and more.
+
+<YouTube id="23gnFKSpSsc"/>
 
 ## Writing Mods
 
@@ -131,7 +132,7 @@ xdrv.Set("speed",0.5,1,"beat",0,"end",4,"InSine")
 
 <Aside type="tip" title="Easing Defaults">
 	
-	In EX-XDRiVER, if the ease field is omitted from an ease function call, the easing function of the mod will default to "InOutSine". While this can be convenient, it is typically better to be explicit with your easing functions, as this allows for better readability and easier changes later.
+	In EX-XDRiVER, if the ease field is omitted from an ease or background event function call, the easing function of the mod will default to "InOutSine".
 
 </Aside>
 
