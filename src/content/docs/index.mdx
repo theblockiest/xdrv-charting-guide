@@ -12,27 +12,35 @@ hero:
       icon: right-arrow
     - text: QUICKSTART (For experienced charters)
       link: /xdrv-charting-guide/quickstart/getting-started
-      icon: right-arrow
-      variant: secondary
+      icon: right-caret
+      variant: minimal
 ---
+
 import { Card, CardGrid } from '@astrojs/starlight/components';
 import { Aside } from '@astrojs/starlight/components';
 import { Badge } from '@astrojs/starlight/components';
+import { LinkButton } from '@astrojs/starlight/components';
 
 ## Sections to Read
 
 <CardGrid>
 	<Card title="Getting Started" icon="rocket">
-		Get started with useful tools and a proper chart file!
+		<a href="getting-started/tools">Get started</a> 
+		with useful tools and file setup!
 	</Card>
 	<Card title="Patterns" icon="laptop">
-		Learn the patterns and playstyles that make up XDRV charts!
+		Learn the 
+		<a href="patterns/general-practices">patterns</a> 
+		and playstyles of XDRV charts!
 	</Card>
 	<Card title="Modding" icon="document">
-		Add some expressiveness to your charts with modding! WIP.
+		Add some flair to your charts with 
+		<a href="modding/tools">modding!</a>
 	</Card>
 	<Card title="Miscellaneous" icon="list-format">
-		Tackle the miscellaneous challenges of XDRV charts!
+		Listen to 
+		<a href="misc/etiquette/">miscellaneous</a> 
+		ramblings on XDRV charts!
 	</Card>
 </CardGrid>
 
