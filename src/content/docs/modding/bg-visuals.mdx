@@ -1,10 +1,24 @@
 ---
-title: "Visuals of Background Events"
+title: "Visualizing Background Events"
 description: Learn how to use background events optimally.
 ---
 
 With each type of background event, there are different ways that charters can approach them and different rules to using them. Understanding each type of background event can help you use them more effectively.
 
-### Background Alphas
+## Background Alphas
 
-In EX-XDRiVER, background alphas refer to the control that charters have over the opacity of sources of glow in the background. In `BackgroundTunnel`, background events can control the opacity of the left and right chevron paths. In `BackgroundCity`, background events can control the opacity of the buildings, the floor, and the spotlights!
+In EX-XDRiVER, background alphas refer to the control that charters have over the opacity of sources of glow in the background. In `BackgroundTunnel`, background events can control the opacity of the left and right chevron paths. In `BackgroundCity`, background events can control the opacity of the buildings, the floor, and the spotlights.
+
+For each component that charters can change the alpha of, they have control of three  variables: a generic, shared alpha value, a left alpha value, and a right alpha value. To determine the opacity of the left and right glow sources, the game multiplies the left / right side alpha value with the shared alpha value, as seen below.
+
+-- Todo: Add image here
+
+This is very similar to how alphas across components are controlled. Typically, each background has at least one alpha value that controls the opacity of all glow sources on screen. Then, if the background has smaller components that can be individually controlled, these components have unique, controllable alpha values as well. These individual alpha values are still multiplied by the collective alpha.
+
+<
+
+With many backgrounds, 
+
+### Pulses
+
+Pulses are a very common usage of 
