@@ -6,7 +6,6 @@ description: Learn how to use background events optimally.
 import { Aside } from '@astrojs/starlight/components';
 import { Code } from '@astrojs/starlight/components';
 import { Tabs, TabItem } from '@astrojs/starlight/components';
-import { Badge } from '@astrojs/starlight/components';
 
 <Aside type="note" title="Recommended Precursors">
 
@@ -28,13 +27,52 @@ In EX-XDRiVER, background alphas refer to values that control the opacity of sou
 Background alphas all default to 1 at the start of a chart, and supported values range from 0 to 1. When path alpha decreases, the glow emitted from objects in the scene becomes weaker, with some sources becoming transparent. When path alpha decreases, the glow emitted from objects become stronger, with some sources becoming opaque.
 
 ```lua
+-- Events for any background
 xdrv.RunEvent("SetPathAlpha","beat",4,0.5)
 xdrv.RunEvent("EasePathAlpha","beat",8,0.9,4)
 ```
 
 For each component that charters can change the alpha of, they have control of three  variables: a generic shared alpha value which affects both sides, a left alpha value, and a right alpha value. To determine the opacity of the left and right glow sources, the game multiplies the left / right side alpha value with the shared alpha value, as seen below.
 
--- Todo: Add image here
+Here are some examples of alpha value combinations on `BackgroundTunnel`.
+
+<Tabs>
+	<TabItem label="Example 1">
+	![EX-XDRiVER screenshot within a chart, where the left and right paths are at 0.5 alpha](../../../assets/screenshots/game/path_ex1.png)
+
+	PathAlpha = 0.5<br/>
+	LeftPathAlpha = 1<br/>
+	RightPathAlpha = 1
+
+	Resulting Left Alpha: `0.5 * 1 = 0.5`<br/>
+	Resulting Right Alpha: `0.5 * 1 = 0.5`
+
+	</TabItem>
+	<TabItem label="Example 2">
+	![EX-XDRiVER screenshot within a chart, where the left and right paths are at 0 alpha](../../../assets/screenshots/game/path_ex2.png)
+
+	PathAlpha = 0<br/>
+	LeftPathAlpha = 1<br/>
+	RightPathAlpha = 0.5
+
+	Resulting Left Alpha: `0 * 1 = 0`<br/>
+	Resulting Right Alpha: `0 * 0.5 = 0`
+
+	</TabItem>
+	<TabItem label="Example 3">
+	![EX-XDRiVER screenshot within a chart, where the left path is at 0.75 alpha and the right path is at 0.25 alpha](../../../assets/screenshots/game/path_ex3.png)
+
+	PathAlpha = 1<br/>
+	LeftPathAlpha = 0.75<br/>
+	RightPathAlpha = 0.25
+
+	Resulting Left Alpha: `1 * 0.75 = 0.75`<br/>
+	Resulting Right Alpha: `1 * 0.25 = 0.25`
+
+	</TabItem>
+</Tabs>
+
+---
 
 This is very similar to how alphas across components are controlled. Typically, each background has at least one alpha value that controls the opacity of all glow sources on screen. Then, if the background has smaller components that can be individually controlled, these components have unique, controllable alpha values as well. These individual alpha values are still multiplied by the collective alpha. In `BackgroundDesert`, for instance, the player can control the alpha of the pyramids' glow *or* the torches' flames.
 
@@ -87,7 +125,7 @@ Since pulses follow a general structure, the best way to do them is with a helpe
 
 <Aside type="caution" title="RunPulse vs Pulse">
 
-The pulses here are, in terms of visuals and implementation, background events with the world "pulse" like in `BackgroundVivid` and `BackgroundRush` are completely different from graphics.
+The pulses here are, in terms of visuals and implementation, background events with the world "pulse" like in `BackgroundVivid` and `BackgroundRush` are completely different from the pulses done with alpha values.
 
 </Aside>
 
@@ -95,7 +133,7 @@ The pulses here are, in terms of visuals and implementation, background events w
 
 Very similar to background alphas, UI alphas refer to values that control the opacity of game UI. UI alphas are typically leveraged by charters to create moments of emphasis, reveal a song's name mid-chart, or lessen how much the UI obstructs gameplay. 
 
--- Todo: Add image here
+![EX-XDRiVER screenshot within a chart, where only visible UI are the radial gauges and the subtractive score difference](../../../assets/screenshots/game/ui_ex.png)
 
 UI alpha values default to 1, and supported values range from 0 to 1, with 1 being fully visible and 0 being invisible.
 
@@ -120,14 +158,14 @@ Bloom is another value that can be changed in all backgrounds, but its implement
 
 `BloomIntensity` and `BloomDiffusion` both default to values of 1 at the start of a chart. When increased, the effect of bloom on screen becomes more noticeable, and when decreased, the effect of bloom becomes less so. Generally, these values should be adjusted together as to produce a visually consistent affect.
 
+![EX-XDRiVER screenshot within a chart, where bloom intensity and diffusion are both set to 1.75](../../../assets/screenshots/game/bloom_ex.png)
+
 ```lua
-xdrv.RunEvent("EaseBloomIntensity","beat",4,1.5,4)
-xdrv.RunEvent("EaseBloomDiffusion","beat",4,1.5,4)
+xdrv.RunEvent("EaseBloomIntensity","beat",4,1.75,4)
+xdrv.RunEvent("EaseBloomDiffusion","beat",4,1.75,4)
 ```
 
--- Todo: Add images
-
-As with path alphas, bloom can be faded in and out or pulsed depending on the charter's needs. Charters should be careful, however, as the effect of bloom increases based on the value of path alphas in the scene. Higher path alphas result in stronger glow, which is amplified more by blue. Charters should ensure that bloom does not become a visual nuisance when it is used.
+As with path alphas, bloom can be faded in and out or pulsed depending on the charter's needs. Charters should be careful, however, as the effect of bloom increases based on the value of path alphas in the scene. Higher path alphas result in stronger glow, which is amplified more by blue. Charters should ensure that bloom does not become a visual nuisance when it is used. Generally, **1.5 is a good emphasis value for bloom; anything above is extreme.**
 
 ### BloomBeat
 
@@ -138,13 +176,13 @@ xdrv.RunEvent("EnableBloomBeat","beat",12)
 xdrv.RunEvent("DisableBloomBeat","beat",16)
 ```
 
-BloomBeat is a really easy way to represent four-on-the-floor kicks or other per-beat impacts. For not-on-beat rhythms or musical sections that are very busy, BloomBeat can still be very fitting. BloomBeat can be used as a textural variant in your background events.
+BloomBeat is a really easy way to represent four-on-the-floor kicks or other per-beat impacts. For not-on-beat rhythms or musical sections that are very busy, BloomBeat can still be very fitting. BloomBeat can be used as a textural variant in your background events. Bear in mind that BloomBeat layers on top of your bloom intensity and diffusion values.
 
 ## Colorable Components
 
 For backgrounds like `BackgroundRush`, the colors of components in the background can be adjusted to fit a variety of color schemes. Unlike alpha and bloom value, which use number values, colorable components can accept a color value, written in hex notation.
 
--- Todo: Add image
+![EX-XDRiVER screenshot within a chart, where the background colors are set to red, white, and blue](../../../assets/screenshots/game/bloom_ex.png)
 
 ```lua
 -- Events for BackgroundRush
@@ -159,8 +197,8 @@ Each background with colorable components has different defaults, so you will ne
 
 ```lua
 -- Fix color blending
-xdrv.RunEvent("SetLeftChevronColor","beat",-12,"ffffff")
-xdrv.RunEvent("SetRightChevronColor","beat",-12,"ffffff")
+xdrv.RunEvent("SetLeftChevronColor","beat",-12,"#ffffff")
+xdrv.RunEvent("SetRightChevronColor","beat",-12,"#ffffff")
 ```
 
 </Aside>
@@ -168,6 +206,10 @@ xdrv.RunEvent("SetRightChevronColor","beat",-12,"ffffff")
 ## Background Actions
 
 For backgrounds like `BackgroundVivid`, `BackgroundDesert`, and `BackgroundRush`, particular events can be invoked that cause special effects on the screen to fire off. These events all look different, so knowing how to optimally use each is a matter of experimenting with each and finding what works. Some of these events may even result in lingering changes to the background, making for additional texture and sectioning of your chart. Some of these events work with just the minimum paramters, while other events require a few more values.
+
+| <div style = "width:260px"> ![](../../../assets/screenshots/game/no_events_ex.png) </div> | <div style = "width:260px"> ![](../../../assets/screenshots/game/events_ex.png) </div> |
+| --- | --- |
+| Without Events | With Events |
 
 ```
 -- Events for BackgroundVivid
