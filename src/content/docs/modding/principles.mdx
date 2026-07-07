@@ -52,6 +52,9 @@ Notice how similar these two mods are, yet result in different effects:
 	xdrv.Set("camera_move_y",0,"beat",8)
 	-- This will be a bit disorienting
 	```
+	<div style="width:80%">
+	![Graph displaying the path of travel of a particular jumpcut mod](../../../assets/graphics/jumpcut_mod.png)
+	</div>
 	</TabItem>
 	<TabItem label="Fluid Example">
 	```lua
@@ -62,6 +65,9 @@ Notice how similar these two mods are, yet result in different effects:
 	xdrv.Set("camera_move_y",1,0,"beat",8,"len",1,"OutElastic")
 	-- This mod will be fast and snappy, but not too disorienting
 	```
+	<div style="width:80%">
+	![Graph displaying the path of travel of a particular fluid mod](../../../assets/graphics/fluid_mod.png)
+	</div>
 	</TabItem>
 </Tabs>
 
@@ -72,6 +78,16 @@ While fluid mods should be used considerably more in XDRV charts, jumpcut mods c
 - And So You Felt EX
 - jittter EX
 - ENGINEDESTROYER EX
+
+### Flowing Eases
+
+Unlike background alphas, which tend to obscure eases and look seamless without much work, mods of different eases can have noticeable changes in velocity when back-to-back. This can result in mods that feel stilted and unnatural. To avoid this, consider the following principles when selecting eases:
+
+- `InOut` mods, if fluidly following the last mod, will most always look smooth.
+- `Out` mods end smoothly but start with an impulse. This impulse can usually be contextualized by a sound in your song.
+- `In` mods end abruptly, which can feel weird and stilted, even if a sound in the song justifies it.
+  - To mask this, you can place an `Out` mod at the end of the `In` mod, having the motion go either in the opposite direction or a bit in the same direction as the previous mod.
+  - You can also lean into the change in velocity by doing a jumpcut mod to a totally different value.
 
 ### Matching Notes and Mods
 
@@ -158,35 +174,44 @@ See the following camera positions and accompanying code for reference:
 
 <Tabs>
 	<TabItem label="Default">
+	![EX-XDRiVER screenshot within a chart, where all mod values are default](../../../assets/screenshots/game/default_ex.png)
 
 	```lua
-	-- Default position of the camera. No mods necessary.
+	-- Default position of the camera. No mods necessary
 	```
 	</TabItem>
 	<TabItem label="Up">
+	![EX-XDRiVER screenshot within a chart, where the camera is moved up](../../../assets/screenshots/game/camera_up_ex.png)
 
 	```lua
+	-- This mod brings the camera up
 	xdrv.Set("camera_position_y",1,"beat",0)
 	```
 	</TabItem>
 	<TabItem label="Down">
+	![EX-XDRiVER screenshot within a chart, where the camera is moved down](../../../assets/screenshots/game/camera_down_ex.png)
 
 	```lua
-	xdrv.Set("camera_position_y",-0.1,"beat",0)
-	xdrv.Set("camera_position_z",-0.1,"beat",0)
-	xdrv.Set("camera_rotation_x",-6,"beat",0)
+	-- This mod brings the camera down, angling it slightly
+	xdrv.Set("camera_position_y",-0.2,"beat",0)
+	xdrv.Set("camera_position_z",-0.2,"beat",0)
+	xdrv.Set("camera_rotation_x",-8,"beat",0)
 	```
 	</TabItem>
 	<TabItem label="Left">
+	![EX-XDRiVER screenshot within a chart, where the camera is moved left](../../../assets/screenshots/game/camera_left_ex.png)
 
 	```lua
-	xdrv.Set("camera_position_x",-0.5,"beat",0)
+	-- This mod brings the camera left
+	xdrv.Set("camera_position_x",-0.75,"beat",0)
 	```
 	</TabItem>
 	<TabItem label="Right">
+	![EX-XDRiVER screenshot within a chart, where the camera is moved right](../../../assets/screenshots/game/camera_right_ex.png)
 
 	```lua
-	xdrv.Set("camera_position_x",0.5,"beat",0)
+	-- This mod brings the camera right
+	xdrv.Set("camera_position_x",0.75,"beat",0)
 	```
 	</TabItem>
 </Tabs>
@@ -195,7 +220,7 @@ See the following camera positions and accompanying code for reference:
 
 When lowering the camera, to enhance readability and reduce claustrophobia, you may want to offset the camera by a small negative x rotation and negative z position. This brings the camera back and points the camera up slightly, making more of the track visible.
 
-Camera motion can also be good for per-beat effects. Consider popping the camera's y position up or swaying the camera's z rotation to each side.
+Camera motion can also be good for per-beat effects. Consider popping the camera's y position up or swaying the camera's z rotation to each side. Due to the angle making notes harder to read, you may want to lower [the note speed](#speed-changes) as well.
 
 <Aside type="caution" title="Drift Interference">
 
@@ -213,18 +238,26 @@ Here are some examples of track position along the x axis in XDRV:
 
 <Tabs>
 	<TabItem label="Default">
+	![EX-XDRiVER screenshot within a chart, where all mod values are default](../../../assets/screenshots/game/default_ex.png)
+
 	```lua
-	-- Default position of the tracks. No mods necessary.
+	-- Default position of the tracks. No mods necessary
 	```
 	</TabItem>
 	<TabItem label="Further Apart">
+	![EX-XDRiVER screenshot within a chart, where the tracks are moved further apart](../../../assets/screenshots/game/track_apart_ex.png)
+
 	```lua
+	-- This mod brings the tracks further apart
 	xdrv.Set("trackleft_move_x",-0.5,"beat",0)
 	xdrv.Set("trackright_move_x",0.5,"beat",0)
 	```
 	</TabItem>
-	<TabItem label="Closer Together">
+	<TabItem label="Together">
+	![EX-XDRiVER screenshot within a chart, where the tracks are moved together](../../../assets/screenshots/game/track_together_ex.png)
+
 	```lua
+	-- This mod brings the tracks together, making them touch
 	xdrv.Set("trackleft_move_x",0.5,"beat",0)
 	xdrv.Set("trackright_move_x",-0.5,"beat",0)
 	```
@@ -242,6 +275,8 @@ While tracks can be rotated on all three axis can be rotated on, charters largel
 ### Speed Changes <Badge variant="note" text="Common"/>
 
 Note speed changes are a common and familiar mod for XDRV charters to use. Speed change mods typically manifest in two forms: slowdowns, where an entire section of patterns will move at a lower scroll speed, or squashes and stretches, where the note speed is briefly increased or decreased before being returned to the original value. Slowdowns are great for reflecting intensity, offering an additional reading challenge to charters. Squash and stretch effects, on the other hand, are great for emphasizing impactful sounds or percussion in the song.
+
+<YouTube id="FEGUzK2lQuw"/>
 
 There's a lot more that can be done with speed changes, however; consider flickering between two speeds, or making notes have divergent scrolls.
 
@@ -284,17 +319,25 @@ Adjusting of view can be really useful for emphasizing the speed of a section or
 
 <Tabs>
 	<TabItem label="Default">
+	![EX-XDRiVER screenshot within a chart, where all mod values are default](../../../assets/screenshots/game/default_ex.png)
+
 	```lua
-	-- Default FOV, no mods necessary
+	-- Default FOV. No mods necessary
 	```
 	</TabItem>
 	<TabItem label="Higher FOV">
+	![EX-XDRiVER screenshot within a chart, where the camera field of view is higher](../../../assets/screenshots/game/high_fov_ex.png)
+
 	```lua
+	-- This mod increases the camera's field of view
 	xdrv.Set("camera_fov",110,"beat",0)
 	```
 	</TabItem>
 	<TabItem label="Even Higher FOV">
+	![EX-XDRiVER screenshot within a chart, where the camera field of view is even higher](../../../assets/screenshots/game/higher_fov_ex.png)
+
 	```lua
+	-- This mod increases the camera's field of view a bit too much
 	xdrv.Set("camera_fov",140,"beat",0)
 	```
 	</TabItem>
@@ -306,13 +349,36 @@ Adjusting of view can be really useful for emphasizing the speed of a section or
 
 Track color and opacity changes are only used in a few XDRV charts, but they are used to great effect. By changing path alpha, charters can make the tracks themselves pulse or cycle colors, creating a unique visual effect for key parts of the chart. 
 
+![EX-XDRiVER screenshot within a chart, where the track and notes are slightly transparent](../../../assets/screenshots/game/track_opacity_ex.png)
+
+<Aside type="tip" title="Getting Player Colors">
+
+Many charts will have the track pulse the player's gear colors, which looks nice with backgrounds that use gear colors as well. To get the player's gear colors, you must fetch the RGB components using functions:
+
+```lua
+-- Get the left and right gear colors
+local leftGearColor = xdrv.GetPlayerNoteColor(6)
+local rightGearColor = xdrv.GetPlayerNoteColor(7)
+
+-- Mute color r,g,b components
+leftGearColor[1] = leftGearColor[1] / 5
+leftGearColor[2] = leftGearColor[2] / 5
+leftGearColor[3] = leftGearColor[3] / 5
+
+-- Repeat for right gear color...
+```
+
+</Aside>
+
 Alternatively, by decreasing the alpha of the track, the player is able to see the ground below, making the scene feel larger and more atmospheric. Track opacity mods in particular synergize particularly well with note opacity and bloom, enhancing atmosphere further.
 
-<Aside type="tip" title="Visual Conventions Change">
+## Evolving Visual Conventions
 
 A lot of the differentiation between common, uncommon, and rare mods is based in what base-game XDRV charts currently use. These visual conventions are likely to evolve over time, especially as charters try out new visual effects. Feel free to be inventive and establish visual conventions of your own!
 
-</Aside>
+### Other Modcharting Aesthetics
+
+If you are coming from a different rhythm game with its own modfile aesthetics (i.e. NotITG), you may want to incorporate some of the visual style you already know into your XDRV chart's mods. Although the end result will diverge a bit from base-game XDRV mods, making your mods resemble another game's is valid.
 
 ---
 
