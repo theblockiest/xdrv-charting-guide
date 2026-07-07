@@ -32,7 +32,7 @@ Although a variety of mods exist for charters to manipulate, all mods can be con
 
 ### Setting Mod Values
 
-The first of these two modding functions, `xdrv.Set`, sets the value of a moddable field at a specified time. Set mods have no easing or duration, meaning that a field's value will change within a single frame. In-game, the set function can look snappy and expressive, but it can also make players lose track of elements on-screen. The set function can also be used to set values before the scene is visible.
+The first of these two modding functions, `xdrv.Set`, sets the value of a moddable field at a specified time. Set mods have no easing or duration, meaning that a field's value will change within a single frame. The set function can also be used to set values before the scene is visible.
 
 <Card title="xdrv.Set" icon="pencil">
 
@@ -77,7 +77,7 @@ Clever charters may realize that, by using mathematical easing functions and per
 
 ### Easing Mod Values
 
-The second of the two modding functions. `xdrv.Ease`, changes a moddable field over some duration of time. Since ease mods require a start value and end value be input, seamless mods must use the same starting value as the last value the field was set to. Otherwise, the same "snappy" effect of set mods can occur.
+The second of the two modding functions. `xdrv.Ease`, changes a moddable field over some duration of time. Since ease mods require a start value and end value be input, seamless mods must use the same starting value as the last value the field was set to.
 
 The rate at which this value changes is determined by the ease function applied to it. A variety of eases of In, Out, and InOut varieties are supported by XDRV. A list of the supported eases can be found on [the XDRV chart documentation](https://github.com/EX-XDRiVER/Chart-Documentation/blob/main/mods.md).
 
