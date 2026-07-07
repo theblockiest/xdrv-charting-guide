@@ -18,9 +18,9 @@ import { YouTube } from 'astro-embed';
 
 </Aside>
 
-Mods are a particular special facet of EX-XDRiVER's charts: every chart has them. What might be a bit harder to parse is that there is a particular flavor and quality to most of the mods in XDRV. Most mods in XDRV are expressive and clean, interfering minimally with the playability of charts.
+Mods are a particularly special facet of EX-XDRiVER's charts: every chart has them. What might be a bit harder to notice is that there is a particular style and quality to most of the mods in XDRV. XDRV's mods are expressive and clean, increasing the difficulty of charts by small, yet controlled amounts.
 
-This is actually easier to achieve than you might expect! By generally following a few rules when it comes to the mods you create for EX-XDRiVER, you can create mods that align with the sentiments of EX-XDRiVER's modding. It also helps to know generally what each type of mod looks like in-game, including what values of emphasis and rest (typically the default position) look like for each.
+This is actually easier to achieve than you might expect! By generally following a few rules, you can create mods that align with the sentiments of EX-XDRiVER's base-game content. It also helps to know generally what each type of mod looks like in-game, including what values of emphasis and rest (typically the default position) look like for each.
 
 <Aside type="tip" title="Mod Availability">
 
@@ -30,17 +30,17 @@ Unlike background events, which are different based on what background you use, 
 
 ## Modding Conventions
 
-When creating mods for EX-XDRiVER, the basic goal of charters should be to represent the energy and motion of the song. There are a few rules that charters can follow to create mods that look great and add a controlled level of challenge to reading.
+When creating mods for EX-XDRiVER, the basic goal of charters should be to represent the energy, rhythms, and dynamics of the song. In fulfilling that, there are a few rules that charters can follow to create mods that look and feel especially great.
 
 ### Jumpcut vs Fluid Mods
 
-In EX-XDRiVER, the types of mods you'll see in charts can be sorted into one of two categories: **jumpcut mods** and **fluid mods**. 
+There's a few ways to sort XDRV's mods, but one way that is particularly useful is into two categories: **jumpcut mods** and **fluid mods**. 
 
-**Jumpcut mods** are mods which has starts value different from the values last set for their particular field. This can either result from an `xdrv.Ease` whose start value is different from the last value set *or* any `xdrv.Set`. While jumpcut mods are visually impactful, players are more likely to lose track of elements on screen, which can make a chart disorienting and patterns hard to read. This effect can be mitigated either by making the distance between the last value and the new value very small *or* by only using jumpcut mods when patterns are less dense or empty.
+**Jumpcut mods** are mods whose start values are different from the value last set for their fields. This can occur with an `xdrv.Ease` whose start value is different from the last value set *or* any `xdrv.Set`. While jumpcut mods are visually impactful, players are more likely to lose track of elements on screen, which can make a chart disorienting and patterns hard to read. This effect can be mitigated either by making the distance between the last value and the new value very small *or* by using jumpcut mods only when patterns are less dense or empty.
 
-Opposite of jumpcut mods, **fluid mods** are mods (eases, typically) whose start value is the same as the value last set. In XDRV, the majority of mods used in charts are fluid mods, as players can follow and read them far easier. Despite how the category sounds, fluid mods can be smooth or snappy; it largely depends on what ease is used. `Out` eases tend to be snappier, while `InOut` or `In` eases tend to be smoother. Eases like `OutBack` or `OutElastic` are especially good for snappy impacts.
+Opposite of jumpcut mods, **fluid mods** are mods (eases, typically) whose start values are the same as the value last set for their fields. In XDRV, the majority of mods used in charts are fluid mods, as players can follow and read them far easier. Despite how the category sounds, fluid mods can be smooth or snappy; it largely depends on what ease is used. `Out` eases tend to be snappier, while `InOut` or `In` eases tend to be smoother. Eases like `OutBack` or `OutElastic` are especially good for fast, yet fluid mods.
 
-Notice how similar these two mods are, yet result in different effects:
+Notice how similar these two mods are, yet they are sorted into separate categories:
 
 <Tabs>
 	<TabItem label="Jumpcut Example">
@@ -84,16 +84,16 @@ While fluid mods should be used considerably more in XDRV charts, jumpcut mods c
 Unlike background alphas, which tend to obscure eases and look seamless without much work, mods of different eases can have noticeable changes in velocity when back-to-back. This can result in mods that feel stilted and unnatural. To avoid this, consider the following principles when selecting eases:
 
 - `InOut` mods, if fluidly following the last mod, will most always look smooth.
-- `Out` mods end smoothly but start with an impulse. This impulse can usually be contextualized by a sound in your song.
+- `Out` mods end smoothly but start with an impulse. This impulse can usually be contextualized by a sound in the song.
 - `In` mods end abruptly, which can feel weird and stilted, even if a sound in the song justifies it.
   - To mask this, you can place an `Out` mod at the end of the `In` mod, having the motion go either in the opposite direction or a bit in the same direction as the previous mod.
   - You can also lean into the change in velocity by doing a jumpcut mod to a totally different value.
 
 ### Matching Notes and Mods
 
-In many charts, mods are written to match note types in the patterning. Sometimes, tracks move as gears are toggled on and off; other times, the camera leaps upwards when a hold chord occurs; even more, the camera moves further left or right when a drift occurs in that direction.
+In many charts, mods are written to match note types in the patterning. Sometimes, tracks move as gears are toggled on and off; other times, the camera leaps upwards when a hold chord occurs; every so often, the camera moves further left or right when a drift occurs in that direction.
 
-By making mods that reflect the patterning of your chart, you can improve the synergy between your modding and patterning, making the experience of playing your chart more fun and cohesive. Consider looking at the following chart to see how charts can synergize their mods and patterns:
+By making mods that reflect the patterning of your chart, you can improve the synergy between your modding and patterning, making the experience of playing your chart more fun and cohesive. Consider looking at the following charts to see how charters can synergize mods and patterns:
 
 - ETIQUETTE EX
 - GUNK EX
@@ -101,13 +101,13 @@ By making mods that reflect the patterning of your chart, you can improve the sy
 
 <Aside type="tip" title="When Everything Matches">
 
-If you match a note type to a certain sound, and *then* match a mod to that particular note type, you are (by proxy)  matching the mod to the sound as well! The resulting effect is that your patterns, charting, *and* mods are all unified, resulting in a very satisfying play experience.
+If you match a note type to a certain sound, and *then* match a mod to that particular note type, you are (by proxy) matching the mod to the sound as well! The resulting effect is that your patterns, charting, *and* mods are all unified, resulting in a very satisfying play experience.
 
 </Aside>
 
 ### Per-Beat Mods
 
-Per-beat mods refer to any mods that happen at a frequency of every beat. These mods are a common way of adding energy to sections that have no room for larger, one-shot mods. This can be something as small as having the camera pop up, having the speed scale down slightly, or briefly increasing the scale of notes. Per-beat mods are a perfect way of representing repeated percussion hits.
+Per-beat mods refer to any mods that happen at a frequency of once every beat. These mods are a common way of adding energy to sections that have no room for larger, one-shot mods. This can be something as small as having the camera pop up, having the speed reel back slightly, shuffling the position of tracks, or bumping the scale of notes. Per-beat mods are a perfect way to represent percussive patterns, although representing every four-on-the-floor kick with a per-beat mod may feel excessive.
 
 Per beat mods are typically implemented using for loops, like so:
 
@@ -118,7 +118,7 @@ for i = 4, 24 do
 end
 ```
 
-For sounds that don't hit less than every beat, though their timing is inherently different, they can be approached similarly as per-beat. Furthermore, it can be interesting to layer different per beat mods. If you have a kick on every beat and snares on every other beat, for instance, you could represent each kick with a camera pop and each snare with a sideways track movement.
+For sounds that don't hit at a per-beat frequency, they can be represented very similarly to per-beat mods, using the new frequency instead. Building on that, it can be interesting to layer per-beat and other repeated mods. If you have a kick on every beat and snares on every other beat, for instance, you could represent each kick with a camera pop and each snare with a sideways track movement.
 
 For good examples of per-beat mods, consider referring to the following charts:
 
@@ -128,9 +128,9 @@ For good examples of per-beat mods, consider referring to the following charts:
 
 ### Mirroring Motion
 
-Similarly to patterning, if you feel that you have repeated a mod too many times, you can create some variety by having the mod operate in another direction. If in one mod, objects in the scene move right, you can repeat the mod later, but have objects move to the left instead. This can also prevent mods from skewing too hard on one direction, making mods feel unbalanced.
+Similarly to patterning, if you feel that you have repeated a mod too many times, you can create some variety by having the mod operate in another direction. If in one mod, objects in the scene move right, you can repeat the mod later, but have objects move left instead. This can also prevent mods from skewing too hard in one direction, making your overall modfile feel unbalanced.
 
-For per-beat mods, mirroring repeated motions can be very helpful, creating a small amount of variety. You can still use a for loop to accomplish that, but you'll want some variable to be flipped every so often.
+For per-beat mods, mirroring repeated motions can be very helpful, creating a small amount of variety. You can still use a for loop to accomplish that, but you'll need to have a variable flip or get negated each beat.
 
 ```lua
 -- Move the camera to the sides every beat
@@ -148,13 +148,13 @@ Unlike patterns, where the only feasible transformation is mirroring across the 
 
 ### Less is More
 
-It's easy to overdo the amount of mods you have in your chart by trying to represent every sound in the music with mods. Generally, however, by reserving your mods for the most impactful elements of each section, you can make a modfile that is cleaner, less cluttered, and better paced. Besides, if you have a sound you want to represent visually, but think mods would be too much, then a [background event](/xdrv-charting-guide/modding/bg-visuals/) might be the way to go.
+It's easy to overdo the amount of mods you have in your chart by trying to represent every sound in the music with mods. Generally, however, by reserving your mods for the most impactful sounds in each section, you can make a modfile that is cleaner, less cluttered, and better paced. Besides, if you have a sound you want to represent visually, but think mods would be too much, then a [background event](/xdrv-charting-guide/modding/bg-visuals/) might be the way to go.
 
 ## Mod Types and Frequencies
 
-While XDRV supports a slew of different mods, you may notice that some mods appear more frequency in charts than others. This produces a positive effect on modfiles, as certain mods can be used more heavily, while rarer mods feel more special when used. In fact, the frequency of mods used is a large factor in the shared visual style of base-game mods in XDRV. As a charter, you can replicate these frequencies as well by implementing common mod types more heavily and using rarer mod types less.
+While XDRV supports a slew of different mods, you may notice that some mods appear more frequently than others. The spread of mod is a large factor in the shared visual style of base-game mods in XDRV. As a charter, you can replicate these frequencies by implementing common mod types more heavily and using rarer mod types only in special cases.
 
-For the sake of categorization, mod types in XDRV can be split into three categories: common mods that appear in nearly every modfile, uncommon mods that appear in only some modfiles, and rare mods only used for specific effects.
+For the sake of categorization, mod types in XDRV can be split into three categories: common mods that appear in nearly every modfile, uncommon mods that appear in only some modfiles, and rare mods only used for specific effects or gimmicks.
 
 | Mod Frequency | Included Mods |
 | --- | --- |
@@ -168,7 +168,7 @@ For the sake of categorization, mod types in XDRV can be split into three catego
 
 In EX-XDRiVER, the camera can be moved to a variety of positions. In most charts, this manifests into one of four directions: bringing the camera up, bringing the camera down, bringing the camera left, or bringing the camera right.
 
-Each of these motions can produce a different effect. Bringing the camera up is good for louder or atmospheric sections, while bringing the camera down can be good for quieter, more intimate sounds. Left and right camera motions are good for emphasising impacts.
+Each of these motions can produce a different effect. Bringing the camera up can represent louder or atmospheric sections, while bringing the camera down can represent quieter, more intimate sounds. Left and right camera motions are often used to emphasize impacts.
 
 See the following camera positions and accompanying code for reference:
 
@@ -218,13 +218,13 @@ See the following camera positions and accompanying code for reference:
 
 ---
 
-When lowering the camera, to enhance readability and reduce claustrophobia, you may want to offset the camera by a small negative x rotation and negative z position. This brings the camera back and points the camera up slightly, making more of the track visible.
+When lowering the camera, to enhance readability and reduce claustrophobia, you may want to offset the camera by a small negative x rotation and negative z position. This brings the camera back and points the camera up slightly, making more of the track visible. This angle can make notes appear as if they travel faster, however, so you may want to lower [the note speed](#speed-changes) to compensate.
 
-Camera motion can also be good for per-beat effects. Consider popping the camera's y position up or swaying the camera's z rotation to each side. Due to the angle making notes harder to read, you may want to lower [the note speed](#speed-changes) as well.
+Camera motion can also be good for per-beat effects. Consider popping the camera's y position up or bobbing the camera's z rotation to each side.
 
 <Aside type="caution" title="Drift Interference">
 
-Bear in mind that drifting also affects the z rotation of the camera. If you use `camera_rotation_z` in a section with drifts, you should ensure that the rotation mod is distinct enough as to not obscure the visual feedback caused by drifting.
+Bear in mind that drifting also affects the z rotation of the camera. If you use `camera_rotation_z` in a section with drifts, you should ensure that your rotation mod is distinct enough as to not obscure the visual feedback caused by drifting.
 
 </Aside>
 
@@ -232,7 +232,7 @@ Bear in mind that drifting also affects the z rotation of the camera. If you use
 
 Track movement and rotation are other common mods that charters use. Track movement is great for emphasizing percussion or other noteworthy sounds in the music. Consequently, track mods are often timed to match the gears in the chart.
 
-Most track position mods affect the x axis, holding the track in position until returning it to rest some number of beats later. Y position can be moved similarly, but proper space between the track and the camera should be given to avoid claustrophobia. Z position can be moved as well, producing unique visual affects depending on the motion.
+Most track position mods affect the x axis, holding the track in position until returning the track to rest some number of beats later. Y position can be moved similarly, but proper space between the track and the camera should be given to maintain readability. Z position can be moved as well, producing unique visual affects depending on the motion.
 
 Here are some examples of track position along the x axis in XDRV:
 
@@ -267,14 +267,14 @@ Here are some examples of track position along the x axis in XDRV:
 ---
 
 <Aside type="caution" title="Split Vision">
-	When moving tracks away from each other, make sure that the tracks aren't too far apart. The further the tracks are from each other, the more reliant players must be on their peripheral vision, which can be annoying.
+	When moving tracks away from each other, make sure that the tracks aren't too far apart. The further the tracks are from each other, the more reliant players must be on their peripheral vision, which can quickly become straining. 
 </Aside>
 
-While tracks can be rotated on all three axis can be rotated on, charters largely only rotate tracks on the z axis, as the other two axes rotate oddly. With that said, Z rotations can be really fun, adding a lot of dimension to track motion. Barrel rolls are a favorite of charters and players alike.
+While tracks can be rotated on all three axes, charters largely only rotate tracks on the z axis, as the other two axes rotate oddly. With that said, Z rotations can be really fun, adding a lot of dimension to track motion. Barrel rolls, where a track is rotated a full 360 degrees, are a favorite of charters and players alike.
 
 ### Speed Changes <Badge variant="note" text="Common"/>
 
-Note speed changes are a common and familiar mod for XDRV charters to use. Speed change mods typically manifest in two forms: slowdowns, where an entire section of patterns will move at a lower scroll speed, or squashes and stretches, where the note speed is briefly increased or decreased before being returned to the original value. Slowdowns are great for reflecting intensity, offering an additional reading challenge to charters. Squash and stretch effects, on the other hand, are great for emphasizing impactful sounds or percussion in the song.
+Note speed changes are a common and familiar mod for XDRV charters to use. Speed change mods typically manifest in two forms: slowdowns, where an entire section of patterns will move at a lower scroll speed, or squashes and stretches, where the note speed is briefly increased or decreased before being returned to the original value. Slowdowns are great for reflecting the softer parts of a song, offering a brief reading challenge to players. Squash and stretch effects, on the other hand, are great for emphasizing impactful sounds or percussion in the song.
 
 <YouTube id="FEGUzK2lQuw"/>
 
@@ -282,7 +282,7 @@ There's a lot more that can be done with speed changes, however; consider flicke
 
 <Aside type="tip" title="#SCROLL vs speed">
 
-Speed can actually be manipulated through more than just the `speed` field; `#SCROLL` is a timing segment that can be used to create in-place speed changes. Unlike `speed`, `#SCROLL` is great for creating temporary stops or sudden bursts forward.
+Speed can actually be manipulated through more than just the `speed` field; `#SCROLL` is a timing segment that can be used to create in-place speed changes. Unlike `speed`, `#SCROLL` is great for creating temporary stops or sudden bursts forward, as it does not cause notes to expand or compress.
 
 ```
 --
@@ -303,19 +303,19 @@ Speed can actually be manipulated through more than just the `speed` field; `#SC
 
 ### Note Movement & Scaling <Badge variant="tip" text="Uncommon"/>
 
-Note movement and scaling is used far less commonly than the previous mods above, but they have their own textural qualities. Note movement and scaling are great for per-beat mods, and they can also be very useful for representing foley or special sound design.
+Note movement and scaling are used far less commonly than the previous mods, but they have their own qualities. Note movement and scaling are great for per-beat mods, and they can also be very useful for representing foley or unique sound design.
 
-While these mods can be nice, excessive movement or scaling can jumble patterns up, making them harder to read and hit correctly.
+While these mods can be nice, excessive movement or scaling can jumble patterns up, making them harder to read and execute.
 
 ### Field of View <Badge variant="tip" text="Uncommon"/>
 
-Field of view is a camera mod with a lot of potential for charters. If you're familiar with perspective cameras, field of view adjusts how wide the angle of vision is from the camera. Raising the value makes the angle wider, while lowering the angle makes the angle smaller.
+Field of view (FOV) is a camera mod that has a lot of potential for use. If you're not familiar with perspective cameras, FOV adjusts how wide the angle of vision is from the camera in the scene. Raising the value makes the angle wider, while lowering the angle makes the angle narrower.
 
 <div style="width:40%">
-![A diagram showing how FOV affects the angle of visibility in video games.](../../../assets/graphics/fov.webp)
+![A diagram showing how field of view affects the angle of visibility in video games.](../../../assets/graphics/fov.webp)
 </div>
 
-Adjusting of view can be really useful for emphasizing the speed of a section or building up to an impactful moment, but field of view can also feel awkward very quickly. Small changes to the FOV can go a long way.
+Adjusting field of view can be really useful for emphasizing the speed of a section or building up to an impactful moment, but FOV can also feel awkward very quickly. Small changes to FOV can go a long way.
 
 <Tabs>
 	<TabItem label="Default">
@@ -347,13 +347,13 @@ Adjusting of view can be really useful for emphasizing the speed of a section or
 
 ### Track Color & Opacity <Badge variant="tip" text="Uncommon"/>
 
-Track color and opacity changes are only used in a few XDRV charts, but they are used to great effect. By changing path alpha, charters can make the tracks themselves pulse or cycle colors, creating a unique visual effect for key parts of the chart. 
+Track color and opacity changes are only used in a few XDRV charts, but they are used to great effect. By changing the red, green, blue, and alpha values of the left and right track, charters can make the tracks themselves pulse or cycle colors, creating a unique visual effect for key parts of the chart. Alternatively, by decreasing the alpha of the track, the player can see the background below, making the scene feel larger and more atmospheric.
 
 ![EX-XDRiVER screenshot within a chart, where the track and notes are slightly transparent](../../../assets/screenshots/game/track_opacity_ex.png)
 
 <Aside type="tip" title="Getting Player Colors">
 
-Many charts will have the track pulse the player's gear colors, which looks nice with backgrounds that use gear colors as well. To get the player's gear colors, you must fetch the RGB components using functions:
+Many charts will have the track pulse the player's gear colors, which looks great with backgrounds that already use the player's gear colors for its glow sources. To get the player's gear colors, you must fetch the RGB components using built-in functions:
 
 ```lua
 -- Get the left and right gear colors
@@ -370,20 +370,18 @@ leftGearColor[3] = leftGearColor[3] / 5
 
 </Aside>
 
-Alternatively, by decreasing the alpha of the track, the player is able to see the ground below, making the scene feel larger and more atmospheric. Track opacity mods in particular synergize particularly well with note opacity and bloom, enhancing atmosphere further.
-
 ## Evolving Visual Conventions
 
-A lot of the differentiation between common, uncommon, and rare mods is based in what base-game XDRV charts currently use. These visual conventions are likely to evolve over time, especially as charters try out new visual effects. Feel free to be inventive and establish visual conventions of your own!
+A lot of the differentiation between common, uncommon, and rare mods is based in what base-game XDRV charts currently use. In earlier versions of the game, a good few of these mods had not yet been implemented! The visual conventions of XDRV modfiles are likely to evolve over time, especially as charters try out new visual effects. Feel free to be inventive and establish visual conventions of your own.
 
 ### Other Modcharting Aesthetics
 
-If you are coming from a different rhythm game with its own modfile aesthetics (i.e. NotITG), you may want to incorporate some of the visual style you already know into your XDRV chart's mods. Although the end result will diverge a bit from base-game XDRV mods, making your mods resemble another game's is valid.
+If you are coming from a different rhythm game with its own modfile aesthetics (i.e. NotITG), you may want to incorporate some of the visual style you already know into your XDRV chart's mods. Although the end result will diverge a bit from base-game XDRV mods, it may make modding more approachable and intuitive to you.
 
 ---
 
-At this point, you should now have a basic understanding of making visually appealing mods. While this article goes over the most common approaches and mod uses for XDRV, as with a large portion of the XDRV chart design process, the best way to improve and understand modding is to experiment and practice! 
+At this point, you should now have a basic understanding of visually appealing mods. While this article goes over much of modding for XDRV, as with much of the XDRV chart design process, the best way to improve and understand modding is to experiment and practice! 
 
-At this point, there's not much else I could teach you about the charting process that you couldn't figure out yourself. I hope you're able to create charts for XDRV that speak to both you and the people that enjoy them.
+At this point, there's not much else I could share about the charting process that you couldn't figure out yourself. I hope you're able to create charts for XDRV that speak to both you and the people that play them.
 
-Before you go, if you'd like to see some examples of mod functions made EX-XDRiVER, check out the next article. Otherwise, thanks for reading, and best of luck!
+Before you go, if you'd like to see some examples of mod functions made for EX-XDRiVER, check out the next article. Otherwise, thanks for reading, and best of luck!
